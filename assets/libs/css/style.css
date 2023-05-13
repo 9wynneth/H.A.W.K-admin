@@ -150,7 +150,65 @@
 /* ==========================================================================
    0. ELEMENT
    ========================================================================== */
-
+   @font-face {
+    font-family: Poppins-Regular;
+    src: url('../fonts/Poppins/Poppins-Regular.ttf'); 
+  }
+  
+  @font-face {
+    font-family: Poppins-Light;
+    src: url('../fonts/Poppins/Poppins-Light.ttf'); 
+  }
+  
+  @font-face {
+    font-family: Poppins-ExtraLight;
+    src: url('../fonts/Poppins/Poppins-ExtraLight.ttf'); 
+  }
+  
+  @font-face {
+    font-family: Poppins-Medium;
+    src: url('../fonts/Poppins/Poppins-Medium.ttf'); 
+  }
+  
+  @font-face {
+    font-family: Poppins-Italic;
+    src: url('../fonts/Poppins/Poppins-Italic.ttf'); 
+  }
+  
+  @font-face {
+    font-family: Poppins-Bold;
+    src: url('../fonts/Poppins/Poppins-Bold.ttf'); 
+  }
+  
+  @font-face {
+    font-family: Poppins-SemiBold;
+    src: url('../fonts/Poppins/Poppins-SemiBold.ttf'); 
+  }
+  
+  
+  /*---------------------------------------------*/
+  @font-face {
+    font-family: PlayfairDisplay-Regular;
+    src: url('../fonts/PlayfairDisplay/PlayfairDisplay-Regular.ttf'); 
+  }
+  
+  @font-face {
+    font-family: PlayfairDisplay-Bold;
+    src: url('../fonts/PlayfairDisplay/PlayfairDisplay-Bold.ttf'); 
+  }
+  
+  /*---------------------------------------------*/
+  @font-face {
+    font-family: Montserrat-Regular;
+    src: url('../fonts/Montserrat/Montserrat-Regular.ttf'); 
+  }
+  
+  @font-face {
+    font-family: Montserrat-Bold;
+    src: url('../fonts/Montserrat/Montserrat-Bold.ttf'); 
+  }
+  
+  
 
 /* 0.1. Body / Typography
    ========================================================================== */
@@ -1332,6 +1390,9 @@ Top Header
     text-transform: uppercase;
     color: #71748d;
 }
+.list-footer {
+    color: black;
+}
 
 .notification .dropdown-toggle::after,
 .connection .dropdown-toggle::after,
@@ -1468,8 +1529,13 @@ Top Header
 
 .nav-user-name {}
 
+a .navbar-brand span {
+    background: linear-gradient(to right, #000000, #1a1a1a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 .nav-user-info {
-    background-color: black;
+    background-image: linear-gradient(to right, #000000, #1a1a1a);
     line-height: 1.4;
     padding: 12px;
     color: #fff;
@@ -1805,7 +1871,7 @@ Leftsidebar - dark
 ------------------------- */
 
 .sidebar-dark {
-    background-color: black;
+    background-image: linear-gradient(to right, #000000, #1a1a1a);
     -webkit-box-shadow: 0px 0px 28px 0px rgba(82, 63, 105, 0.13);
     box-shadow: 0px 0px 28px 0px rgba(82, 63, 105, 0.13);
     -webkit-transition: all 0.3s ease;
@@ -6906,7 +6972,7 @@ Media Query
         margin-left: 0px;
     }
     .page-aside {
-        background: none repeat scroll 0 0 #fff;
+        background: none repeat scroll 0 0 #1a1a1a;
         width: 100%;
         height: 100%;
         position: relative;
