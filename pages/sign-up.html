@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+ 
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Sign Up</title>
+
+        <!-- favicon -->
+        <link href="../assets/images/favicon (3).ico" rel="icon" class="favIcon" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link href="../assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/libs/css/style.css">
+    <link rel="stylesheet" href="../assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+    <style>
+    html,
+    body {
+        height: 100%;
+    }
+
+    body {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: center;
+        align-items: center;
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+    .modal-content {
+      background-color: #fff;
+      margin: 15% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      max-height: 80%;
+      overflow-y: auto;
+    }
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .close:hover,
+    .close:focus {
+      color: #5969ff;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    </style>
+</head>
+<!-- ============================================================== -->
+<!-- signup form  -->
+<!-- ============================================================== -->
+
+<body>
+    <!-- ============================================================== -->
+    <!-- signup form  -->
+    <!-- ============================================================== -->
+    <form class="splash-container">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="mb-1">Registrations Form</h3>
+                <p>Please enter your user information.</p>
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <input class="form-control form-control-lg" type="text" name="nick" required="" placeholder="Username" autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <input class="form-control form-control-lg" type="email" name="email" required="" placeholder="E-mail" autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <input class="form-control form-control-lg" id="pass1" type="password" required="" placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <input class="form-control form-control-lg" required="" placeholder="Confirm">
+                </div>
+                <div class="form-group pt-2">
+                    <button class="btn btn-block btn-primary" type="submit">Register My Account</button>
+                </div>
+                <div class="form-group">
+                    <label class="custom-control custom-checkbox">
+                        <input class="custom-control-input" type="checkbox"><span class="custom-control-label">By creating an account, you agree the <a href="#" style="color: #717fe0" onclick="openModal()">terms and conditions</a></span>
+                    </label>
+                </div>
+                <div id="myModal" class="modal">
+                    <div class="modal-content">
+                      <span onclick="closeModal()" class="close">&times;</span>
+                      <h2>Terms and Conditions</h2>
+                      <p>
+                        Welcome to our admin panel website for our H.A.W.K ecommerce. These terms and conditions govern your use of the admin panel and form a legally binding agreement between you (the user/administrator) and H.A.W.K online store.                      </p>
+                      <p>
+                        By accessing and using the admin panel, you agree to:
+                        <br>
+                        - Use the admin panel in accordance with all applicable laws and regulations. <br>
+                        - Ensure that all information provided is accurate, complete, and up-to-date. <br>
+                        - Not engage in any activities that may disrupt or interfere with the operation of the admin panel. <br>
+                        - Not attempt to gain unauthorized access to the admin panel or any other user's accounts. <br>
+                        - To access the admin panel, you must create an account by providing accurate and complete information. <br>
+                        - You are responsible for maintaining the confidentiality of your login credentials.<br>
+                        - The Company reserves the right to suspend or terminate your account if there is any unauthorized use or security breach. <br>
+                        - The Company retains all intellectual property rights related to the admin panel, including copyrights, trademarks, and any proprietary information. <br>
+                        - You agree not to use, reproduce, distribute, or modify any copyrighted materials without prior written consent from the Company. <br>
+                        - The collection, storage, and use of user/administrator data are subject to our Privacy Policy. <br>
+                        - We take reasonable measures to protect personal information; however, we cannot guarantee absolute security. <br>
+                        - The admin panel may use cookies, analytics, and third-party services, which are governed by our separate Cookie Policy. <br>
+                        - The admin panel is provided "as is" without any warranties or guarantees of any kind. <br>
+                        - The Company shall not be liable for any errors, inaccuracies, interruptions, or damages arising from the use of the admin panel. <br>
+                        - In no event shall the Company be liable for any indirect, consequential, or incidental damages. <br>
+                        - You agree to indemnify and hold the Company harmless from any claims, liabilities, damages, or expenses arising out of your use of the admin panel or any violation of these terms and conditions. <br>
+                        - The Company reserves the right to terminate or suspend your account or access to the admin panel at any time, with or without cause. <br>
+                        - The Company may modify or update these terms and conditions from time to time. You will be notified of any changes, and continued use of the admin panel will indicate your acceptance of the modified terms. <br>
+                        - These terms and conditions shall be governed by and construed in accordance with the laws of Indonesia. <br>
+                        - Any legal disputes arising out of these terms and conditions shall be subject to the exclusive jurisdiction of the courts in the Supreme Court. <br>
+                        - If any provision of these terms and conditions is found to be invalid or unenforceable, it shall not affect the validity or enforceability of the remaining provisions.
+                    </p>
+                      <p>
+                        If you have any questions or concerns regarding these terms and conditions, please contact us at hawkglasses@gmail.com.                      </p>
+                      <p>
+                        By accessing or using the admin panel, you acknowledge that you have read, understood, and agreed to be bound by these terms and conditions.                      </p>
+                    </div>
+                  </div>
+            </div>
+            <div class="card-footer bg-white">
+                <p>Already member? <a href="login.html" class="text-secondary;" style="color: #717fe0">Login Here.</a></p>
+            </div>
+        </div>
+    </form>
+    <script>
+        function openModal() {
+          document.getElementById("myModal").style.display = "block";
+        }
+    
+        function closeModal() {
+          document.getElementById("myModal").style.display = "none";
+        }
+      </script>
+</body>
+
+ 
+</html>
