@@ -1469,7 +1469,7 @@ Top Header
 .nav-user-name {}
 
 .nav-user-info {
-    background-color: #5969ff;
+    background-color: black;
     line-height: 1.4;
     padding: 12px;
     color: #fff;
@@ -1812,24 +1812,24 @@ Leftsidebar - dark
 }
 
 .sidebar-dark .nav-divider {
-    color: #5969ff;
+    color: white;
     font-size: 12px;
     letter-spacing: 1px;
 }
 
 .sidebar-dark.nav-left-sidebar .nav-link i {
-    color: #5969ff;
+    color: white;
 }
 
 .sidebar-dark.nav-left-sidebar .navbar-nav .nav-item {}
 
 .sidebar-dark.nav-left-sidebar .navbar-nav .nav-link {
-    color: #5969ff;
+    color: white;
 }
 
 .sidebar-dark.nav-left-sidebar .navbar-nav .nav-link:focus,
 .sidebar-dark.nav-left-sidebar .navbar-nav .nav-link:hover {
-    color: #717fe0;
+    color: #5969ff;
     background-color: #242849;
     border-radius: 2px;
 }
@@ -1844,7 +1844,7 @@ Leftsidebar - dark
 .sidebar-dark.nav-left-sidebar .submenu .nav .nav-item .nav-link:hover {
     color: #fff;
     border-radius: 2px;
-    background-color: #717fe0;
+    background-color: #5969ff;
 }
 
 .sidebar-dark.nav-left-sidebar .navbar-nav .nav-item .badge{
