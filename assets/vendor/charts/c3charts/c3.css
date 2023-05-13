@@ -31,7 +31,7 @@
 
 .c3-chart-arc text {
   fill: #fff;
-   font-size: 13px; font-family: 'Circular Std Book'; }
+   font-size: 10px; font-family: 'Circular Std Book'; }
 
 /*-- Axis --*/
 /*-- Grid --*/
@@ -47,7 +47,7 @@
 /*-- Text on Chart --*/
 .c3-text.c3-empty {
   fill: #71748d;
-  font-size:14px; }
+  font-size:12px; }
 
 /*-- Line --*/
 .c3-line {
@@ -76,7 +76,7 @@
   opacity: 1; }
 
 .c3-target.c3-focused path.c3-line, .c3-target.c3-focused path.c3-step {
-  stroke-width: 2px; }
+  stroke-width: 7px; }
 
 .c3-target.c3-defocused {
   opacity: 0.3 !important; }
@@ -93,7 +93,7 @@
 /*-- Select - Drag --*/
 /*-- Legend --*/
 .c3-legend-item {
-   font-size: 14px; font-family: 'Circular Std Book'; }
+   font-size: 12px; font-family: 'Circular Std Book'; }
 
 .c3-legend-item-hidden {
   opacity: 0.15; }
@@ -106,7 +106,7 @@
 
 /*-- Title --*/
 .c3-title {
-  font-size: 14px;font-family: 'Circular Std Book'; }
+  font-size: 12px;font-family: 'Circular Std Book'; }
 
 /*-- Tooltip --*/
 .c3-tooltip-container {
