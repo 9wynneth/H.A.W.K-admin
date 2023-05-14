@@ -7,16 +7,16 @@
                 bindto: "#c3chart_area",
                 data: {
                     columns: [
-                        ['data1', 300, 350, 300, 0, 0, 0],
-                        ['data2', 130, 100, 140, 200, 150, 50]
+                        ['Male', 7000, 12800, 12500, 11000, 9000, 12200, 13000,13120,14200,10000,10200,11000],
+                        ['Female', 14000, 14350, 16200, 15300, 16700, 17200,14500,13200,16650,13000,12154,17900]
                     ],
                     types: {
-                        data1: 'area',
-                        data2: 'area-spline'
+                        Male: 'area',
+                        Female: 'area-spline'
                     },
                     colors: {
-                        data1: '#5969ff',
-                        data2: '#ff407b',
+                        Male: '#5969ff',
+                        Female: '#ff407b',
 
                     }
 
@@ -31,7 +31,14 @@
 
                     },
                     x: {
-                        show: true
+                        show: true,
+                        tick: {
+                            values: [0, 1, 2, 3, 4, 5,6,7,8,9,10,11,12],
+                            format: function(x) {
+                                var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+                                return months[x];
+                            }
+                        }
                     }
                 }
 
@@ -44,13 +51,13 @@
                 bindto: "#c3chart_spline",
                 data: {
                     columns: [
-                        ['data1', 30, 200, 100, 400, 150, 250],
-                        ['data2', 130, 100, 140, 200, 150, 50]
+                        ['Male', 30, 200, 100, 400, 150, 250],
+                        ['Female', 130, 100, 140, 200, 150, 50]
                     ],
                     type: 'spline',
                     colors: {
-                         data1: '#5969ff',
-                        data2: '#ff407b',
+                         Male: '#5969ff',
+                        Female: '#ff407b',
 
                     }
                 },
@@ -163,21 +170,21 @@
 
                 data: {
                     columns: [
-                        ['data1', 130, 200, 320, 400, 530, 750],
-                        ['data2', -130, 10, 130, 200, 150, 250],
+                        ['Male', 130, 200, 320, 400, 530, 750],
+                        ['Female', -130, 10, 130, 200, 150, 250],
                         ['data3', -130, -50, -10, -200, -250, -150]
                     ],
                     type: 'bar',
                     groups: [
-                        ['data1', 'data2', 'data3']
+                        ['Male', 'Female', 'data3']
                     ],
                     order: 'desc', // stack order by sum of values descendantly. this is default.
                     //      order: 'asc'  // stack order by sum of values ascendantly.
                     //      order: null   // stack order by data definition.
 
                     colors: {
-                        data1: '#5969ff',
-                        data2: '#ff407b',
+                        Male: '#5969ff',
+                        Female: '#ff407b',
                         data3: '#64ced3'
 
                     }
@@ -214,7 +221,7 @@
             }, 2000);
             setTimeout(function() {
                 chart.groups([
-                    ['data1', 'data2', 'data3', 'data4', 'data5']
+                    ['Male', 'Female', 'data3', 'data4', 'data5']
                 ])
             }, 3000);
         }
@@ -225,8 +232,8 @@
                 bindto: "#c3chart_combine",
                 data: {
                     columns: [
-                        ['data1', 30, 20, 50, 40, 60, 50],
-                        ['data2', 200, 130, 90, 240, 130, 220],
+                        ['Male', 30, 20, 50, 40, 60, 50],
+                        ['Female', 200, 130, 90, 240, 130, 220],
                         ['data3', 300, 200, 160, 400, 250, 250],
                         ['data4', 200, 130, 90, 240, 130, 220],
                         ['data5', 130, 120, 150, 140, 160, 150],
@@ -239,12 +246,12 @@
                         data6: 'area',
                     },
                     groups: [
-                        ['data1', 'data2']
+                        ['Male', 'Female']
                     ],
 
                     colors: {
-                        data1: '#5969ff',
-                        data2: '#ff407b',
+                        Male: '#5969ff',
+                        Female: '#ff407b',
                         data3: '#25d5f2',
                         data4: '#ffc750',
                         data5: '#2ec551',
@@ -272,14 +279,14 @@
                 bindto: "#c3chart_pie",
                 data: {
                     columns: [
-                        ['data1', 30],
-                        ['data2', 50]
+                        ['Male', 30],
+                        ['Female', 50]
                     ],
                     type: 'pie',
 
                     colors: {
-                         data1: '#5969ff',
-                        data2: '#ff407b'
+                         Male: '#5969ff',
+                        Female: '#ff407b'
 
 
                     }
@@ -299,8 +306,8 @@
                 bindto: "#c3chart_donut",
                 data: {
                     columns: [
-                        ['data1', 30],
-                        ['data2', 120],
+                        ['Male', 30],
+                        ['Female', 120],
                     ],
                     type: 'donut',
                     onclick: function(d, i) { console.log("onclick", d, i); },
@@ -308,8 +315,8 @@
                     onmouseout: function(d, i) { console.log("onmouseout", d, i); },
 
                     colors: {
-                         data1: '#5969ff',
-                        data2: '#ff407b'
+                         Male: '#5969ff',
+                        Female: '#ff407b'
 
 
                     }
@@ -335,10 +342,10 @@
 
             setTimeout(function() {
                 chart.unload({
-                    ids: 'data1'
+                    ids: 'Male'
                 });
                 chart.unload({
-                    ids: 'data2'
+                    ids: 'Female'
                 });
             }, 2500);
         }
@@ -348,7 +355,7 @@
                 bindto: "#c3chart_gauge",
                 data: {
                     columns: [
-                        ['data1', 91.4]
+                        ['Male', 91.4]
 
                     ],
                     type: 'gauge',
@@ -356,8 +363,8 @@
                     onmouseover: function(d, i) { console.log("onmouseover", d, i); },
                     onmouseout: function(d, i) { console.log("onmouseout", d, i); },
                     colors: {
-                      data1: '#5969ff',
-                        data2: '#ff407b',
+                      Male: '#5969ff',
+                        Female: '#ff407b',
                         data3: '#25d5f2',
                         data4: '#ffc750',
                         data5: '#2ec551',
