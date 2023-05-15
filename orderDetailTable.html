@@ -19,7 +19,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-switch@3/dist/js/bootstrap-switch.min.js"></script>
 
-    <title>Table - Order</title>
+    <title>Table - Order Detail</title>
         <!-- favicon -->
         <link href="../assets/images/favicon (3).ico" rel="icon" class="favIcon"/>
       <style>
@@ -321,7 +321,7 @@
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
                                             <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Table</a></li>
-                                            <li class="breadcrumb-item active" aria-current="page">Order</li>
+                                            <li class="breadcrumb-item active" aria-current="page">Order Detail</li>
                                         </ol>
                                     </nav>
                                 </div>
@@ -354,37 +354,32 @@
                         <div class="col-xl-12 col-lg-8 col-md-8 col-sm-12 col-12">
                             <div class="card">
                                 <div class="card-body">
-                                <h4>Order</h4>
+                                <h4>Order Detail</h4>
                                 <button class="btn btn-primary btn-sm float-right mb-3" data-toggle="modal" data-target="#addProductModal"><i class="fas fa-plus"></i></button>
 
                                 <table class="table table-hover">
                                   <thead>
                                       <tr>
                                           <th scope="col" rowspan="1" colspan="1" style="width: 5%;">#</th>
+                                          <th scope="col" rowspan="1" colspan="1" style="width: 10%;">Order Detail ID</th>
+                                          <th scope="col" rowspan="1" colspan="1" style="width: 5%;">Product ID</th>
                                           <th scope="col" rowspan="1" colspan="1" style="width: 5%;">Order ID</th>
-                                          <th scope="col" rowspan="1" colspan="1" style="width: 5%;">Customer ID</th>
-                                          <th scope="col" rowspan="1" colspan="1" style="width: 5%;">Shipper ID</th>
-                                          <th scope="col" rowspan="1" colspan="1" style="">Shipper Date</th>
-                                          <th scope="col" rowspan="1" colspan="1" style="">Address</th>
-                                          <th scope="col" rowspan="1" colspan="1" style="width: 3%;">Qty</th>
-                                          <th scope="col" rowspan="1" colspan="1" style="">Total</th>
+                                          <th scope="col" rowspan="1" colspan="1" style="">Price</th>
+                                          <th scope="col" rowspan="1" colspan="1" style="width: 3%;">Qty</th> 
                                           <th scope="col" rowspan="1" colspan="1" style="">Created</th>
-                                          <th scope="col" rowspan="1" colspan="1" style="">Updated</th>
                                           <th scope="col" rowspan="1" colspan="1" style="">Action</th>
                                       </tr>
                                   </thead>
                                   <tbody>
                                       <tr>
                                           <th scope="row">1</th>
-                                          <td>2023042600002</td>
-                                          <td>CDR001</td>
-                                          <td>M002</td>
-                                          <td>2023-04-10 15:00:00</td>
-                                          <td>Jl. Pakis Indah No. 15, Surabaya Barat</td>
                                           <td>2</td>
-                                          <td>Rp 2.930.000</td>
+                                          <td>PF002</td>
+                                          <td>2023042600002</td>
+                                          <td>Rp 350.000</td>
+                                          <td>1</td>
                                           <td>2023-04-06 12:00:00</td>
-                                          <td>2023-04-11 15:00:00</td>
+
                                           <td>
                                             <button class="btn btn-primary btn-sm custom-btn" data-toggle="modal" data-target="#editModal" style="width: 70px; height: 40px;" title="Edit"><i class="fas fa-edit"></i></button>
                                             <button class="btn btn-danger btn-sm custom-btn" data-toggle="modal" data-target="#deleteConfirmationModal" style="width: 70px; height: 40px;" title="Delete"><i class="fas fa-trash"></i></button>
@@ -392,15 +387,13 @@
                                       </tr>
                                       <tr>
                                         <th scope="row">2</th>
-                                        <td>PM001</td>
-                                        <td>CSR001</td>
-                                        <td>D001</td>
-                                        <td>2023-04-12 15:00:00</td>
-                                        <td>Jl. Mulyorejo Indah No. 25,  Surabaya Timur</td>
+                                        <td>3</td>
+                                        <td>PM005</td>
+                                        <td>2023042600002</td>
+                                        <td>Rp 2.580.000</td>
                                         <td>1</td>
-                                        <td>Rp 21.000.000</td>
-                                        <td>2023-04-07 12:00:00</td>
-                                        <td>2023-04-13 15:00:00</td>
+                                        <td>2023-04-06 12:00:00</td>
+
                                         <td>
                                           <button class="btn btn-primary btn-sm custom-btn" data-toggle="modal" data-target="#editModal" style="width: 70px; height: 40px;" title="Edit"><i class="fas fa-edit"></i></button>
                                           <button class="btn btn-danger btn-sm custom-btn" data-toggle="modal" data-target="#deleteConfirmationModal" style="width: 70px; height: 40px;" title="Delete"><i class="fas fa-trash"></i></button>
@@ -408,15 +401,13 @@
                                       </tr>
                                       <tr>
                                           <th scope="row">3</th>
-                                          <td>PM001</td>
-                                          <td>CRW001</td>
-                                          <td>S003</td>
-                                          <td>2023-04-13 15:00:00</td>
-                                          <td>Jl. Kendangsari Barat No. 7, Surabaya Timur</td>
-                                          <td>2</td>
-                                          <td>Rp 700.000</td>
-                                          <td>2023-04-08 10:00:00</td>
-                                          <td>2023-04-14 15:00:00</td>
+                                          <td>4</td>
+                                          <td>PU003</td>
+                                          <td>2023042600003</td>
+                                          <td>Rp 21.000.000</td>
+                                          <td>1</td>
+                                          <td>2023-04-07 12:00:00</td>
+
                                           <td>
                                             <button class="btn btn-primary btn-sm custom-btn" data-toggle="modal" data-target="#editModal" style="width: 70px; height: 40px;" title="Edit"><i class="fas fa-edit"></i></button>
                                             <button class="btn btn-danger btn-sm custom-btn" data-toggle="modal" data-target="#deleteConfirmationModal" style="width: 70px; height: 40px;" title="Delete"><i class="fas fa-trash"></i></button>
@@ -424,15 +415,13 @@
                                       </tr>
                                       <tr>
                                         <th scope="row">4</th>
-                                        <td>PM001</td>
-                                        <td>CRA001</td>
-                                        <td>R001</td>
-                                        <td>2023-04-13 15:00:00</td>
-                                        <td>Jl. Manyar Kertoarjo No. 18, Surabaya Timur</td>
+                                        <td>5</td>
+                                        <td>PF002</td>
+                                        <td>2023042600004</td>
+                                        <td>Rp 3.200.000</td>
                                         <td>2</td>
-                                        <td>Rp 6.400.000</td>
                                         <td>2023-04-09 11:00:00</td>
-                                        <td>2023-04-14 15:00:00</td>
+
                                         <td>
                                           <button class="btn btn-primary btn-sm custom-btn" data-toggle="modal" data-target="#editModal" style="width: 70px; height: 40px;" title="Edit"><i class="fas fa-edit"></i></button>
                                           <button class="btn btn-danger btn-sm custom-btn" data-toggle="modal" data-target="#deleteConfirmationModal" style="width: 70px; height: 40px;" title="Delete"><i class="fas fa-trash"></i></button>
@@ -440,15 +429,13 @@
                                     </tr>
                                     <tr>
                                         <th scope="row">5</th>
-                                        <td>PM001</td>
-                                        <td>CAS001</td>
-                                        <td>M003</td>
-                                        <td>2023-04-14 10:00:00</td>
-                                        <td>Jl. Darmo Indah Selatan No. 22, Surabaya Tengah</td>
-                                        <td>1</td>
-                                        <td>Rp 4.000.000</td>
-                                        <td>2023-04-10 10:00:00</td>
-                                        <td>2023-04-15 10:00:00</td>
+                                        <td>6</td>
+                                        <td>PM002</td>
+                                        <td>2023042600005</td>
+                                        <td>Rp 3.200.000</td>
+                                        <td>2</td>
+                                        <td>2023-04-09 11:00:00</td>
+
                                         <td>
                                           <button class="btn btn-primary btn-sm custom-btn" data-toggle="modal" data-target="#editModal" style="width: 70px; height: 40px;" title="Edit"><i class="fas fa-edit"></i></button>
                                           <button class="btn btn-danger btn-sm custom-btn" data-toggle="modal" data-target="#deleteConfirmationModal" style="width: 70px; height: 40px;" title="Delete"><i class="fas fa-trash"></i></button>
@@ -460,7 +447,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="editModalLabel">Edit Product</h5>
+        <h5 class="modal-title" id="editModalLabel">Edit Order Detail</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -469,41 +456,32 @@
         <!-- Edit form content goes here -->
         <form>
           <div class="form-group">
-            <label for="shipperID">Order ID</label>
-            <input type="text" class="form-control" value="2023042600002" id="categoryName">
+            <label for="shipperID">Order Detail ID</label>
+            <input type="text" class="form-control" value="2" id="categoryName">
           </div>
           <div class="form-group">
-            <label for="shipperName">Customer ID</label>
-            <input type="text" class="form-control" value="CDR001" id="categoryID">
+            <label for="shipperName">Product ID</label>
+            <input type="text" class="form-control" value="PF002" id="categoryID">
           </div>
           <div class="form-group">
-            <label for="shipperName">Shipper ID</label>
-            <input type="text" class="form-control" value="M002" id="categoryID">
+            <label for="shipperName">Order ID</label>
+            <input type="text" class="form-control" value="2023042600002" id="categoryID">
           </div>
           <div class="form-group">
-            <label for="productPrice">Shipper Date</label>
-            <input type="datetime-local" class="form-control" value="2023-04-10T15:00" id="productPrice" placeholder="Select the date">
-          </div>
-          <div class="form-group">
-            <label for="shipperName">Address</label>
-            <input type="text" class="form-control" value="Jl. Pakis Indah No. 15, Surabaya Barat" id="categoryID">
+            <label for="shipperName">Price</label>
+            <input type="number" class="form-control" value="350000" id="categoryID">
           </div>
           <div class="form-group">
             <label for="shipperName">Qty</label>
-            <input type="number" class="form-control" value="2" id="categoryID">
-          </div>
-          <div class="form-group">
-            <label for="productQuantity">Total</label>
-            <input type="number" class="form-control" value="2930000" id="productQuantity" placeholder="10">
+            <input type="number" class="form-control" value="1" id="categoryID">
           </div>
           <div class="form-group">
             <label for="productPrice">Created</label>
             <input type="datetime-local" class="form-control" value="2023-04-06T12:00" id="productPrice" placeholder="Select the date">
           </div>
-          <div class="form-group">
-            <label for="productPrice">Updated</label>
-            <input type="datetime-local" class="form-control" value="2023-04-11T15:00" id="productPrice" placeholder="Select the date">
-          </div>
+
+
+
 
           <!-- Add more form fields as needed -->
         </form>
@@ -548,40 +526,28 @@
                                         <!-- Product form fields -->
                                         <form>
                                             <div class="form-group">
-                                                <label for="productId">Customer ID</label>
-                                                <input type="text" class="form-control" value="" id="productId" placeholder="Cust ID">
+                                                <label for="productId">Product ID</label>
+                                                <input type="text" class="form-control" value="" id="productId" placeholder="Product ID">
                                               </div>
                                               <div class="form-group">
-                                                <label for="productDesc">Shipper ID</label>
-                                                <input type="text" class="form-control" id="productDesc" placeholder="Shipper ID">
+                                                <label for="productDesc">Order ID</label>
+                                                <input type="text" class="form-control" id="productDesc" placeholder="Order ID">
                                               </div>
                                               <div class="form-group">
-                                                <label for="productPrice">Shipper Date</label>
-                                                <input type="datetime-local" class="form-control" id="productPrice" placeholder="Select the date">
-                                              </div>
-
-                                              <!-- Add more form fields for other product details -->
-                                              <div class="form-group">
-                                                <label for="productBrand">Address</label>
-                                                <input type="text" class="form-control" id="productBrand" placeholder="Address">
+                                                <label for="productColor">Price</label>
+                                                <input type="number" class="form-control" id="productColor" placeholder="Price">
                                               </div>
                                               <div class="form-group">
                                                 <label for="productColor">Qty</label>
                                                 <input type="number" class="form-control" id="productColor" placeholder="Qty">
                                               </div>
-
-                                              <div class="form-group">
-                                                <label for="productQuantity">Grand Total</label>
-                                                <input type="number" class="form-control" id="productQuantity" placeholder="Total">
-                                              </div>
                                               <div class="form-group">
                                                 <label for="productPrice">Created</label>
                                                 <input type="datetime-local" class="form-control"  id="productPrice" placeholder="Select the date">
                                               </div>
-                                              <div class="form-group">
-                                                <label for="productPrice">Updated</label>
-                                                <input type="datetime-local" class="form-control"  id="productPrice" placeholder="Select the date">
-                                              </div>
+
+                                              <!-- Add more form fields for other product details -->
+
 
 
 
