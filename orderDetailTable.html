@@ -202,7 +202,7 @@
                   <ul class="navbar-nav flex-column">
                     <li class="nav-divider">Menu</li>
                     <li class="nav-item">
-                      <a class="nav-link active" href="index.html" data-target="#submenu-1" aria-controls="submenu-1"><i class="fa fa-fw fa-user-circle" href="index.html"></i>Dashboard <span class="badge badge-success">6</span></a>
+                      <a class="nav-link" href="index.html" data-target="#submenu-1" aria-controls="submenu-1"><i class="fa fa-fw fa-user-circle" href="index.html"></i>Dashboard <span class="badge badge-success">6</span></a>
                       <div id="submenu-1" class="collapse submenu">
                         <ul class="nav flex-column">
                           <li class="nav-item">
@@ -218,8 +218,8 @@
                         </ul>
                       </div>
                     </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-2" aria-controls="submenu-2"><i class="fa fa-fw fa-table"></i>Table</a>
+                    <li class="nav-item active">
+                      <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-2" aria-controls="submenu-2"><i class="fa fa-fw fa-table"></i>Table</a>
                       <div id="submenu-2" class="collapse submenu">
                         <ul class="nav flex-column">
                           <li class="nav-item">
@@ -235,10 +235,10 @@
                             <a class="nav-link" href="productTable.html">Product</a>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link" href="pages/typography.html">Order</a>
+                            <a class="nav-link" href="orderTable.html">Order</a>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link" href="pages/accordions.html">Order Details</a>
+                            <a class="nav-link" href="orderDetailTable.html">Order Details</a>
                           </li>
                         </ul>
                       </div>
@@ -488,8 +488,25 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-primary "><span class="d-flex align-items-center" class="d-flex align-items-center text-center">Save change</span></button>
+        <button type="button" data-toggle="modal" data-target="#sucessful"class="btn btn-primary " id="btnRegister"><span class="d-flex align-items-center" class="d-flex align-items-center text-center">Save change</span></button>
+        <div class="modal fade" id="successful" tabindex="-1" role="dialog" aria-labelledby="successfulLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="successfulLabel">Success!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p>Your changes have been saved successfully.</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+
+      
     </div>
   </div>
 </div>
@@ -517,7 +534,7 @@
                                   <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                       <div class="modal-header">
-                                        <h5 class="modal-title" id="addProductModalLabel">Add New Order</h5>
+                                        <h5 class="modal-title" id="addProductModalLabel">Add New Order Detail</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                           <span aria-hidden="true">&times;</span>
                                         </button>
@@ -670,7 +687,29 @@
 $(document).ready(function() {
     $('.switch-input').bootstrapSwitch();
   });
-            </script>
+            
+  document.addEventListener('DOMContentLoaded', function() {
+    // Get the button element
+    var saveButton = document.getElementById('saveButton');
+
+    // Add a click event listener to the button
+    saveButton.addEventListener('click', function() {
+      // Show the pop-up dialog
+      var popupDialog = document.getElementById('popupDialog');
+      popupDialog.style.display = 'block';
+    });
+    
+  });
+  function saveChanges() {
+    $('#editModal').modal('hide'); // Close the editModal
+    $('#successful').modal('show'); // Show the successful modal
+  }
+
+  // Add an event listener to the Save Change button
+  document.getElementById('btnSaveChanges').addEventListener('click', saveChanges);
+ 
+
+</script>
 </body>
  
 </html>
