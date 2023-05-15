@@ -13,7 +13,31 @@
 
     <!-- favicon -->
     <link href="../assets/images/favicon (3).ico" rel="icon" class="favIcon" />
+    <style>
+      .popup-form {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        padding: 20px;
+        z-index: 9999;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      }
+      .close-button {
+        position: absolute;
+        top: 1px;
+        right: 10px;
+        cursor: pointer;
+        font-size: 20px;
+        color: #555;
+      }
 
+      .close-button:hover {
+        color: #000;
+      }
+    </style>
   </head>
 
   <body>
@@ -189,8 +213,6 @@
                   </div>
                 </li>
 
-
-
                 <li class="nav-divider">Others</li>
                 <li class="nav-item">
                   <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-6" aria-controls="submenu-6"><i class="fas fa-comments"></i>Social Media </a>
@@ -243,7 +265,7 @@
                     <ol class="breadcrumb">
                       <li class="breadcrumb-item"><a href="index.html" class="breadcrumb-link">Dashboard</a></li>
                       <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Schedule</a></li>
-                      <li class="breadcrumb-item active" aria-current="page">To-do Lists</li>
+                      <li class="breadcrumb-item active" aria-current="page">To-do List</li>
                     </ol>
                   </nav>
                 </div>
@@ -260,25 +282,37 @@
               <!-- ============================================================== -->
               <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 co-12">
                 <section class="card card-fluid">
-                  <h5 class="card-header drag-handle">To-do</h5>
+                  <h5 class="card-header drag-handle">
+                    To-do
+                    <button id="addButton" class="btn btn-sm btn-purple" style="float: right; margin-top: -2px"><i class="fas fa-plus" style="border-color: #5969ff"></i></button>
+                  </h5>
+                  <div id="addTodo" class="popup-form">
+                    <div class="form-content">
+                      <span id="closeButton" class="close-button">&times;</span>
+                      <form>
+                        <!-- Add form fields here -->
+                        <input type="text" name="task" placeholder="Task" required />
+                        <input type="submit" value="Add Task" />
+                      </form>
+                    </div>
+                  </div>
                   <ul class="sortable-lists list-group list-group-flush list-group-bordered" id="items">
                     <li class="list-group-item align-items-center drag-handle">
                       <span class="drag-indicator"></span>
                       <div>Check stock</div>
                       <div class="btn-group ml-auto">
-                        <button class="btn btn-sm btn-outline-light"><i class="fas fa-pencil-alt"></i>
-                        </button>
+                        <button class="btn btn-sm btn-outline-light"><i class="fas fa-pencil-alt"></i></button>
                         <button class="btn btn-sm btn-outline-light">
                           <i class="far fa-trash-alt"></i>
                         </button>
                       </div>
                     </li>
+
                     <li class="list-group-item align-items-center drag-handle">
                       <span class="drag-indicator"></span>
                       <div>Stock management</div>
                       <div class="btn-group ml-auto">
-                        <button class="btn btn-sm btn-outline-light"><i class="fas fa-pencil-alt"></i>
-                        </button>
+                        <button class="btn btn-sm btn-outline-light"><i class="fas fa-pencil-alt"></i></button>
                         <button class="btn btn-sm btn-outline-light">
                           <i class="far fa-trash-alt"></i>
                         </button>
@@ -288,8 +322,7 @@
                       <span class="drag-indicator"></span>
                       <div>Staff briefing at 7pm</div>
                       <div class="btn-group ml-auto">
-                        <button class="btn btn-sm btn-outline-light"><i class="fas fa-pencil-alt"></i>
-                        </button>
+                        <button class="btn btn-sm btn-outline-light"><i class="fas fa-pencil-alt"></i></button>
                         <button class="btn btn-sm btn-outline-light">
                           <i class="far fa-trash-alt"></i>
                         </button>
@@ -299,8 +332,7 @@
                       <span class="drag-indicator"></span>
                       <div>Check orders</div>
                       <div class="btn-group ml-auto">
-                        <button class="btn btn-sm btn-outline-light"><i class="fas fa-pencil-alt"></i>
-                        </button>
+                        <button class="btn btn-sm btn-outline-light"><i class="fas fa-pencil-alt"></i></button>
                         <button class="btn btn-sm btn-outline-light">
                           <i class="far fa-trash-alt"></i>
                         </button>
@@ -308,10 +340,9 @@
                     </li>
                     <li class="list-group-item align-items-center drag-handle">
                       <span class="drag-indicator"></span>
-                      <div></div>
+                      <div>Evaluation</div>
                       <div class="btn-group ml-auto">
-                        <button class="btn btn-sm btn-outline-light"><i class="fas fa-pencil-alt"></i>
-                        </button>
+                        <button class="btn btn-sm btn-outline-light"><i class="fas fa-pencil-alt"></i></button>
                         <button class="btn btn-sm btn-outline-light">
                           <i class="far fa-trash-alt"></i>
                         </button>
@@ -321,8 +352,8 @@
                 </section>
               </div>
               <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 co-12">
-                <div class="text-center pt-66" style="margin-top: 95px; width: 400px; height: 400px;">
-                    <img src="../assets/images/logo.png">
+                <div class="text-center pt-66" style="margin-top: 95px; width: 400px; height: 400px">
+                  <img src="../assets/images/logo.png" />
                 </div>
               </div>
             </div>
@@ -364,5 +395,20 @@
     <script src="../assets/vendor/shortable-nestable/Sortable.min.js"></script>
     <script src="../assets/vendor/shortable-nestable/sort-nest.js"></script>
     <script src="../assets/vendor/shortable-nestable/jquery.nestable.js"></script>
+    <script>
+      const addButton = document.getElementById("addButton");
+      const popupForm = document.getElementById("addTodo");
+      const formContent = document.querySelector(".form-content");
+
+      addButton.addEventListener("click", function () {
+        popupForm.style.display = "flex";
+      });
+
+      const closeButton = document.getElementById("closeButton");
+
+      closeButton.addEventListener("click", function () {
+        popupForm.style.display = "none";
+      });
+    </script>
   </body>
 </html>
