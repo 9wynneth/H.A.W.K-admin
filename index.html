@@ -37,7 +37,7 @@
         color: white;
       }
 
-      
+
     </style>
   </head>
 
@@ -351,66 +351,7 @@
                         <table class="table">
                           <thead class="bg-light">
                             <tr class="border-0">
-                              <th class="border-0">#</th>
-                              <th class="border-0">Product Name</th>
-                              <th class="border-0">Quantity</th>
-                              <th class="border-0">Price</th>
-                              <th class="border-0">Total price</th>
-                              <th class="border-0">Order Time</th>
-                              <th class="border-0">Customer</th>
-                              <th class="border-0">Status</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td>1</td>
-
-                              <td>Coach HC5149T 9004 s56</td>
-                              <td>3</td>
-                              <td>Rp 2.584.000</td>
-                              <td>Rp 7.752.000</td>
-                              <td>2023-04-23 18:00:00</td>
-                              <td>Grace Wijaya</td>
-                              <td><span class="badge-dot badge-brand mr-1"></span>On-process</td>
-                            </tr>
-                            <tr>
-                              <td>2</td>
-
-                              <td>Tommy Hilfiger F TH 0090 J5G 52</td>
-                              <td>1</td>
-                              <td>Rp 2.100.000</td>
-                              <td>Rp 2.100.000</td>
-                              <td>2023-04-19 23:00:00</td>
-                              <td>Mia Gracia</td>
-                              <td><span class="badge-dot badge-success mr-1"></span>Delivered</td>
-                            </tr>
-                            <tr>
-                              <td>3</td>
-
-                              <td>Guess F GE 2783 021 54</td>
-                              <td>1</td>
-                              <td>Rp 1.940.000</td>
-                              <td>Rp 1.940.000</td>
-                              <td>2023-04-12 17:00:00</td>
-                              <td>Nurul Hidiyati</td>
-                              <td><span class="badge-dot badge-success mr-1"></span>Delivered</td>
-                            </tr>
-                            <tr>
-                              <td>4</td>
-
-                              <td>Gucci F GU K 1357OJ 004 48</td>
-                              <td>1</td>
-                              <td>Rp 10.370.000</td>
-                              <td>Rp 10.370.000</td>
-                              <td>2023-04-14 14:00:00</td>
-                              <td>Yuli R.</td>
-                              <td><span class="badge-dot badge-success mr-1"></span>Delivered</td>
-                            </tr>
-                            <tr>
-                              <td colspan="9"><a href="#" class="btn btn-primary btn-outline-light float-right mt-2">View Details</a></td>
-                            </tr>
-                          </tbody>
-                        </table>
+                              <div id="recentOrders"></div>
                       </div>
                     </div>
                   </div>
@@ -668,5 +609,24 @@
     <script src="assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
     <script src="assets/vendor/charts/c3charts/C3chartjs.js"></script>
     <script src="assets/libs/js/dashboard-ecommerce.js"></script>
+    <script>
+      function loadData(query) {
+          $.ajax({
+            url: "recentOrders.php",
+            method: "POST",
+            data: { query: query },
+            success: function (response) {
+              $("#recentOrders").html(response);
+              $("#example2").DataTable({
+                searching: true,
+                ordering: true,
+              });
+            },
+          });
+        }
+
+        var query = "select p.product_name as 'Product Name', sum(od.quantity) as Quantity, concat('Rp. ',format(p.product_price,0)) as Price,  concat('Rp. ',format(p.product_price*sum(od.quantity),0)) as 'Total price', od.order_detail_created as 'Order Time', Concat(c.customer_firstName, ' ', c.customer_lastName) as Customer, if(order_updated is null,'On-process','Delivered') as `Status` from product p, customer c, `order` o, order_detail od where o.customer_id=c.customer_id and od.product_id=p.product_id and o.order_id=od.order_id group by od.order_detail_id order by od.order_detail_id desc limit 5;";
+          loadData(query);
+    </script>
   </body>
 </html>
