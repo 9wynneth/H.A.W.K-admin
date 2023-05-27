@@ -21,7 +21,7 @@
     <title>H.A.W.K Admin page</title>
 
     <!-- favicon -->
-    <link href="../assets/images/favicon (3).ico" rel="icon" class="favIcon" />
+    <link href="assets/images/favicon (3).ico" rel="icon" class="favIcon" />
 
     <style>
       
@@ -36,7 +36,38 @@
         transform: scale(1.03);
         color: white;
       }
+      .popup {
+  display: none; /* Hide the popup by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  z-index: 9999;
+}
 
+
+
+.popup-content {
+  background-color: #fff;
+  margin: 100px auto;
+  padding: 20px;
+  max-width: 800px;
+  border-radius: 5px;
+  position: relative;
+  max-height: 400px; /* Set the maximum height of the popup content */
+  overflow-y: auto; /* Enable vertical scrollbar */
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
 
     </style>
   </head>
@@ -51,7 +82,7 @@
       <!-- ============================================================== -->
       <div class="dashboard-header">
         <nav class="navbar navbar-expand-lg bg-white fixed-top">
-          <a style="color: black" class="navbar-brand" href="index.html"><img src="../assets/images/logo.png" style="width: 50px; height: 50px" /><span>H.A.W.K Admin</span></a>
+          <a style="color: black" class="navbar-brand" href="index.html"><img src="assets/images/logo.png" style="width: 50px; height: 50px" /><span>H.A.W.K Admin</span></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -71,7 +102,7 @@
                       <div class="list-group">
                         <a href="#" class="list-group-item list-group-item-action active">
                           <div class="notification-info">
-                            <div class="notification-list-user-img"><img src="../assets/images/ready-stock.png" alt="" class="user-avatar-md rounded-circle" /></div>
+                            <div class="notification-list-user-img"><img src="assets/images/ready-stock.png" alt="" class="user-avatar-md rounded-circle" /></div>
                             <div class="notification-list-user-block">
                               <span class="notification-list-user-name">Bryan</span>had just restocked!
                               <div class="notification-date">2 min ago</div>
@@ -80,7 +111,7 @@
                         </a>
                         <a href="#" class="list-group-item list-group-item-action">
                           <div class="notification-info">
-                            <div class="notification-list-user-img"><img src="../assets/images/cust.png" alt="" class="user-avatar-md rounded-circle" /></div>
+                            <div class="notification-list-user-img"><img src="assets/images/cust.png" alt="" class="user-avatar-md rounded-circle" /></div>
                             <div class="notification-list-user-block">
                               <span class="notification-list-user-name">New customer alert!</span>
                               <div class="notification-date">10 min ago</div>
@@ -89,7 +120,7 @@
                         </a>
                         <a href="#" class="list-group-item list-group-item-action">
                           <div class="notification-info">
-                            <div class="notification-list-user-img"><img src="../assets/images/shopping-bag.png" alt="" class="user-avatar-md rounded-circle" /></div>
+                            <div class="notification-list-user-img"><img src="assets/images/shopping-bag.png" alt="" class="user-avatar-md rounded-circle" /></div>
                             <div class="notification-list-user-block">
                               <span class="notification-list-user-name">New order is made!</span>
                               <div class="notification-date">2 days ago</div>
@@ -98,7 +129,7 @@
                         </a>
                         <a href="#" class="list-group-item list-group-item-action">
                           <div class="notification-info">
-                            <div class="notification-list-user-img"><img src="../assets/images/ready-stock.png" alt="" class="user-avatar-md rounded-circle" /></div>
+                            <div class="notification-list-user-img"><img src="assets/images/ready-stock.png" alt="" class="user-avatar-md rounded-circle" /></div>
                             <div class="notification-list-user-block">
                               <span class="notification-list-user-name">Dana</span>had just restocked!
                               <div class="notification-date">10 days ago</div>
@@ -109,14 +140,14 @@
                     </div>
                   </li>
                   <li>
-                    <div class="list-footer" style="background-image: linear-gradient(to right, #000000, #1a1a1a)"><a href="#">View all notifications</a></div>
+                    <!-- <div class="list-footer" style="background-image: linear-gradient(to right, #000000, #1a1a1a)"><a href="#">View all notifications</a></div> -->
                   </li>
                 </ul>
               </li>
 
               <li class="nav-item dropdown nav-user">
                 <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                  ><img src="../assets/images/user(3).png" alt="" class="user-avatar-md rounded-circle"
+                  ><img src="assets/images/user(3).png" alt="" class="user-avatar-md rounded-circle"
                 /></a>
                 <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
                   <div class="nav-user-info" style="background-image: linear-gradient(to right, #000000, #1a1a1a)">
@@ -345,24 +376,46 @@
                 <!-- recent orders  -->
                 <!-- ============================================================== -->
                 <div class="col-xl-12 col-lg-12 col-md-6 col-sm-12 col-12">
-                  <div class="card">
+                  <div class="card p-0">
                     <h5 class="card-header">Recent Orders</h5>
-                    <div class="card-body p-0">
+                    <div class="card-body ml-2">
                       <div class="table-responsive">
                         <table class="table">
-                          <thead class="bg-light">
-                            <tr class="border-0">
-                              <div id="recentOrders"></div>
-                              <tr>
-                                <td colspan="9"><a href="#" class="btn btn-primary btn-outline-light float-right mt-2">View Details</a></td>
-                              </tr>
-                            </tbody>
-                          </table>
+                      
+                            <tr class="border-0" id="recentOrdersHeader">
+                            </tr>
+                   
+                          <tbody id="recentOrdersBody">
+                          </tbody>
+                          <tfoot>
+                            <tr>
+                              <td colspan="9"><a href="#" class="btn btn-primary btn-outline-light float-right mt-2" onclick=showPopup()>View Details</a></td>
+                            </tr>
+                          </tfoot>
+                        </table>
                       </div>
                     </div>
                   </div>
                 </div>
                 <!-- ============================================================== -->
+                <!-- The popup -->
+<div id="popup" class="popup">
+  <div class="popup-content">
+    <span class="close" onclick="closePopup()">&times;</span>
+    <div class="table-responsive">
+      <table class="table">
+        <thead class="bg-light">
+          <tr class="border-0" id="popupOrdersHeader">
+            <!-- Table header columns -->
+          </tr>
+        </thead>
+        <tbody id="popupOrdersBody">
+          <!-- Table rows will be dynamically added here using JavaScript -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
                 <!-- end recent orders  -->
 
                 <!-- ============================================================== -->
@@ -398,57 +451,34 @@
                   <div class="card">
                     <h5 class="card-header">Best Selling Products</h5>
                     <div class="card-body p-0">
+                      <div class="table-responsive" >
+                        <div id="topProducts"></div>
+                        <td colspan="3">
+                          <a href="#" class="btn btn-primary btn-outline-light float-right mr-4 mb-3 mt-2" onclick="showPopupTopProducts()" >Details</a>
+                        </td>
+                      </tbody>
+                      </table>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- ============================================================== -->
+                  <div id="popupProduct" class="popup">
+                    <div class="popup-content">
+                      <span class="close" onclick="closePopup()">&times;</span>
                       <div class="table-responsive">
-                        <table class="table no-wrap p-table">
+                        <table class="table">
                           <thead class="bg-light">
-                            <tr class="border-0">
-                              <th class="border-0">Product name</th>
-                              <th class="border-0">Sold</th>
-                              <th class="border-0">Revenue</th>
-                            </tr>
+                            <th class="border-0" id="popupProductsHeader">
+                              <!-- Table header columns -->
+                            </th>
                           </thead>
-                          <tbody>
-                            <tr>
-                              <td>Illustro F IB HIHE5236 C1 50</td>
-                              <td>12</td>
-                              <td>Rp 4.200.000</td>
-                            </tr>
-                            <tr>
-                              <td>Illustro F IS SC961936 C2 51</td>
-                              <td>7</td>
-                              <td>Rp 2.784.000</td>
-                            </tr>
-                            <tr>
-                              <td>Under Armour F UA 5044 900 54</td>
-                              <td>7</td>
-                              <td>Rp 13.930.000</td>
-                            </tr>
-                            <tr>
-                              <td>Tommy Hilfiger F TH 0090 J5G 52</td>
-                              <td>5</td>
-                              <td>Rp 10.500.000</td>
-                            </tr>
-                            <tr>
-                              <td>Coach HC5149T 9004 s56</td>
-                              <td>3</td>
-                              <td>Rp 7.752.000</td>
-                            </tr>
-                            <tr>
-                              <td>Converse F CO MCV5076LB 001 52</td>
-                              <td>3</td>
-                              <td>Rp 5.040.000</td>
-                            </tr>
-                            <tr>
-                              <td colspan="3">
-                                <a href="#" class="btn btn-primary btn-outline-light float-right mt-2" >Details</a>
-                              </td>
-                            </tr>
+                          <tbody id="popupProductsBody">
+                            <!-- Table rows will be dynamically added here using JavaScript -->
                           </tbody>
                         </table>
                       </div>
                     </div>
                   </div>
-                  <!-- ============================================================== -->
                   <!-- end top perfomimg  -->
                   <!-- ============================================================== -->
                 </div>
@@ -619,6 +649,7 @@
 
     var dSummary = "dashboardSummary.php";
     var recentOrdersUrl = "recentOrders.php";
+    var topProductsUrl = "topProducts.php";
 
 
     function loadData(url, query, targetElement) {
@@ -641,11 +672,41 @@
     var totalCust = "select count(customer_id) as 'Total Customers' from customer;"
     loadData(dSummary, totalCust, "#totCust")
 
+
+
     var recentOrder = "SELECT p.product_name AS 'Product Name', SUM(od.quantity) AS Quantity, CONCAT('Rp. ', FORMAT(p.product_price, 0)) AS Price, CONCAT('Rp. ', FORMAT(p.product_price * SUM(od.quantity), 0)) AS 'Total price', od.order_detail_created AS 'Order Time', CONCAT(c.customer_firstName, ' ', c.customer_lastName) AS Customer, IF(order_updated IS NULL, 'On-process', 'Delivered') AS `Status` FROM product p, customer c, `order` o, order_detail od WHERE o.customer_id = c.customer_id AND od.product_id = p.product_id AND o.order_id = od.order_id GROUP BY od.order_detail_id ORDER BY od.order_detail_id DESC LIMIT 5;";
-    loadData(recentOrdersUrl, recentOrder, "#recentOrders");
+    loadData(recentOrdersUrl, recentOrder, "#recentOrdersBody", "#recentOrdersHeader");
+
+    var topProduk = "select p.product_name as 'Product Name', sum(od.quantity) as 'Sold', concat('Rp. ',format(sum(od.quantity)*od.price,0)) as 'Revenue' from product p, order_detail od where od.product_id=p.product_id group by od.product_id order by 2 desc limit 6;";
+    loadData(topProductsUrl, topProduk, "#topProducts");
 
 
+function showPopup() {
+  // Display the popup
+  document.getElementById("popup").style.display = "block";
 
+  // Fetch the recent orders using AJAX and populate the popup table
+  var recentOrdersUrl = "recentOrders.php";
+  var recentOrderQuery = "SELECT p.product_name AS 'Product Name', SUM(od.quantity) AS Quantity, CONCAT('Rp. ', FORMAT(p.product_price, 0)) AS Price, CONCAT('Rp. ', FORMAT(p.product_price * SUM(od.quantity), 0)) AS 'Total price', od.order_detail_created AS 'Order Time', CONCAT(c.customer_firstName, ' ', c.customer_lastName) AS Customer, IF(order_updated IS NULL, 'On-process', 'Delivered') AS `Status` FROM product p, customer c, `order` o, order_detail od WHERE o.customer_id = c.customer_id AND od.product_id = p.product_id AND o.order_id = od.order_id GROUP BY od.order_detail_id ORDER BY od.order_detail_id DESC;";
+  loadData(recentOrdersUrl, recentOrderQuery, "#popupOrdersHeader", "#popupOrdersBody");
+}
+
+function showPopupTopProducts() {
+  // Display the popup
+  document.getElementById("popupProduct").style.display = "block";
+
+  // Fetch the recent orders using AJAX and populate the popup table
+  var productURL = "topProducts.php";
+  var topProductsDetail = "select p.product_name as 'Product Name', sum(od.quantity) as 'Sold', concat('Rp. ',format(sum(od.quantity)*od.price,0)) as 'Revenue' from product p, order_detail od where od.product_id=p.product_id group by od.product_id order by 2 desc;";
+  loadData(productURL, topProductsDetail, "#popupProductsHeader", "#popupProductsBody");
+}
+
+
+function closePopup() {
+  // Hide the popup
+  document.getElementById("popup").style.display = "none";
+  document.getElementById("popupProduct").style.display = "none";
+}
 
     </script>
   </body>

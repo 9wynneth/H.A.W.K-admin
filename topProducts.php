@@ -4,7 +4,6 @@ include 'connection.php';
 // Retrieve the query from the AJAX request
 $query = $_POST['query'];
 
-
 // Execute the query
 $result = $conn->query($query);
 
@@ -31,32 +30,30 @@ if ($result->num_rows > 0) {
 // Close the connection
 $conn->close();
 
-$html = '
-<thead class="bg-light">
-  <tr class="border-0">';
-  
-// Generate the table header based on column names
-$columns = array_keys($data[0]);
+
+                            
+                    
+                       
+ 
+
+// Generate the HTML code for the table header
+$html = '<table class="table no-wrap p-table">
+<thead class="bg-light"> <tr>';
+
 foreach ($columns as $column) {
   $html .= '<th class="border-0">' . $column . '</th>';
 }
-
-$html .= '
-  </tr>
-</thead>
-<tbody>';
-
-// Generate the table rows based on data
+$html .= '</tr></thead><tbody>';
+// Generate the HTML code for the table rows
 foreach ($data as $row) {
   $html .= '<tr>';
   foreach ($row as $value) {
     $html .= '<td>' . $value . '</td>';
   }
-  $html .= '</tr>';
+  $html .= '
+';
 }
 
-$html .= '
-</tbody>';
 // Return the HTML code
 echo $html;
 ?>
