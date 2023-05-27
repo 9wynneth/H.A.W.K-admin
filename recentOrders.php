@@ -33,17 +33,10 @@ $conn->close();
 
 // Generate the HTML code for the table
 $html = '
-<div class="col-xl-12 col-lg-12 col-md-6 col-sm-12 col-12">
-  <div class="card">
-
-    <div class="card-body p-0">
-      <div class="table-responsive">
-        <table class="table">
-          <thead class="bg-light">
-            <tr class="border-0">';
-            foreach ($columns as $column) {
-              $html .= '<th>' . $column . '</th>';
-            }
+';
+foreach ($columns as $column) {
+$html .= '<th class-"border-0">' . $column . '</th>';
+}
 $html .= '
       </tr>
     </thead>
@@ -56,8 +49,7 @@ foreach ($data as $row) {
   $html .= '</tr>';
 }
 $html .= '
-    </tbody>
-  </table>';
+';
 
 // Return the HTML code
 echo $html;

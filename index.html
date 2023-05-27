@@ -327,10 +327,10 @@
                     <div class="card-body">
                       <h5 class="text-muted">Total Customers</h5>
                       <div class="metric-value d-inline-block">
-                        <h1 class="mb-1">190</h1>
+                        <h1 class="mb-1"><span id="totCust"></span></h1>
                       </div>
                       <div class="metric-label d-inline-block float-right text-secondary font-weight-bold">
-                        <span>-2.00%</span>
+                        <span>-1.72%</span>
                       </div>
                     </div>
                     <div id="sparkline-revenue4"></div>
@@ -353,6 +353,11 @@
                           <thead class="bg-light">
                             <tr class="border-0">
                               <div id="recentOrders"></div>
+                              <tr>
+                                <td colspan="9"><a href="#" class="btn btn-primary btn-outline-light float-right mt-2">View Details</a></td>
+                              </tr>
+                            </tbody>
+                          </table>
                       </div>
                     </div>
                   </div>
@@ -633,6 +638,8 @@
     loadData(dSummary, ItemsSold, "#itemsSold")
     var completedOrders = "select count(order_id) as 'Completed orders' from `order` where order_updated is not null;"
     loadData(dSummary, completedOrders, "#completedOrders")
+    var totalCust = "select count(customer_id) as 'Total Customers' from customer;"
+    loadData(dSummary, totalCust, "#totCust")
 
     var recentOrder = "SELECT p.product_name AS 'Product Name', SUM(od.quantity) AS Quantity, CONCAT('Rp. ', FORMAT(p.product_price, 0)) AS Price, CONCAT('Rp. ', FORMAT(p.product_price * SUM(od.quantity), 0)) AS 'Total price', od.order_detail_created AS 'Order Time', CONCAT(c.customer_firstName, ' ', c.customer_lastName) AS Customer, IF(order_updated IS NULL, 'On-process', 'Delivered') AS `Status` FROM product p, customer c, `order` o, order_detail od WHERE o.customer_id = c.customer_id AND od.product_id = p.product_id AND o.order_id = od.order_id GROUP BY od.order_detail_id ORDER BY od.order_detail_id DESC LIMIT 5;";
     loadData(recentOrdersUrl, recentOrder, "#recentOrders");
