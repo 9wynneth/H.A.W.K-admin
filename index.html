@@ -282,8 +282,9 @@
                 <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
                   <div class="card">
                     <div class="card-body">
-                      <div id="totalRevenue">
-
+                      <h5 class="text-muted">Total Revenue</h5>
+                      <div class="metric-value d-inline-block">
+                        <h1 class="mb-1"><span id="totalRevenue"></span></h1>
                       </div>
                       <div class="metric-label d-inline-block float-right text-success font-weight-bold">
                         <span><i class="fa fa-fw fa-arrow-up"></i></span><span>5.86%</span>
@@ -297,10 +298,10 @@
                     <div class="card-body">
                       <h5 class="text-muted">Items Sold</h5>
                       <div class="metric-value d-inline-block">
-                        <h1 class="mb-1">200</h1>
+                        <h1 class="mb-1"><span id="itemsSold"></span></h1>
                       </div>
-                      <div class="metric-label d-inline-block float-right text-secondary font-weight-bold">
-                        <span>-1.72%</span>
+                      <div class="metric-label d-inline-block float-right text-success font-weight-bold">
+                        <span><i class="fa fa-fw fa-arrow-up"></i></span><span>5.86%</span>
                       </div>
                     </div>
                     <div id="sparkline-revenue2"></div>
@@ -309,13 +310,14 @@
                 <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
                   <div class="card">
                     <div class="card-body">
-                      <h5 class="text-muted">Completed orders</h5>
+                      <h5 class="text-muted">Completed Orders</h5>
                       <div class="metric-value d-inline-block">
-                        <h1 class="mb-1">150</h1>
+                        <h1 class="mb-1"><span id="completedOrders"></span></h1>
                       </div>
-                      <div class="metric-label d-inline-block float-right text-secondary font-weight-bold">
-                        <span>-3.10%</span>
+                      <div class="metric-label d-inline-block float-right text-success font-weight-bold">
+                        <span><i class="fa fa-fw fa-arrow-up"></i></span><span>5.86%</span>
                       </div>
+                      
                     </div>
                     <div id="sparkline-revenue3"></div>
                   </div>
@@ -610,7 +612,7 @@
     <script src="assets/libs/js/dashboard-ecommerce.js"></script>
     <script>
 
-    var totalRevenueUrl = "totalRevenue.php";
+    var dSummary = "dashboardSummary.php";
     var recentOrdersUrl = "recentOrders.php";
 
 
@@ -626,12 +628,18 @@
     }
 
     var totalRevQuery = "select substr(format(sum(order_grandtotal),0),1,6) as 'Total Revenue' from `order`;"
-    loadData(totalRevenueUrl, totalRevQuery, "#totalRevenue");
+    loadData(dSummary, totalRevQuery, "#totalRevenue");
+    var ItemsSold = "select sum(order_quantity) as 'Items Sold' from `order`;"
+    loadData(dSummary, ItemsSold, "#itemsSold")
+    var completedOrders = "select count(order_id) as 'Completed orders' from `order` where order_updated is not null;"
+    loadData(dSummary, completedOrders, "#completedOrders")
+
     var recentOrder = "SELECT p.product_name AS 'Product Name', SUM(od.quantity) AS Quantity, CONCAT('Rp. ', FORMAT(p.product_price, 0)) AS Price, CONCAT('Rp. ', FORMAT(p.product_price * SUM(od.quantity), 0)) AS 'Total price', od.order_detail_created AS 'Order Time', CONCAT(c.customer_firstName, ' ', c.customer_lastName) AS Customer, IF(order_updated IS NULL, 'On-process', 'Delivered') AS `Status` FROM product p, customer c, `order` o, order_detail od WHERE o.customer_id = c.customer_id AND od.product_id = p.product_id AND o.order_id = od.order_id GROUP BY od.order_detail_id ORDER BY od.order_detail_id DESC LIMIT 5;";
     loadData(recentOrdersUrl, recentOrder, "#recentOrders");
 
 
-    
+
+
     </script>
   </body>
 </html>

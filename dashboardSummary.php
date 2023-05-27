@@ -33,12 +33,8 @@ $conn->close();
 
 // Generate the HTML code for the table
 $html = '
-<h5 class="text-muted">';
-            foreach ($columns as $column) {
-              $html .= $column ;
-            }
+';
 $html .= '
-</h5>
 <div class="metric-value d-inline-block">';
 foreach ($data as $row) {
   $html .= '<h1 class="mb-1">';
@@ -49,7 +45,6 @@ foreach ($data as $row) {
 }
 $html .= '</div>
 ';
-
 // Return the HTML code
 echo $html;
 ?>
