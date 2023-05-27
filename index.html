@@ -609,24 +609,29 @@
     <script src="assets/vendor/charts/c3charts/C3chartjs.js"></script>
     <script src="assets/libs/js/dashboard-ecommerce.js"></script>
     <script>
- function loadData(url, query, targetElement) {
-  $.ajax({
-    url: url,
-    method: "POST",
-    data: { query: query },
-    success: function(response) {
-      $(targetElement).html(response);
-    },
-  });
-}
 
-var recentOrder = "SELECT p.product_name AS 'Product Name', SUM(od.quantity) AS Quantity, CONCAT('Rp. ', FORMAT(p.product_price, 0)) AS Price, CONCAT('Rp. ', FORMAT(p.product_price * SUM(od.quantity), 0)) AS 'Total price', od.order_detail_created AS 'Order Time', CONCAT(c.customer_firstName, ' ', c.customer_lastName) AS Customer, IF(order_updated IS NULL, 'On-process', 'Delivered') AS `Status` FROM product p, customer c, `order` o, order_detail od WHERE o.customer_id = c.customer_id AND od.product_id = p.product_id AND o.order_id = od.order_id GROUP BY od.order_detail_id ORDER BY od.order_detail_id DESC LIMIT 5;";
-var totalRevQuery = "select substr(format(sum(order_grandtotal),0),1,6) as 'Total Revenue' from `order`;"
-var recentOrdersUrl = "recentOrders.php";
-var totalRevenueUrl = "totalRevenue.php";
+    var totalRevenueUrl = "totalRevenue.php";
+    var recentOrdersUrl = "recentOrders.php";
 
-loadData(recentOrdersUrl, recentOrder, "#recentOrders");
-loadData(totalRevenueUrl, totalRevQuery, "#totalRevenue");
+
+    function loadData(url, query, targetElement) {
+      $.ajax({
+        url: url,
+        method: "POST",
+        data: { query: query },
+        success: function(response) {
+          $(targetElement).html(response);
+        },
+      });
+    }
+
+    var totalRevQuery = "select substr(format(sum(order_grandtotal),0),1,6) as 'Total Revenue' from `order`;"
+    loadData(totalRevenueUrl, totalRevQuery, "#totalRevenue");
+    var recentOrder = "SELECT p.product_name AS 'Product Name', SUM(od.quantity) AS Quantity, CONCAT('Rp. ', FORMAT(p.product_price, 0)) AS Price, CONCAT('Rp. ', FORMAT(p.product_price * SUM(od.quantity), 0)) AS 'Total price', od.order_detail_created AS 'Order Time', CONCAT(c.customer_firstName, ' ', c.customer_lastName) AS Customer, IF(order_updated IS NULL, 'On-process', 'Delivered') AS `Status` FROM product p, customer c, `order` o, order_detail od WHERE o.customer_id = c.customer_id AND od.product_id = p.product_id AND o.order_id = od.order_id GROUP BY od.order_detail_id ORDER BY od.order_detail_id DESC LIMIT 5;";
+    loadData(recentOrdersUrl, recentOrder, "#recentOrders");
+
+
+    
     </script>
   </body>
 </html>
