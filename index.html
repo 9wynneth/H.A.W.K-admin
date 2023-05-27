@@ -282,9 +282,8 @@
                 <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
                   <div class="card">
                     <div class="card-body">
-                      <h5 class="text-muted">Total Revenue</h5>
-                      <div class="metric-value d-inline-block">
-                        <h1 class="mb-1">3.200</h1>
+                      <div id="totalRevenue">
+
                       </div>
                       <div class="metric-label d-inline-block float-right text-success font-weight-bold">
                         <span><i class="fa fa-fw fa-arrow-up"></i></span><span>5.86%</span>
@@ -610,23 +609,24 @@
     <script src="assets/vendor/charts/c3charts/C3chartjs.js"></script>
     <script src="assets/libs/js/dashboard-ecommerce.js"></script>
     <script>
-      function loadData(query) {
-          $.ajax({
-            url: "recentOrders.php",
-            method: "POST",
-            data: { query: query },
-            success: function (response) {
-              $("#recentOrders").html(response);
-              $("#example2").DataTable({
-                searching: true,
-                ordering: true,
-              });
-            },
-          });
-        }
+ function loadData(url, query, targetElement) {
+  $.ajax({
+    url: url,
+    method: "POST",
+    data: { query: query },
+    success: function(response) {
+      $(targetElement).html(response);
+    },
+  });
+}
 
-        var query = "select p.product_name as 'Product Name', sum(od.quantity) as Quantity, concat('Rp. ',format(p.product_price,0)) as Price,  concat('Rp. ',format(p.product_price*sum(od.quantity),0)) as 'Total price', od.order_detail_created as 'Order Time', Concat(c.customer_firstName, ' ', c.customer_lastName) as Customer, if(order_updated is null,'On-process','Delivered') as `Status` from product p, customer c, `order` o, order_detail od where o.customer_id=c.customer_id and od.product_id=p.product_id and o.order_id=od.order_id group by od.order_detail_id order by od.order_detail_id desc limit 5;";
-          loadData(query);
+var recentOrder = "SELECT p.product_name AS 'Product Name', SUM(od.quantity) AS Quantity, CONCAT('Rp. ', FORMAT(p.product_price, 0)) AS Price, CONCAT('Rp. ', FORMAT(p.product_price * SUM(od.quantity), 0)) AS 'Total price', od.order_detail_created AS 'Order Time', CONCAT(c.customer_firstName, ' ', c.customer_lastName) AS Customer, IF(order_updated IS NULL, 'On-process', 'Delivered') AS `Status` FROM product p, customer c, `order` o, order_detail od WHERE o.customer_id = c.customer_id AND od.product_id = p.product_id AND o.order_id = od.order_id GROUP BY od.order_detail_id ORDER BY od.order_detail_id DESC LIMIT 5;";
+var totalRevQuery = "select substr(format(sum(order_grandtotal),0),1,6) as 'Total Revenue' from `order`;"
+var recentOrdersUrl = "recentOrders.php";
+var totalRevenueUrl = "totalRevenue.php";
+
+loadData(recentOrdersUrl, recentOrder, "#recentOrders");
+loadData(totalRevenueUrl, totalRevQuery, "#totalRevenue");
     </script>
   </body>
 </html>
