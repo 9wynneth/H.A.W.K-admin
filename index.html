@@ -556,36 +556,7 @@
                   <h5 class="card-header">Best Selling Brands</h5>
                   <div class="card-body p-0">
                     <ul class="country-sales list-group list-group-flush">
-                      <li class="country-sales-content list-group-item">
-                        <span class="mr-2"
-                          ><i class="brand-icon gucci" title="Gucci"><img src="../assets/images/converse.png" style="width: 32px" /></i>
-                        </span>
-                        <span class="">Converse</span><span class="float-right text-dark">48%</span>
-                      </li>
-                      <li class="list-group-item country-sales-content">
-                        <span class="mr-2"
-                          ><i class="brand-icon gucci" title="Gucci"><img src="../assets/images/coach.png" style="width: 35px" /></i>
-                        </span>
-                        <span class="">Coach</span><span class="float-right text-dark">40%</span>
-                      </li>
-                      <li class="list-group-item country-sales-content">
-                        <span class="mr-2"
-                          ><i class="brand-icon gucci" title="Gucci"><img src="../assets/images/oak.png" style="width: 35px" /></i>
-                        </span>
-                        <span class="">Oakley</span><span class="float-right text-dark">32%</span>
-                      </li>
-                      <li class="list-group-item country-sales-content">
-                        <span class="mr-2"
-                          ><i class="brand-icon gucci" title="Gucci"><img src="../assets/images/prada.png" style="width: 32px" /></i>
-                        </span>
-                        <span class="">Prada</span><span class="float-right text-dark">20%</span>
-                      </li>
-                      <li class="list-group-item country-sales-content">
-                        <span class="mr-2"
-                          ><i class="brand-icon gucci" title="Gucci"><img src="../assets/images/guess.png" style="width: 32px" /></i>
-                        </span>
-                        <span class="">Guess</span><span class="float-right text-dark">12%</span>
-                      </li>
+                      <div id="topBrands"></div>
                     </ul>
                   </div>
                 </div>
@@ -707,7 +678,45 @@ function closePopup() {
   document.getElementById("popup").style.display = "none";
   document.getElementById("popupProduct").style.display = "none";
 }
+fetch('topBrands.php')
+  .then(response => response.json())
+  .then(data => {
+    // Process the data and update the HTML
+    const list = document.getElementById('topBrands');
+    data.forEach(row => {
+      const brand = row.product_brand;
+      const percentage = row.sold_percentage;
 
+      const listItem = document.createElement('li');
+      listItem.classList.add('country-sales-content', 'list-group-item');
+
+      const brandIcon = document.createElement('i');
+      brandIcon.classList.add('brand-icon', 'gucci');
+      brandIcon.title = brand;
+
+      const brandImage = document.createElement('img');
+      brandImage.src = `assets/images/${brand.toLowerCase()}.png`;
+      brandImage.style.width = '32px';
+
+      brandIcon.appendChild(brandImage);
+
+      const brandName = document.createElement('span');
+      brandName.textContent = brand;
+
+      const percentageText = document.createElement('span');
+      percentageText.classList.add('float-right', 'text-dark');
+      percentageText.textContent = `${percentage}%`;
+
+      listItem.appendChild(brandIcon);
+      listItem.appendChild(brandName);
+      listItem.appendChild(percentageText);
+
+      list.appendChild(listItem);
+    });
+  })
+  .catch(error => {
+    console.log('Error fetching data:', error);
+  });
     </script>
   </body>
 </html>
