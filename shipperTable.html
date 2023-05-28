@@ -20,7 +20,7 @@
         .custom-btn {
   width: 10px;
   height: 10px;
-  padding: 0;
+  padding: 5;
   font-size: 14px;
 }
 .status-switch {
@@ -336,7 +336,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <form>
-                                        <input class="form-control form-control-lg" type="search" placeholder="Search" aria-label="Search">
+                                        <input id="searchInput" class="form-control form-control-lg" type="search" placeholder="Search" aria-label="Search">
                                         <button class="btn btn-primary search-btn" type="submit"><i class="fas fa-search"></i></button>
                                     </form>
                                 </div>
@@ -346,79 +346,29 @@
                         <!-- end search bar  -->
                         <!-- ============================================================== -->
                         <div class="col-xl-12 col-lg-8 col-md-8 col-sm-12 col-12">
-                            <div class="card">
-                                <div class="card-body">
-                                <h4>Shipper</h4>
-                                <button class="btn btn-primary btn-sm float-right mb-3" data-toggle="modal" data-target="#addProductModal"><i class="fas fa-plus"></i></button>
-
-                                <table class="table table-hover">
-                                  <thead>
-                                      <tr>
-                                          <th scope="col" rowspan="1" colspan="1" style="width:10 px ;">#</th>
-                                          <th scope="col" rowspan="1" colspan="1" style="width:20 px ;">Shipper ID</th>
-                                          <th scope="col" rowspan="1" colspan="1" style="">Shipper name</th>
-                                          <th scope="col" rowspan="1" colspan="1" style="width: 150px; padding-left: 5px;">Shipper area</th>
-                                          <th scope="col" rowspan="1" colspan="1" style="">Shipper phone</th>
-                                          <th scope="col" rowspan="1" colspan="1" style="">Action</th>
-                                      </tr>
-                                  </thead>
-                                  <tbody>
-                                      <tr>
-                                          <th scope="row">1</th>
-                                          <td>T002</td>
-                                          <td>Tony</td>
-                                          <td>Barat</td>
-                                          <td>084572642311</td>
-                                          <td>
-                                            <button class="btn btn-primary btn-sm custom-btn" data-toggle="modal" data-target="#editModal" style="width: 70px; height: 40px;" title="Edit"><i class="fas fa-edit"></i></button>
-                                            <button class="btn btn-danger btn-sm custom-btn" data-toggle="modal" data-target="#deleteConfirmationModal" style="width: 70px; height: 40px;" title="Delete"><i class="fas fa-trash"></i></button>
-                                          </td>
-                                      </tr>
-                                      <tr>
-                                        <th scope="row">2</th>
-                                        <td>T001</td>
-                                        <td>Tono</td>
-                                        <td>Timur</td>
-                                        <td>082238643289</td>
-                                        <td>
-                                          <button class="btn btn-primary btn-sm custom-btn" data-toggle="modal" data-target="#editModal" style="width: 70px; height: 40px;" title="Edit"><i class="fas fa-edit"></i></button>
-                                          <button class="btn btn-danger btn-sm custom-btn" data-toggle="modal" data-target="#deleteConfirmationModal" style="width: 70px; height: 40px;" title="Delete"><i class="fas fa-trash"></i></button>
-                                        </td>
-                                      </tr>
-                                      <tr>
-                                          <th scope="row">3</th>
-                                          <td>F001</td>
-                                          <td>Fitri</td>
-                                          <td>Timur</td>
-                                          <td>082239993290</td>
-                                          <td>
-                                            <button class="btn btn-primary btn-sm custom-btn" data-toggle="modal" data-target="#editModal" style="width: 70px; height: 40px;" title="Edit"><i class="fas fa-edit"></i></button>
-                                            <button class="btn btn-danger btn-sm custom-btn" data-toggle="modal" data-target="#deleteConfirmationModal" style="width: 70px; height: 40px;" title="Delete"><i class="fas fa-trash"></i></button>
-                                          </td>
-                                      </tr>
-                                      <tr>
-                                        <th scope="row">4</th>
-                                        <td>S002</td>
-                                        <td>Satria</td>
-                                        <td>Barat</td>
-                                        <td>082238643291</td>
-                                        <td>
-                                          <button class="btn btn-primary btn-sm custom-btn" data-toggle="modal" data-target="#editModal" style="width: 70px; height: 40px;" title="Edit"><i class="fas fa-edit"></i></button>
-                                          <button class="btn btn-danger btn-sm custom-btn" data-toggle="modal" data-target="#deleteConfirmationModal" style="width: 70px; height: 40px;" title="Delete"><i class="fas fa-trash"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">5</th>
-                                        <td>S001</td>
-                                        <td>Saiful</td>
-                                        <td>Utara</td>
-                                        <td>082115643292</td>
-                                        <td>
-                                          <button class="btn btn-primary btn-sm custom-btn" data-toggle="modal" data-target="#editModal" style="width: 70px; height: 40px;" title="Edit"><i class="fas fa-edit"></i></button>
-                                          <button class="btn btn-danger btn-sm custom-btn" data-toggle="modal" data-target="#deleteConfirmationModal" style="width: 70px; height: 40px;" title="Delete"><i class="fas fa-trash"></i></button>
-                                        </td>
-                                    </tr>
-                                  </tbody>
+                          <div class="card">
+                              <div class="card-body">
+                                  <h4>Shipper</h4>
+                                  <button class="btn btn-primary btn-sm float-right mb-3" data-toggle="modal" data-target="#addProductModal"><i class="fas fa-plus"></i></button>
+                      
+                                  <table class="table table-hover">
+                                      <thead>
+                                          <tr>
+                                              <th scope="col" rowspan="1" colspan="1" style="width:20 px ;">Shipper ID</th>
+                                              <th scope="col" rowspan="1" colspan="1" style="">Shipper name</th>
+                                              <th scope="col" rowspan="1" colspan="1" style="width: 150px; padding-left: 5px;">Shipper area</th>
+                                              <th scope="col" rowspan="1" colspan="1" style="">Shipper phone</th>
+                                              <th scope="col" rowspan="1" colspan="1" style="">Action</th>
+                                          </tr>
+                                      </thead>
+                                      <tbody id="tableBody">
+                                          <?php include 'shipperTable.php'; ?>
+                                      </tbody>
+                                  </table>
+                              </div>
+                          </div>
+                        </div>
+                      
                                   <!-- Edit Modal -->
 <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -431,7 +381,7 @@
       </div>
       <div class="modal-body">
         <!-- Edit form content goes here -->
-        <form>
+        <form id="editForm">
           <div class="form-group">
             <label for="shipperID">Shipper ID</label>
             <input type="text" class="form-control" value="T002" id="categoryName">
@@ -459,7 +409,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-primary "><span class="d-flex align-items-center" class="d-flex align-items-center text-center">Save change</span></button>
+        <button type="button" class="btn btn-primary save-changes-btn"><span class="d-flex align-items-center" class="d-flex align-items-center text-center">Save change</span></button>
       </div>
     </div>
   </div>
@@ -639,6 +589,28 @@ $(document).ready(function() {
     $('.switch-input').bootstrapSwitch();
   });
             </script>
+<script>
+  // Tangkap elemen input pencarian
+  const searchInput = document.getElementById('searchInput');
+  // Tangkap elemen tbody tabel
+  const tableBody = document.getElementById('tableBody');
+
+  // Tambahkan event listener untuk perubahan input pencarian
+  searchInput.addEventListener('input', function () {
+      const keyword = searchInput.value.toLowerCase(); // Ambil nilai input pencarian dan ubah menjadi lowercase
+      const rows = tableBody.getElementsByTagName('tr'); // Ambil semua baris dalam tbody
+
+      // Loop melalui setiap baris dan sembunyikan yang tidak cocok dengan keyword
+      Array.from(rows).forEach(function (row) {
+          const shipperName = row.getElementsByTagName('td')[1].textContent.toLowerCase(); // Ambil teks pada kolom nama shipper
+          if (shipperName.includes(keyword)) {
+              row.style.display = ''; // Tampilkan baris jika cocok dengan keyword
+          } else {
+              row.style.display = 'none'; // Sembunyikan baris jika tidak cocok dengan keyword
+          }
+      });
+  });
+</script>
 </body>
  
 </html>
