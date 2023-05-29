@@ -18,73 +18,75 @@
         <link href="../assets/images/favicon (3).ico" rel="icon" class="favIcon"/>
       <style>
         .custom-btn {
-  width: 10px;
-  height: 10px;
-  padding: 5;
-  font-size: 14px;
-}
-.status-switch {
-  position: relative;
-  display: inline-block;
-  width: 40px;
-  height: 20px;
-}
+        width: 10px;
+        height: 10px;
+        padding: 5;
+        font-size: 14px;
+      }
+      .status-switch {
+        position: relative;
+        display: inline-block;
+        width: 40px;
+        height: 20px;
+      }
 
-.switch-input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
+      .switch-input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
 
-.switch-label {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
+      .switch-label {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
 
-.switch-label:after {
-  content: "";
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  width: 12px;
-  height: 12px;
-  background-color: #fff;
-  border-radius: 50%;
-  transition: left 0.3s;
-}
+      .switch-label:after {
+        content: "";
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        width: 12px;
+        height: 12px;
+        background-color: #fff;
+        border-radius: 50%;
+        transition: left 0.3s;
+      }
 
-.switch-input:checked + .switch-label {
- background-image: linear-gradient(to right, #5969ff, #717fe0);;
-}
+      .switch-input:checked + .switch-label {
+      background-image: linear-gradient(to right, #5969ff, #717fe0);;
+      }
 
-.switch-input:checked + .switch-label:after {
-  left: 25px;
-}
+      .switch-input:checked + .switch-label:after {
+        left: 25px;
+      }
 
-.purple-browse::-webkit-file-upload-button {
-  background-image: linear-gradient(to right, #5969ff, #717fe0);
-  color: white;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
+      .purple-browse::-webkit-file-upload-button {
+        background-image: linear-gradient(to right, #5969ff, #717fe0);
+        color: white;
+        padding: 8px 16px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
 
-.purple-browse::-moz-file-upload-button {
-  background-image: linear-gradient(to right, #5969ff, #717fe0);
-  color: white;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
+      .purple-browse::-moz-file-upload-button {
+        background-image: linear-gradient(to right, #5969ff, #717fe0);
+        color: white;
+        padding: 8px 16px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+
       </style>
 
 </head>
@@ -302,7 +304,7 @@
         <!-- ============================================================== -->
         <div class="dashboard-wrapper">
             <div class="influence-finder">
-                <div class="container-fluid dashboard-content">
+                <div class="container-fluid dashboard-content" style="height:100%;padding-bottom: 0px;">
                     <!-- ============================================================== -->
                     <!-- pageheader -->
                     <!-- ============================================================== -->
@@ -337,7 +339,7 @@
                                 <div class="card-body">
                                     <form>
                                         <input id="searchInput" class="form-control form-control-lg" type="search" placeholder="Search" aria-label="Search">
-                                        <button class="btn btn-primary search-btn" type="submit"><i class="fas fa-search"></i></button>
+                                        <!-- <button class="btn btn-primary search-btn" type="submit"><i class="fas fa-search"></i></button> -->
                                     </form>
                                 </div>
                             </div>
@@ -345,7 +347,7 @@
                         <!-- ============================================================== -->
                         <!-- end search bar  -->
                         <!-- ============================================================== -->
-                        <div class="col-xl-12 col-lg-8 col-md-8 col-sm-12 col-12">
+                        <div class="col-xl-12 col-lg-8 col-md-8 col-sm-12 col-12" style="margin-bottom: 0;">
                           <div class="card">
                               <div class="card-body">
                                   <h4>Shipper</h4>
@@ -427,7 +429,7 @@
         Are you sure you want to delete?
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-dark"  data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-dark" data-dismiss="modal">Cancel</button>
         <button type="button" class="btn btn-danger" id="confirmDeleteButton">Delete</button>
       </div>
     </div>
@@ -445,43 +447,42 @@
                                       </div>
                                       <div class="modal-body">
                                         <!-- Product form fields -->
-                                        <form>
+                                        <form method="POST" action="shipperTable.php">
                                           <div class="form-group">
                                             <label for="productId">Shipper Name</label>
-                                            <input type="text" class="form-control" id="productId" placeholder="Name">
+                                            <input type="text" class="form-control" id="productId" name="shipper_name" placeholder="Name">
                                           </div>
                                           <div class="form-group">
                                             <label for="categoryId">Shipper Area</label>
-                                            <select class="form-control" id="Area">
+                                            <select class="form-control" id="Area" name="shipper_area">
                                               <!-- Options for category dropdown -->
-                                              <option value="1">Barat</option>
-                                              <option value="2">Timur</option>
-                                              <option value="3">Selatan</option>
-                                              <option value="4">Utara</option>
-                                              <option value="5">Tengah</option>
+                                              <option value="Barat">Barat</option>
+                                              <option value="Timur">Timur</option>
+                                              <option value="Selatan">Selatan</option>
+                                              <option value="Utara">Utara</option>
+                                              <option value="Tengah">Tengah</option>
                                               <!-- Add more options as needed -->
                                             </select>
                                           </div>
                                           <!-- Add more form fields for other product details -->
                                           <div class="form-group">
                                             <label for="productBrand">Shipper Phone</label>
-                                            <input type="text" class="form-control" id="productBrand" placeholder="08xxxxxxxxxx">
+                                            <input type="text" class="form-control" id="productBrand" name="shipper_phone" placeholder="08xxxxxxxxxx">
                                           </div>
-
+                                    
                                           <div class="form-group">
                                             <label for="productStatus">Status</label> <br>
-                                            <div class="status-switch ">
-                                              <input type="checkbox" class="form-control switch-input pt-2" id="productStatus">
+                                            <div class="status-switch">
+                                              <input type="checkbox" class="form-control switch-input pt-2" id="productStatus" name="shipper_status">
                                               <label class="switch-label" for="productStatus"></label>
                                             </div>
                                           </div>
-                                          
-                                          
+                                    
+                                          <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                            <button type="submit" class="btn btn-primary" name="save_shipper">Save</button>
+                                          </div>
                                         </form>
-                                      </div>
-                                      <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                        <button type="button" class="btn btn-primary">Save</button>
                                       </div>
                                     </div>
                                   </div>
@@ -537,21 +538,21 @@
                     <!-- ============================================================== -->
                     <!-- footer -->
                     <!-- ============================================================== -->
-                    <div class="footer">
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                                    Copyright © 2018 Concept. All rights reserved. Dashboard by <a href="https://colorlib.com/wp/">Colorlib</a>.
-                                </div>
-                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                                    <div class="text-md-right footer-links d-none d-sm-block">
-                                        <a href="javascript: void(0);">About</a>
-                                        <a href="javascript: void(0);">Support</a>
-                                        <a href="javascript: void(0);">Contact Us</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="footer" style="border-top: 1px solid rgba(152, 166, 173, .2); margin-left:300px; margin-bottom:100px; margin-top:0; padding: 14px 30px 14px; color: #71748d; background-color: #fff; width: 78%;">
+                      <div class="container-fluid">
+                          <div class="row">
+                              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                                  Copyright © 2018 Concept. All rights reserved. Dashboard by <a href="https://colorlib.com/wp/">Colorlib</a>.
+                              </div>
+                              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                                  <div class="text-md-right footer-links d-none d-sm-block">
+                                      <a href="javascript: void(0);">About</a>
+                                      <a href="javascript: void(0);">Support</a>
+                                      <a href="javascript: void(0);">Contact Us</a>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
                     </div>
                     <!-- ============================================================== -->
                     <!-- end footer -->
@@ -575,42 +576,67 @@
             <script src="assets/libs/js/main-js.js"></script>
             <script>
               $(document).ready(function() {
-  $('#confirmDeleteButton').on('click', function() {
-    // Perform delete action here
-    // You can make an AJAX request to delete the item or handle it as needed
-    console.log('Delete action confirmed');
-    
-    // Close the modal
-    $('#deleteConfirmationModal').modal('hide');
-  });
+              $('#confirmDeleteButton').on('click', function() {
+                // Perform delete action here
+                // You can make an AJAX request to delete the item or handle it as needed
+                console.log('Delete action confirmed');
+                
+                // Close the modal
+                $('#deleteConfirmationModal').modal('hide');
+              });
 
-});
-$(document).ready(function() {
-    $('.switch-input').bootstrapSwitch();
-  });
+            });
+            $(document).ready(function() {
+                $('.switch-input').bootstrapSwitch();
+              });
             </script>
-<script>
-  // Tangkap elemen input pencarian
-  const searchInput = document.getElementById('searchInput');
-  // Tangkap elemen tbody tabel
-  const tableBody = document.getElementById('tableBody');
+            <script>
+              // Tangkap elemen input pencarian
+              const searchInput = document.getElementById('searchInput');
+              // Tangkap elemen tbody tabel
+              const tableBody = document.getElementById('tableBody');
 
-  // Tambahkan event listener untuk perubahan input pencarian
-  searchInput.addEventListener('input', function () {
-      const keyword = searchInput.value.toLowerCase(); // Ambil nilai input pencarian dan ubah menjadi lowercase
-      const rows = tableBody.getElementsByTagName('tr'); // Ambil semua baris dalam tbody
+              // Tambahkan event listener untuk perubahan input pencarian
+              searchInput.addEventListener('input', function () {
+                  const keyword = searchInput.value.toLowerCase(); // Ambil nilai input pencarian dan ubah menjadi lowercase
+                  const rows = tableBody.getElementsByTagName('tr'); // Ambil semua baris dalam tbody
 
-      // Loop melalui setiap baris dan sembunyikan yang tidak cocok dengan keyword
-      Array.from(rows).forEach(function (row) {
-          const shipperName = row.getElementsByTagName('td')[1].textContent.toLowerCase(); // Ambil teks pada kolom nama shipper
-          if (shipperName.includes(keyword)) {
-              row.style.display = ''; // Tampilkan baris jika cocok dengan keyword
-          } else {
-              row.style.display = 'none'; // Sembunyikan baris jika tidak cocok dengan keyword
-          }
-      });
-  });
-</script>
+                  // Loop melalui setiap baris dan sembunyikan yang tidak cocok dengan keyword
+                  Array.from(rows).forEach(function (row) {
+                      const shipperName = row.getElementsByTagName('td')[1].textContent.toLowerCase(); // Ambil teks pada kolom nama shipper
+                      if (shipperName.includes(keyword)) {
+                          row.style.display = ''; // Tampilkan baris jika cocok dengan keyword
+                      } else {
+                          row.style.display = 'none'; // Sembunyikan baris jika tidak cocok dengan keyword
+                      }
+                  });
+              });
+            </script>
+
+            <script>
+              // Mengambil tombol "Delete" yang diklik
+              var deleteButtons = document.querySelectorAll('.btn-danger');
+
+              // Menambahkan event listener untuk setiap tombol "Delete"
+              deleteButtons.forEach(function(button) {
+                button.addEventListener('click', function() {
+                  // Mengambil ID shipper yang akan dihapus
+                  var shipperId = button.getAttribute('data-id');
+
+                  // Menambahkan nilai ID shipper ke tombol "Delete" di modal konfirmasi
+                  document.getElementById('confirmDeleteButton').setAttribute('data-id', shipperId);
+                });
+              });
+
+              // Menambahkan event listener untuk tombol "Delete" di modal konfirmasi
+              document.getElementById('confirmDeleteButton').addEventListener('click', function() {
+                // Mengambil ID shipper yang akan dihapus dari tombol "Delete" di modal konfirmasi
+                var shipperId = this.getAttribute('data-id');
+
+                // Redirect ke halaman dengan parameter shipper_id untuk melakukan delete
+                window.location.href = 'shipperTable.php?shipper_id=' + shipperId;
+              });
+            </script>
 </body>
  
 </html>
