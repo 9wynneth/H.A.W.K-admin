@@ -302,7 +302,7 @@
         <!-- ============================================================== -->
         <div class="dashboard-wrapper">
             <div class="influence-finder">
-                <div class="container-fluid dashboard-content">
+                <div class="container-fluid dashboard-content" style="height:100%;padding-bottom: 0px;">
                     <!-- ============================================================== -->
                     <!-- pageheader -->
                     <!-- ============================================================== -->
@@ -336,8 +336,8 @@
                             <div class="card">
                                 <div class="card-body">
                                     <form>
-                                        <input class="form-control form-control-lg" type="search" placeholder="Search" aria-label="Search">
-                                        <button class="btn btn-primary search-btn" type="submit"><i class="fas fa-search"></i></button>
+                                      <input id="searchInput" class="form-control form-control-lg" type="search" placeholder="Search" aria-label="Search">
+                                        <!-- <button class="btn btn-primary search-btn" type="submit"><i class="fas fa-search"></i></button> -->
                                     </form>
                                 </div>
                             </div>
@@ -346,15 +346,14 @@
                         <!-- end search bar  -->
                         <!-- ============================================================== -->
                         <div class="col-xl-12 col-lg-8 col-md-8 col-sm-12 col-12">
-                            <div class="card">
-                                <div class="card-body">
-                                <h4>Product</h4>
-                                <button class="btn btn-primary btn-sm float-right mb-3" data-toggle="modal" data-target="#addProductModal"><i class="fas fa-plus"></i></button>
+                          <div class="card">
+                              <div class="card-body">
+                              <h4>Staff</h4>
+                              <button class="btn btn-primary btn-sm float-right mb-3" data-toggle="modal" data-target="#addProductModal"><i class="fas fa-plus"></i></button>
 
                                 <table class="table table-hover">
                                   <thead>
                                       <tr>
-                                          <th scope="col" rowspan="1" colspan="1" style="">#</th>
                                           <th scope="col" rowspan="1" colspan="1" style="">Product ID</th>
                                           <th scope="col" rowspan="1" colspan="1" style="">Product name</th>
                                           <th scope="col" rowspan="1" colspan="1" style="">Description</th>
@@ -368,113 +367,13 @@
                                           <th scope="col" rowspan="1" colspan="1" style="">Action</th>
                                       </tr>
                                   </thead>
-                                  <tbody>
-                                      <tr>
-                                          <th scope="row">1</th>
-                                          <td>PM001</td>
-                                          <td>Ray-Ban RB6503D 2509 s55</td>
-                                          <td>W= 55 mm <br>
-                                            B = 18 mm <br>
-                                            H = 50 mm <br>
-                                            L = 145 mm <br>
-                                            M = Metal</td>
-                                          <td>Male</td>
-                                          <td>Ray-Ban</td>
-                                          <td>Black</td>
-                                          <td><img src="../assets/images/Ray-Ban RB6503D 2509 s55.jpg" style="width: 60px;"></td>
-                                          <td>10</td>
-                                          <td>Rp 1.700.000</td>
-                                          <td>No</td>
-                                          <td>
-                                            <button class="btn btn-primary btn-sm custom-btn" data-toggle="modal" data-target="#editModal" style="width: 70px; height: 40px;" title="Edit"><i class="fas fa-edit"></i></button>
-                                            <button class="btn btn-danger btn-sm custom-btn" data-toggle="modal" data-target="#deleteConfirmationModal" style="width: 70px; height: 40px;" title="Delete"><i class="fas fa-trash"></i></button>
-                                          </td>
-                                      </tr>
-                                      <tr>
-                                        <th scope="row">2</th>
-                                        <td>PM002</td>
-                                        <td>Oakley Sway Bar 0.5 Satin Bar (OX5076-01) s56</td>
-                                        <td>W= 56 mm <br>
-                                          B = 16 mm <br>
-                                          H = 36 mm <br>
-                                          L = 136 mm <br>
-                                          M = <span style="font-size: 11px;" > Titanium</span></td>
-                                        <td>Male</td>
-                                        <td>Oakley</td>
-                                        <td>Black</td>
-                                        <td><img src="../assets/images/(OX5076-01) s56.jpg" style="width: 60px;"></td>
-                                        <td>5</td>
-                                        <td>Rp 3.200.000</td>
-                                        <td>No</td>
-                                        <td>
-                                          <button class="btn btn-primary btn-sm custom-btn" data-toggle="modal" data-target="#editModal" style="width: 70px; height: 40px;" title="Edit"><i class="fas fa-edit"></i></button>
-                                          <button class="btn btn-danger btn-sm custom-btn" data-toggle="modal" data-target="#deleteConfirmationModal" style="width: 70px; height: 40px;" title="Delete"><i class="fas fa-trash"></i></button>
-                                        </td>
-                                      </tr>
-                                      <tr>
-                                          <th scope="row">3</th>
-                                          <td>PF002</td>
-                                          <td>Illustro F IB HIHE5236 C4 50</td>
-                                          <td>W= 51 mm <br>
-                                            B = 21 mm <br>
-                                            H = 40 mm <br>
-                                            L = 145 mm <br>
-                                            M = Plastic</td>
-                                          <td>Female</td>
-                                          <td>Illustro</td>
-                                          <td>White</td>
-                                          <td><img src="../assets/images/ILLUSTRO_PLASTIC_Frame_SQUARE_FIBHIHE5236C450_1100000066515-s.png" style="width: 60px;"></td>
-                                          <td>10</td>
-                                          <td>Rp 350.000</td>
-                                          <td>Yes</td>
-                                          <td>
-                                            <button class="btn btn-primary btn-sm custom-btn" data-toggle="modal" data-target="#editModal" style="width: 70px; height: 40px;" title="Edit"><i class="fas fa-edit"></i></button>
-                                            <button class="btn btn-danger btn-sm custom-btn" data-toggle="modal" data-target="#deleteConfirmationModal" style="width: 70px; height: 40px;" title="Delete"><i class="fas fa-trash"></i></button>
-                                          </td>
-                                      </tr>
-                                      <tr>
-                                        <th scope="row">4</th>
-                                        <td>PF003</td>
-                                        <td>Guess F GE 2783 021 54</td>
-                                        <td>W= 55 mm <br>
-                                          B = 19 mm <br>
-                                          H = 37 mm <br>
-                                          L = 140 mm <br>
-                                          M = Plastic</td>
-                                        <td>Female</td>
-                                        <td>Guess</td>
-                                        <td>Silver</td>
-                                        <td><img src="../assets/images/Guess F GE 2783 021 54.png" style="width: 60px;"></td>
-                                        <td>5</td>
-                                        <td>Rp 1.940.000</td>
-                                        <td>No</td>
-                                        <td>
-                                          <button class="btn btn-primary btn-sm custom-btn" data-toggle="modal" data-target="#editModal" style="width: 70px; height: 40px;" title="Edit"><i class="fas fa-edit"></i></button>
-                                          <button class="btn btn-danger btn-sm custom-btn" data-toggle="modal" data-target="#deleteConfirmationModal" style="width: 70px; height: 40px;" title="Delete"><i class="fas fa-trash"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">5</th>
-                                        <td>PU002</td>
-                                        <td>Gucci F GU K 1357OJ 004 48</td>
-                                        <td>W= 48 mm <br>
-                                          B = 24 mm <br>
-                                          H = 43 mm <br>
-                                          L = 140 mm <br>
-                                          M = <span style="font-size: 11px;" > Titanium</span></td>
-                                        <td>Unisex</td>
-                                        <td>Gucci</td>
-                                        <td>Gold</td>
-                                        <td><img src="../assets/images/Gucci F GU K 1357OJ 004 48.png" style="width: 60px;"></td>
-                                        <td>1</td>
-                                        <td>Rp 10.370.000</td>
-                                        <td>No</td>
-                                        <td>
-                                          <button class="btn btn-primary btn-sm custom-btn" data-toggle="modal" data-target="#editModal" style="width: 70px; height: 40px;" title="Edit"><i class="fas fa-edit"></i></button>
-                                          <button class="btn btn-danger btn-sm custom-btn" data-toggle="modal" data-target="#deleteConfirmationModal" style="width: 70px; height: 40px;" title="Delete"><i class="fas fa-trash"></i></button>
-                                        </td>
-                                    </tr>
+                                  <tbody id="tableBody">
+                                    <?php include 'productTable.php'; ?>
                                   </tbody>
+                                </table>
+                              </div>
+                          </div>
+                        </div>
                                   <!-- Edit Modal -->
 <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -576,78 +475,77 @@
                                   <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                       <div class="modal-header">
-                                        <h5 class="modal-title" id="addProductModalLabel">Add New Product</h5>
+                                        <h5 class="modal-title" id="addProductModalLabel">Add New Shipper</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                           <span aria-hidden="true">&times;</span>
                                         </button>
                                       </div>
                                       <div class="modal-body">
                                         <!-- Product form fields -->
-                                        <form>
-                                            <div class="form-group">
-                                                <label for="productId">Product Name</label>
-                                                <input type="text" class="form-control" id="productId" placeholder="Name">
-                                              </div>
-                                              <div class="form-group">
-                                                <label for="productDesc">Product Description</label>
-                                                <input type="text" class="form-control" id="productDesc" placeholder="Description">
-                                              </div>
-                                              <div class="form-group">
-                                                <label for="categoryId">Category</label>
-                                                <select class="form-control" id="Category">
-                                                  <!-- Options for category dropdown -->
-                                                  <option value="1">Male</option>
-                                                  <option value="2">Female</option>
-                                                  <option value="3">Unisex</option>
-                                                  <!-- Add more options as needed -->
-                                                </select>
-                                              </div>
-                                              <!-- Add more form fields for other product details -->
-                                              <div class="form-group">
-                                                <label for="productBrand">Product Brand</label>
-                                                <input type="text" class="form-control" id="productBrand" placeholder="Brand">
-                                              </div>
-                                              <div class="form-group">
-                                                <label for="productColor">Product Color</label>
-                                                <input type="text" class="form-control" id="productColor" placeholder="Color">
-                                              </div>
-                                              <div class="form-group">
-                                                <label for="productImage">Upload Picture</label>
-                                                <input type="file" class="form-control-file purple-browse" id="Picture">
-                                              </div>
-                                              <div class="form-group">
-                                                <label for="productQuantity">Quantity</label>
-                                                <input type="number" class="form-control" id="productQuantity" placeholder="Qty">
-                                              </div>
-                                              <div class="form-group">
-                                                <label for="productPrice">Price</label>
-                                                <input type="number" class="form-control" id="productPrice" placeholder="Price">
-                                              </div>
+                                        <form method="POST" action="productTable.php">
+                                          <div class="form-group">
+                                            <label for="productId">Product Name</label>
+                                            <input type="text" class="form-control" id="productId" name="product_name" placeholder="Name">
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="productId">Product Description</label>
+                                            <input type="text" class="form-control" id="productDesc" name="product_description" placeholder="Name">
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="categoryId">Category</label>
+                                            <select class="form-control" id="Category" name="product_category">
+                                              <!-- Options for category dropdown -->
+                                              <option value="M">Male</option>
+                                              <option value="F">Female</option>
+                                              <option value="U">Unisex</option>
+                                              <!-- Add more options as needed -->
+                                            </select>
+                                          </div>
+                                          <!-- Add more form fields for other product details -->
+                                          <div class="form-group">
+                                            <label for="productBrand">Product Brand</label>
+                                            <input type="text" class="form-control" id="productBrand" name="product_brand" placeholder="Brand">
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="productColor">Product Color</label>
+                                            <input type="text" class="form-control" id="productColor" name="product_color" placeholder="Color">
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="productImage">Upload Picture</label>
+                                            <input type="file" class="form-control-file purple-browse" name="product_picture" id="Picture">
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="productQuantity">Quantity</label>
+                                            <input type="number" class="form-control" id="productQuantity" name="product_quantity" placeholder="Qty">
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="productPrice">Price</label>
+                                            <input type="number" class="form-control" id="productPrice" name="product_price" placeholder="Price">
+                                          </div>
 
-                                              <div class="form-group">
-                                                <label for="categoryId">Anti-radiasi</label>
-                                                <select class="form-control" id="Category">
-                                                  <!-- Options for category dropdown -->
-                                                  <option value="1">Yes</option>
-                                                  <option value="2">No</option>
-                                                  <!-- Add more options as needed -->
-                                                </select>
-                                              </div>
-
-
-                                              <div class="form-group">
-                                                <label for="productStatus">Status</label> <br>
-                                                <div class="status-switch ">
-                                                  <input type="checkbox" class="form-control switch-input pt-2" id="productStatus">
-                                                  <label class="switch-label" for="productStatus"></label>
-                                                </div>
-                                              </div>
-                                            
+                                          <div class="form-group">
+                                            <label for="categoryId">Anti-radiasi</label>
+                                            <select class="form-control" id="Category" name="anti_radiasi">
+                                              <!-- Options for category dropdown -->
+                                              <option value="1">Yes</option>
+                                              <option value="0">No</option>
+                                              <!-- Add more options as needed -->
+                                            </select>
+                                          </div>
+                                    
+                                          <div class="form-group">
+                                            <label for="productStatus">Status</label> <br>
+                                            <div class="status-switch">
+                                              <input type="checkbox" class="form-control switch-input pt-2" id="productStatus" name="product_status">
+                                              <label class="switch-label" for="productStatus"></label>
+                                            </div>
+                                          </div>
+                                    
+                                          <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                            <button type="submit" class="btn btn-primary" name="save_product">Save</button>
+                                          </div>
                                         </form>
-                                      </div>
-                                      <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                        <button type="button" class="btn btn-primary">Save</button>
                                       </div>
                                     </div>
                                   </div>
@@ -655,6 +553,7 @@
                               </table>
                                 </div>
                             </div>
+                              
                             <!-- ============================================================== -->
                             <!-- card influencer one -->
                             <!-- ============================================================== -->
@@ -703,7 +602,7 @@
                     <!-- ============================================================== -->
                     <!-- footer -->
                     <!-- ============================================================== -->
-                    <div class="footer">
+                    <!-- <div class="footer">
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
@@ -718,7 +617,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- ============================================================== -->
                     <!-- end footer -->
                     <!-- ============================================================== -->
@@ -741,20 +640,69 @@
             <script src="assets/libs/js/main-js.js"></script>
             <script>
               $(document).ready(function() {
-  $('#confirmDeleteButton').on('click', function() {
-    // Perform delete action here
-    // You can make an AJAX request to delete the item or handle it as needed
-    console.log('Delete action confirmed');
-    
-    // Close the modal
-    $('#deleteConfirmationModal').modal('hide');
-  });
+              $('#confirmDeleteButton').on('click', function() {
+                // Perform delete action here
+                // You can make an AJAX request to delete the item or handle it as needed
+                console.log('Delete action confirmed');
+                
+                // Close the modal
+                $('#deleteConfirmationModal').modal('hide');
+              });
 
-});
-$(document).ready(function() {
-    $('.switch-input').bootstrapSwitch();
-  });
+            });
+            $(document).ready(function() {
+                $('.switch-input').bootstrapSwitch();
+              });
             </script>
+                        
+            <script>
+              // Tangkap elemen input pencarian
+              const searchInput = document.getElementById('searchInput');
+              // Tangkap elemen tbody tabel
+              const tableBody = document.getElementById('tableBody');
+
+              // Tambahkan event listener untuk perubahan input pencarian
+              searchInput.addEventListener('input', function () {
+                  const keyword = searchInput.value.toLowerCase(); // Ambil nilai input pencarian dan ubah menjadi lowercase
+                  const rows = tableBody.getElementsByTagName('tr'); // Ambil semua baris dalam tbody
+
+                  // Loop melalui setiap baris dan sembunyikan yang tidak cocok dengan keyword
+                  Array.from(rows).forEach(function (row) {
+                      const productName = row.getElementsByTagName('td')[1].textContent.toLowerCase(); // Ambil teks pada kolom nama product
+                      if (productName.includes(keyword)) {
+                          row.style.display = ''; // Tampilkan baris jika cocok dengan keyword
+                      } else {
+                          row.style.display = 'none'; // Sembunyikan baris jika tidak cocok dengan keyword
+                      }
+                  });
+              });
+            </script>
+
+            <script>
+              // Mengambil tombol "Delete" yang diklik
+              var deleteButtons = document.querySelectorAll('.btn-danger');
+
+              // Menambahkan event listener untuk setiap tombol "Delete"
+              deleteButtons.forEach(function(button) {
+                button.addEventListener('click', function() {
+                  // Mengambil ID product yang akan dihapus
+                  var productId = button.getAttribute('data-id');
+
+                  // Menambahkan nilai ID product ke tombol "Delete" di modal konfirmasi
+                  document.getElementById('confirmDeleteButton').setAttribute('data-id', productId);
+                });
+              });
+
+              // Menambahkan event listener untuk tombol "Delete" di modal konfirmasi
+              document.getElementById('confirmDeleteButton').addEventListener('click', function() {
+                // Mengambil ID productyang akan dihapus dari tombol "Delete" di modal konfirmasi
+                var productId = this.getAttribute('data-id');
+
+                // Redirect ke halaman dengan parameter product_id untuk melakukan delete
+                window.location.href = 'productTable.php?product_id=' + productId;
+              });
+            </script>
+
 </body>
  
 </html>
