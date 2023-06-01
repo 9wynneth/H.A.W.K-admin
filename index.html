@@ -531,7 +531,7 @@
                       </div>
                     </div>
                     <div class="card-footer">
-                      <p class="display-7 font-weight-bold"><span class="text-primary d-inline-block">Rp 28.900.000</span><span class="text-success float-right">+6.54%</span></p>
+                      <?php include 'total_revenue_footer.php'; ?>
                     </div>
                   </div>
                 </div>
@@ -811,6 +811,50 @@ fetch('topBrands.php')
   });
   
 
+    </script>
+    <script>
+      // Fetch data from the PHP file
+      fetch('total_revenue.php')
+        .then(response => response.json())
+        .then(data => {
+          // Process the data and populate date and revenues arrays
+          var date = [];
+          var revenues = [];
+          data.data.forEach(row => {
+            date.push(row.order_detail_created);
+            revenues.push(row.total_revenue);
+          });
+
+          // Create the line chart
+          var ctx = document.getElementById('lineChart').getContext('2d');
+          var lineChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+              labels: date,
+              datasets: [{
+                label: 'Total Revenue',
+                data: revenues,
+                backgroundColor: 'rgba(0, 123, 255, 0.2)',
+                borderColor: 'rgba(0, 123, 255, 1)',
+                borderWidth: 1
+              }]
+            },
+            options: {
+              scales: {
+                y: {
+                  beginAtZero: true
+                }
+              }
+            }
+          });
+
+          // Update the total revenue in the card footer
+          var totalRevenueElement = document.querySelector('.card-footer .display-7 .text-primary');
+          if (totalRevenueElement) {
+            totalRevenueElement.textContent = 'Rp ' + data.totalRevenue.toLocaleString('id-ID');
+          }
+        })
+        .catch(error => console.log(error));
     </script>
   </body>
 </html>
