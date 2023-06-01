@@ -634,7 +634,7 @@
       });
     }
 
-    var totalRevQuery = "select substr(format(sum(order_grandtotal),0),1,6) as 'Total Revenue' from `order`;"
+    var totalRevQuery = "select substr(format(sum(order_grandtotal),0),1,6) as 'Total Revenue' from `order` where MONTH(order_updated)=5;"
     loadData(dSummary, totalRevQuery, "#totalRevenue");
     var ItemsSold = "select sum(order_quantity) as 'Items Sold' from `order`;"
     loadData(dSummary, ItemsSold, "#itemsSold")

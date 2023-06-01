@@ -288,7 +288,7 @@
                   <div id="addTodo" class="popup-form">
                     <div class="form-content">
                       <span id="closeButton" class="close-button">&times;</span>
-                      <form>
+                      <form id="addTaskForm">
                         <!-- Add form fields here -->
                         <input type="text" name="task" placeholder="Task" required />
                         <input type="submit" value="Add Task" />
@@ -296,57 +296,7 @@
                     </div>
                   </div>
                   <ul class="sortable-lists list-group list-group-flush list-group-bordered" id="items">
-                    <li class="list-group-item align-items-center drag-handle">
-                      <span class="drag-indicator"></span>
-                      <div>Check stock</div>
-                      <div class="btn-group ml-auto">
-                        <button class="btn btn-sm btn-outline-light"><i class="fas fa-pencil-alt"></i></button>
-                        <button class="btn btn-sm btn-outline-light">
-                          <i class="fas fa-check"></i>
-                        </button>
-                      </div>
-                    </li>
-
-                    <li class="list-group-item align-items-center drag-handle">
-                      <span class="drag-indicator"></span>
-                      <div>Stock management</div>
-                      <div class="btn-group ml-auto">
-                        <button class="btn btn-sm btn-outline-light"><i class="fas fa-pencil-alt"></i></button>
-                        <button class="btn btn-sm btn-outline-light">
-                          <i class="fas fa-check"></i>
-                        </button>
-                      </div>
-                    </li>
-                    <li class="list-group-item align-items-center drag-handle">
-                      <span class="drag-indicator"></span>
-                      <div>Staff briefing at 7pm</div>
-                      <div class="btn-group ml-auto">
-                        <button class="btn btn-sm btn-outline-light"><i class="fas fa-pencil-alt"></i></button>
-                        <button class="btn btn-sm btn-outline-light">
-                          <i class="fas fa-check"></i>
-                        </button>
-                      </div>
-                    </li>
-                    <li class="list-group-item align-items-center drag-handle">
-                      <span class="drag-indicator"></span>
-                      <div>Check orders</div>
-                      <div class="btn-group ml-auto">
-                        <button class="btn btn-sm btn-outline-light"><i class="fas fa-pencil-alt"></i></button>
-                        <button class="btn btn-sm btn-outline-light">
-                          <i class="fas fa-check"></i>
-                        </button>
-                      </div>
-                    </li>
-                    <li class="list-group-item align-items-center drag-handle">
-                      <span class="drag-indicator"></span>
-                      <div>Evaluation</div>
-                      <div class="btn-group ml-auto">
-                        <button class="btn btn-sm btn-outline-light"><i class="fas fa-pencil-alt"></i></button>
-                        <button class="btn btn-sm btn-outline-light">
-                          <i class="fas fa-check"></i>
-                        </button>
-                      </div>
-                    </li>
+                   
                   </ul>
                 </section>
               </div>
@@ -395,19 +345,120 @@
     <script src="../assets/vendor/shortable-nestable/sort-nest.js"></script>
     <script src="../assets/vendor/shortable-nestable/jquery.nestable.js"></script>
     <script>
-      const addButton = document.getElementById("addButton");
-      const popupForm = document.getElementById("addTodo");
-      const formContent = document.querySelector(".form-content");
+const addButton = document.getElementById("addButton");
+const popupForm = document.getElementById("addTodo");
+const formContent = document.querySelector(".form-content");
+const taskInput = document.querySelector('input[name="task"]');
+const itemList = document.getElementById("items");
 
-      addButton.addEventListener("click", function () {
-        popupForm.style.display = "flex";
-      });
+var toDoURL = "toDo.php";
 
-      const closeButton = document.getElementById("closeButton");
+function loadData(url, query, targetElement) {
+  $.ajax({
+    url: url,
+    method: "POST",
+    data: { query: query },
+    success: function(response) {
+      $(targetElement).html(response);
+    },
+  });
+}
 
-      closeButton.addEventListener("click", function () {
-        popupForm.style.display = "none";
-      });
+var toDoListQ = "SELECT * FROM todoList;";
+loadData(toDoURL, toDoListQ, "#items");
+
+// Add task form submission
+$("#addTaskForm").submit(function(event) {
+  event.preventDefault(); // Prevent the form from submitting
+
+  var taskName = $("input[name='task']").val();
+
+  $.ajax({
+    url: toDoURL,
+    method: "POST",
+    data: { query: "INSERT INTO todoList (toDoName) VALUES ('" + taskName + "');" },
+    success: function(response) {
+      // Reload the task list after adding the new task
+      loadData(toDoURL, toDoListQ, "#items");
+    },
+  });
+
+  // Reset the form
+  $(this).trigger("reset");
+});
+
+// Delete task button click
+$("#items").on("click", ".delete-task", function() {
+  var taskId = $(this).data("task-id");
+
+  $.ajax({
+    url: toDoURL,
+    method: "POST",
+    data: { query: "DELETE FROM todoList WHERE toDoID = " + taskId + ";" },
+    success: function(response) {
+      // Reload the task list after deleting the task
+      loadData(toDoURL, toDoListQ, "#items");
+    },
+  });
+});
+
+
+
+addButton.addEventListener("click", function () {
+  popupForm.style.display = "flex";
+});
+
+const closeButton = document.getElementById("closeButton");
+
+closeButton.addEventListener("click", function () {
+  popupForm.style.display = "none";
+});
+
+formContent.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  const task = taskInput.value;
+
+  const listItem = document.createElement("li");
+  listItem.classList.add("list-group-item", "align-items-center", "drag-handle");
+  listItem.innerHTML = `
+    <span class="drag-indicator"></span>
+    <div>${task}</div>
+    <div class="btn-group ml-auto">
+      <button class="btn btn-sm btn-outline-light"><i class="fas fa-pencil-alt"></i></button>
+      <button class="btn btn-sm btn-outline-light check-button">
+        <i class="fas fa-check"></i>
+      </button>
+    </div>
+  `;
+
+  // Add event listener to the check button in the new list item
+  const checkButton = listItem.querySelector(".check-button");
+  checkButton.addEventListener("click", function () {
+    listItem.remove();
+  });
+
+  itemList.appendChild(listItem);
+
+  taskInput.value = "";
+
+  popupForm.style.display = "none";
+});
+
+// Add event listeners to existing and new check buttons
+function addCheckButtonListeners() {
+  const checkButtons = document.querySelectorAll(".check-button");
+  checkButtons.forEach(function (button) {
+    button.addEventListener("click", function () {
+      const listItem = button.closest("li");
+      listItem.remove();
+    });
+  });
+}
+
+// Call the function initially
+addCheckButtonListeners();
+
     </script>
   </body>
 </html>
