@@ -1,7 +1,7 @@
 <?php
 include 'connection.php';
 
-$query = "SELECT o.order_id, concat(c.customer_firstName,' ',c.customer_lastName) as customer_name, o.shipper_id, o.shipper_date, o.shipper_address, o.order_quantity, o.order_grandtotal, o.order_updated FROM `order` o INNER JOIN `customer` c ON o.customer_id = c.customer_id";
+$query = "SELECT o.order_id, concat(c.customer_firstName,' ',c.customer_lastName) as customer_name, o.shipper_id, o.shipper_date, o.shipper_address, o.order_quantity, o.order_grandtotal, o.order_updated FROM `order` o INNER JOIN `customer` c ON o.customer_id = c.customer_id ORDER BY o.shipper_date DESC";
 $result = mysqli_query($conn, $query);
 
 // Periksa apakah query berhasil dieksekusi

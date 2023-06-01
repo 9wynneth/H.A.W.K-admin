@@ -5,7 +5,7 @@ if (isset($_GET['order_id'])) {
   $order_id = $_GET['order_id'];
 
   // Query untuk mencari order_detail dengan order_id yang sama
-  $query = "SELECT product_id, quantity, price, quantity * price AS total FROM order_Detail WHERE order_id = '$order_id'";
+  $query = "SELECT product_id, quantity, price, quantity * price AS total FROM order_detail WHERE order_id = '$order_id'";
   $result = mysqli_query($conn, $query);
 
   if ($result && mysqli_num_rows($result) > 0) {
