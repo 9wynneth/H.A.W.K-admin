@@ -24,7 +24,7 @@ if ($result) {
       echo 'Delivered';
     } else {
       echo '<span class="dot red"></span>';
-      echo 'In Progress';
+      echo 'On-process';
     }
     echo '</td>';
     echo '</tr>';
