@@ -24,73 +24,89 @@
         <link href="../assets/images/favicon (3).ico" rel="icon" class="favIcon"/>
       <style>
         .custom-btn {
-  width: 10px;
-  height: 10px;
-  padding: 0;
-  font-size: 14px;
-}
-.status-switch {
-  position: relative;
-  display: inline-block;
-  width: 40px;
-  height: 20px;
-}
+          width: 10px;
+          height: 10px;
+          padding: 0;
+          font-size: 14px;
+        }
+        .status-switch {
+          position: relative;
+          display: inline-block;
+          width: 40px;
+          height: 20px;
+        }
 
-.switch-input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
+        .switch-input {
+          opacity: 0;
+          width: 0;
+          height: 0;
+        }
 
-.switch-label {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
+        .switch-label {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: #ccc;
+          border-radius: 20px;
+          cursor: pointer;
+          transition: background-color 0.3s;
+        }
 
-.switch-label:after {
-  content: "";
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  width: 12px;
-  height: 12px;
-  background-color: #fff;
-  border-radius: 50%;
-  transition: left 0.3s;
-}
+        .switch-label:after {
+          content: "";
+          position: absolute;
+          top: 2px;
+          left: 2px;
+          width: 12px;
+          height: 12px;
+          background-color: #fff;
+          border-radius: 50%;
+          transition: left 0.3s;
+        }
 
-.switch-input:checked + .switch-label {
- background-image: linear-gradient(to right, #5969ff, #717fe0);;
-}
+        .switch-input:checked + .switch-label {
+        background-image: linear-gradient(to right, #5969ff, #717fe0);;
+        }
 
-.switch-input:checked + .switch-label:after {
-  left: 25px;
-}
+        .switch-input:checked + .switch-label:after {
+          left: 25px;
+        }
 
-.purple-browse::-webkit-file-upload-button {
-  background-image: linear-gradient(to right, #5969ff, #717fe0);
-  color: white;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
+        .purple-browse::-webkit-file-upload-button {
+          background-image: linear-gradient(to right, #5969ff, #717fe0);
+          color: white;
+          padding: 8px 16px;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+        }
 
-.purple-browse::-moz-file-upload-button {
-  background-image: linear-gradient(to right, #5969ff, #717fe0);
-  color: white;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
+        .purple-browse::-moz-file-upload-button {
+          background-image: linear-gradient(to right, #5969ff, #717fe0);
+          color: white;
+          padding: 8px 16px;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+        }
+
+        .dot {
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          display: inline-block;
+          margin-right: 5px;
+        }
+
+        .green {
+          background-color: green;
+        }
+
+        .red {
+          background-color: red;
+        }
       </style>
 
 </head>
@@ -105,7 +121,7 @@
         <!-- ============================================================== -->
         <div class="dashboard-header">
             <nav class="navbar navbar-expand-lg bg-white fixed-top">
-              <a style="color: black" class="navbar-brand" href="index.html"><img src="../assets/images/logo.png" style="width: 50px; height: 50px" /><span>H.A.W.K Admin</span></a>
+              <a style="color: black" class="navbar-brand" href="index.html"><img src="assets/images/logo.png" style="width: 50px; height: 50px" /><span>H.A.W.K Admin</span></a>
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -125,7 +141,7 @@
                           <div class="list-group">
                             <a href="#" class="list-group-item list-group-item-action active">
                               <div class="notification-info">
-                                <div class="notification-list-user-img"><img src="../assets/images/ready-stock.png" alt="" class="user-avatar-md rounded-circle" /></div>
+                                <div class="notification-list-user-img"><img src="assets/images/ready-stock.png" alt="" class="user-avatar-md rounded-circle" /></div>
                                 <div class="notification-list-user-block">
                                   <span class="notification-list-user-name">Bryan</span>had just restocked!
                                   <div class="notification-date">2 min ago</div>
@@ -134,7 +150,7 @@
                             </a>
                             <a href="#" class="list-group-item list-group-item-action">
                               <div class="notification-info">
-                                <div class="notification-list-user-img"><img src="../assets/images/cust.png" alt="" class="user-avatar-md rounded-circle" /></div>
+                                <div class="notification-list-user-img"><img src="assets/images/cust.png" alt="" class="user-avatar-md rounded-circle" /></div>
                                 <div class="notification-list-user-block">
                                   <span class="notification-list-user-name">New customer alert!</span>
                                   <div class="notification-date">10 min ago</div>
@@ -152,7 +168,7 @@
                             </a>
                             <a href="#" class="list-group-item list-group-item-action">
                               <div class="notification-info">
-                                <div class="notification-list-user-img"><img src="../assets/images/ready-stock.png" alt="" class="user-avatar-md rounded-circle" /></div>
+                                <div class="notification-list-user-img"><img src="assets/images/ready-stock.png" alt="" class="user-avatar-md rounded-circle" /></div>
                                 <div class="notification-list-user-block">
                                   <span class="notification-list-user-name">Dana</span>had just restocked!
                                   <div class="notification-date">10 days ago</div>
@@ -170,7 +186,7 @@
     
                   <li class="nav-item dropdown nav-user">
                     <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                      ><img src="../assets/images/user(3).png" alt="" class="user-avatar-md rounded-circle"
+                      ><img src="assets/images/user(3).png" alt="" class="user-avatar-md rounded-circle"
                     /></a>
                     <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
                       <div class="nav-user-info" style="background-image: linear-gradient(to right, #000000, #1a1a1a)">
@@ -308,7 +324,7 @@
         <!-- ============================================================== -->
         <div class="dashboard-wrapper">
             <div class="influence-finder">
-                <div class="container-fluid dashboard-content">
+                <div class="container-fluid dashboard-content" style="height:100%;padding-bottom: 0px;">
                     <!-- ============================================================== -->
                     <!-- pageheader -->
                     <!-- ============================================================== -->
@@ -342,8 +358,8 @@
                             <div class="card">
                                 <div class="card-body">
                                     <form>
-                                        <input class="form-control form-control-lg" type="search" placeholder="Search" aria-label="Search">
-                                        <button class="btn btn-primary search-btn" type="submit"><i class="fas fa-search"></i></button>
+                                        <input id="searchInput" class="form-control form-control-lg" type="search" placeholder="Search" aria-label="Search">
+                                        <!-- <button class="btn btn-primary search-btn" type="submit"><i class="fas fa-search"></i></button> -->
                                     </form>
                                 </div>
                             </div>
@@ -355,106 +371,54 @@
                             <div class="card">
                                 <div class="card-body">
                                 <h4>Order</h4>
-                                <button class="btn btn-primary btn-sm float-right mb-3" data-toggle="modal" data-target="#addProductModal"><i class="fas fa-plus"></i></button>
+                                <!-- <button class="btn btn-primary btn-sm float-right mb-3" data-toggle="modal" data-target="#addProductModal"><i class="fas fa-plus"></i></button> -->
 
                                 <table class="table table-hover">
                                   <thead>
-                                      <tr>
-                                          <th scope="col" rowspan="1" colspan="1" style="width: 5%;">#</th>
-                                          <th scope="col" rowspan="1" colspan="1" style="width: 5%;">Order ID</th>
-                                          <th scope="col" rowspan="1" colspan="1" style="width: 5%;">Customer ID</th>
-                                          <th scope="col" rowspan="1" colspan="1" style="width: 5%;">Shipper ID</th>
-                                          <th scope="col" rowspan="1" colspan="1" style="">Shipper Date</th>
-                                          <th scope="col" rowspan="1" colspan="1" style="">Address</th>
-                                          <th scope="col" rowspan="1" colspan="1" style="width: 3%;">Qty</th>
-                                          <th scope="col" rowspan="1" colspan="1" style="">Total</th>
-                                          <th scope="col" rowspan="1" colspan="1" style="">Created</th>
-                                          <th scope="col" rowspan="1" colspan="1" style="">Updated</th>
-                                          <th scope="col" rowspan="1" colspan="1" style="">Action</th>
-                                      </tr>
-                                  </thead>
-                                  <tbody>
-                                      <tr>
-                                          <th scope="row">1</th>
-                                          <td>2023042600002</td>
-                                          <td>CDR001</td>
-                                          <td>M002</td>
-                                          <td>2023-04-10 15:00:00</td>
-                                          <td>Jl. Pakis Indah No. 15, Surabaya Barat</td>
-                                          <td>2</td>
-                                          <td>Rp 2.930.000</td>
-                                          <td>2023-04-06 12:00:00</td>
-                                          <td>2023-04-11 15:00:00</td>
-                                          <td>
-                                            <button class="btn btn-primary btn-sm custom-btn" data-toggle="modal" data-target="#editModal" style="width: 70px; height: 40px;" title="Edit"><i class="fas fa-edit"></i></button>
-                                            <button class="btn btn-danger btn-sm custom-btn" data-toggle="modal" data-target="#deleteConfirmationModal" style="width: 70px; height: 40px;" title="Delete"><i class="fas fa-trash"></i></button>
-                                          </td>
-                                      </tr>
-                                      <tr>
-                                        <th scope="row">2</th>
-                                        <td>PM001</td>
-                                        <td>CSR001</td>
-                                        <td>D001</td>
-                                        <td>2023-04-12 15:00:00</td>
-                                        <td>Jl. Mulyorejo Indah No. 25,  Surabaya Timur</td>
-                                        <td>1</td>
-                                        <td>Rp 21.000.000</td>
-                                        <td>2023-04-07 12:00:00</td>
-                                        <td>2023-04-13 15:00:00</td>
-                                        <td>
-                                          <button class="btn btn-primary btn-sm custom-btn" data-toggle="modal" data-target="#editModal" style="width: 70px; height: 40px;" title="Edit"><i class="fas fa-edit"></i></button>
-                                          <button class="btn btn-danger btn-sm custom-btn" data-toggle="modal" data-target="#deleteConfirmationModal" style="width: 70px; height: 40px;" title="Delete"><i class="fas fa-trash"></i></button>
-                                        </td>
-                                      </tr>
-                                      <tr>
-                                          <th scope="row">3</th>
-                                          <td>PM001</td>
-                                          <td>CRW001</td>
-                                          <td>S003</td>
-                                          <td>2023-04-13 15:00:00</td>
-                                          <td>Jl. Kendangsari Barat No. 7, Surabaya Timur</td>
-                                          <td>2</td>
-                                          <td>Rp 700.000</td>
-                                          <td>2023-04-08 10:00:00</td>
-                                          <td>2023-04-14 15:00:00</td>
-                                          <td>
-                                            <button class="btn btn-primary btn-sm custom-btn" data-toggle="modal" data-target="#editModal" style="width: 70px; height: 40px;" title="Edit"><i class="fas fa-edit"></i></button>
-                                            <button class="btn btn-danger btn-sm custom-btn" data-toggle="modal" data-target="#deleteConfirmationModal" style="width: 70px; height: 40px;" title="Delete"><i class="fas fa-trash"></i></button>
-                                          </td>
-                                      </tr>
-                                      <tr>
-                                        <th scope="row">4</th>
-                                        <td>PM001</td>
-                                        <td>CRA001</td>
-                                        <td>R001</td>
-                                        <td>2023-04-13 15:00:00</td>
-                                        <td>Jl. Manyar Kertoarjo No. 18, Surabaya Timur</td>
-                                        <td>2</td>
-                                        <td>Rp 6.400.000</td>
-                                        <td>2023-04-09 11:00:00</td>
-                                        <td>2023-04-14 15:00:00</td>
-                                        <td>
-                                          <button class="btn btn-primary btn-sm custom-btn" data-toggle="modal" data-target="#editModal" style="width: 70px; height: 40px;" title="Edit"><i class="fas fa-edit"></i></button>
-                                          <button class="btn btn-danger btn-sm custom-btn" data-toggle="modal" data-target="#deleteConfirmationModal" style="width: 70px; height: 40px;" title="Delete"><i class="fas fa-trash"></i></button>
-                                        </td>
-                                    </tr>
                                     <tr>
-                                        <th scope="row">5</th>
-                                        <td>PM001</td>
-                                        <td>CAS001</td>
-                                        <td>M003</td>
-                                        <td>2023-04-14 10:00:00</td>
-                                        <td>Jl. Darmo Indah Selatan No. 22, Surabaya Tengah</td>
-                                        <td>1</td>
-                                        <td>Rp 4.000.000</td>
-                                        <td>2023-04-10 10:00:00</td>
-                                        <td>2023-04-15 10:00:00</td>
-                                        <td>
-                                          <button class="btn btn-primary btn-sm custom-btn" data-toggle="modal" data-target="#editModal" style="width: 70px; height: 40px;" title="Edit"><i class="fas fa-edit"></i></button>
-                                          <button class="btn btn-danger btn-sm custom-btn" data-toggle="modal" data-target="#deleteConfirmationModal" style="width: 70px; height: 40px;" title="Delete"><i class="fas fa-trash"></i></button>
-                                        </td>
+                                      <th scope="col" rowspan="1" colspan="1" style="width: 5%;">Order ID</th>
+                                      <th scope="col" rowspan="1" colspan="1" style="width: 5%;">Customer Name</th>
+                                      <th scope="col" rowspan="1" colspan="1" style="width: 5%;">Shipper ID</th>
+                                      <th scope="col" rowspan="1" colspan="1" style="">Shipper Date</th>
+                                      <th scope="col" rowspan="1" colspan="1" style="">Address</th>
+                                      <th scope="col" rowspan="1" colspan="1" style="width: 3%;">Qty</th>
+                                      <th scope="col" rowspan="1" colspan="1" style="">Total</th>
+                                      <th scope="col" rowspan="1" colspan="1" style="">Order Status</th>
                                     </tr>
+                                  </thead>
+                                  <tbody id="tableBody">
+                                    <?php include 'orderTable.php'; ?>
                                   </tbody>
+                                </table>
+                                
+                                <!-- Modal for Order Details -->
+                                <div class="modal fade" id="orderDetailsModal" tabindex="-1" role="dialog" aria-labelledby="orderDetailsModalLabel" aria-hidden="true">
+                                  <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <h5 class="modal-title" id="orderDetailsModalLabel">Order Details</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                        </button>
+                                      </div>
+                                      <div class="modal-body">
+                                        <table class="table">
+                                          <thead>
+                                            <tr>
+                                              <th>Product ID</th>
+                                              <th>Quantity</th>
+                                              <th>Price</th>
+                                              <th>Total</th>
+                                            </tr>
+                                          </thead>
+                                          <tbody id="orderDetailsBody">
+                                          </tbody>
+                                        </table>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                
                                   <!-- Edit Modal -->
 <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -653,7 +617,7 @@
                     <!-- ============================================================== -->
                     <!-- footer -->
                     <!-- ============================================================== -->
-                    <div class="footer">
+                    <!-- <div class="footer">
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
@@ -668,7 +632,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- ============================================================== -->
                     <!-- end footer -->
                     <!-- ============================================================== -->
@@ -691,21 +655,66 @@
             <script src="assets/libs/js/main-js.js"></script>
             <script>
               $(document).ready(function() {
-  $('#confirmDeleteButton').on('click', function() {
-    // Perform delete action here
-    // You can make an AJAX request to delete the item or handle it as needed
-    console.log('Delete action confirmed');
-    
-    // Close the modal
-    $('#deleteConfirmationModal').modal('hide');
-  });
+              $('#confirmDeleteButton').on('click', function() {
+                // Perform delete action here
+                // You can make an AJAX request to delete the item or handle it as needed
+                console.log('Delete action confirmed');
+                
+                // Close the modal
+                $('#deleteConfirmationModal').modal('hide');
+              });
 
-});
-$(document).ready(function() {
-    $('.switch-input').bootstrapSwitch();
-  });
+            });
+            $(document).ready(function() {
+                $('.switch-input').bootstrapSwitch();
+              });
 
-</script>
+            </script>
+            <script>
+              // Tangkap elemen input pencarian
+              const searchInput = document.getElementById('searchInput');
+              // Tangkap elemen tbody tabel
+              const tableBody = document.getElementById('tableBody');
+
+              // Tambahkan event listener untuk perubahan input pencarian
+              searchInput.addEventListener('input', function () {
+                  const keyword = searchInput.value.toLowerCase(); // Ambil nilai input pencarian dan ubah menjadi lowercase
+                  const rows = tableBody.getElementsByTagName('tr'); // Ambil semua baris dalam tbody
+
+                  // Loop melalui setiap baris dan sembunyikan yang tidak cocok dengan keyword
+                  Array.from(rows).forEach(function (row) {
+                      const customerName = row.getElementsByTagName('td')[1].textContent.toLowerCase(); // Ambil teks pada kolom nama customer
+                      if (customerName.includes(keyword)) {
+                          row.style.display = ''; // Tampilkan baris jika cocok dengan keyword
+                      } else {
+                          row.style.display = 'none'; // Sembunyikan baris jika tidak cocok dengan keyword
+                      }
+                  });
+              });
+            </script>
+
+            <script>
+              $(document).ready(function() {
+                // Mendapatkan data detail pesanan saat baris ditekan
+                $('#tableBody').on('click', 'tr', function() {
+                  var orderId = $(this).find('td:first').text();
+            
+                  $.ajax({
+                    url: 'orderDetails.php',
+                    type: 'GET',
+                    data: { order_id: orderId },
+                    success: function(response) {
+                      $('#orderDetailsBody').html(response);
+                      $('#orderDetailsModal').modal('show');
+                    },
+                    error: function(xhr, status, error) {
+                      console.error(xhr.responseText);
+                    }
+                  });
+                });
+              });
+            </script>
+            
 </body>
  
 </html>

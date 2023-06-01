@@ -302,7 +302,7 @@
         <!-- ============================================================== -->
         <div class="dashboard-wrapper">
             <div class="influence-finder">
-                <div class="container-fluid dashboard-content">
+                <div class="container-fluid dashboard-content" style="height:100%;padding-bottom: 0px;">
                     <!-- ============================================================== -->
                     <!-- pageheader -->
                     <!-- ============================================================== -->
@@ -336,8 +336,8 @@
                             <div class="card">
                                 <div class="card-body">
                                     <form>
-                                        <input class="form-control form-control-lg" type="search" placeholder="Search" aria-label="Search">
-                                        <button class="btn btn-primary search-btn" type="submit"><i class="fas fa-search"></i></button>
+                                        <input id="searchInput" class="form-control form-control-lg" type="search" placeholder="Search" aria-label="Search">
+                                        <!-- <button class="btn btn-primary search-btn" type="submit"><i class="fas fa-search"></i></button> -->
                                     </form>
                                 </div>
                             </div>
@@ -354,94 +354,65 @@
                                 <table class="table table-hover">
                                   <thead>
                                       <tr>
-                                          <th scope="col" rowspan="1" colspan="1" style="width:20 px ;">#</th>
                                           <th scope="col" rowspan="1" colspan="1" style="width:20 px ;">Category ID</th>
                                           <th scope="col" rowspan="1" colspan="1" style="">Category name</th>
                                           <th scope="col" rowspan="1" colspan="1" style="">Action</th>
                                       </tr>
                                   </thead>
-                                  <tbody>
-                                      <tr>
-                                          <th scope="row">1</th>
-                                          <td>M</td>
-                                          <td>Male</td>
-                                          <td>
-                                            <button class="btn btn-primary btn-sm custom-btn" data-toggle="modal" data-target="#editModal" style="width: 70px; height: 40px;" title="Edit"><i class="fas fa-edit"></i></button>
-                                            <button class="btn btn-danger btn-sm custom-btn" data-toggle="modal" data-target="#deleteConfirmationModal" style="width: 70px; height: 40px;" title="Delete"><i class="fas fa-trash"></i></button>
-                                          
-                                          </td>
-                                      </tr>
-                                      <tr>
-                                          <th scope="row">2</th>
-                                          <td>F</td>
-                                          <td>Female</td>
-                                          <td>
-                                            <button class="btn btn-primary btn-sm custom-btn" data-toggle="modal" data-target="#editModal" style="width: 70px; height: 40px;" title="Edit"><i class="fas fa-edit"></i></button>
-                                            <button class="btn btn-danger btn-sm custom-btn" data-toggle="modal" data-target="#deleteConfirmationModal" style="width: 70px; height: 40px;" title="Delete"><i class="fas fa-trash"></i></button>
-                                          
-                                          </td>
-                                      </tr>
-                                      <tr>
-                                          <th scope="row">3</th>
-                                          <td>U</td>
-                                          <td>Unisex</td>
-                                          <td>
-                                            <button class="btn btn-primary btn-sm custom-btn" data-toggle="modal" data-target="#editModal" style="width: 70px; height: 40px;" title="Edit"><i class="fas fa-edit"></i></button>
-                                            <button class="btn btn-danger btn-sm custom-btn" data-toggle="modal" data-target="#deleteConfirmationModal" style="width: 70px; height: 40px;" title="Delete"><i class="fas fa-trash"></i></button>
-                                          
-                                          </td>
-                                      </tr>
+                                  <tbody id="tableBody">
+                                      <?php include 'categoryTable.php'; ?>
                                   </tbody>
                                   <!-- Edit Modal -->
-<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="editModalLabel">Edit Category</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <!-- Edit form content goes here -->
-        <form>
-          <div class="form-group">
-            <label for="categoryName">Category ID</label>
-            <input type="text" class="form-control" value="M" id="categoryName">
-          </div>
-          <div class="form-group">
-            <label for="categoryID">Category Name</label>
-            <input type="text" class="form-control" value="Male" id="categoryID">
-          </div>
-          <!-- Add more form fields as needed -->
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-primary "><span class="d-flex align-items-center" class="d-flex align-items-center text-center">Save change</span></button>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="modal fade" id="deleteConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="deleteConfirmationModalLabel">Confirmation</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        Are you sure you want to delete?
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-dark"  data-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-danger" id="confirmDeleteButton">Delete</button>
-      </div>
-    </div>
-  </div>
-</div>
+                                  <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <h5 class="modal-title" id="editModalLabel">Edit Category</h5>
+                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                          </button>
+                                        </div>
+                                        <div class="modal-body">
+                                          <!-- Edit form content goes here -->
+                                          <form>
+                                            <div class="form-group">
+                                              <label for="categoryID">Category ID</label>
+                                              <input type="text" class="form-control" value="Male" id="categoryID">
+                                            </div>
+                                            <div class="form-group">
+                                              <label for="categoryName">Category Name</label>
+                                              <input type="text" class="form-control" value="M" id="categoryName">
+                                            </div>
+
+                                            <!-- Add more form fields as needed -->
+                                          </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                          <button type="button" class="btn btn-primary save-button" id="saveButton">Save change</button>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                <div class="modal fade" id="deleteConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
+                                  <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <h5 class="modal-title" id="deleteConfirmationModalLabel">Confirmation</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                        </button>
+                                      </div>
+                                      <div class="modal-body">
+                                        Are you sure you want to delete?
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-dark"  data-dismiss="modal">Cancel</button>
+                                        <button type="button" class="btn btn-danger" id="confirmDeleteButton">Delete</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
                                 <!-- Insert new product Modal -->
                                 <div class="modal fade" id="addProductModal" tabindex="-1" role="dialog" aria-labelledby="addProductModalLabel" aria-hidden="true">
                                   <div class="modal-dialog" role="document">
@@ -454,26 +425,25 @@
                                       </div>
                                       <div class="modal-body">
                                         <!-- Product form fields -->
-                                        <form>
+                                        <form method="POST" action="categoryTable.php">
                                           <div class="form-group">
                                             <label for="productId">Category Name</label>
-                                            <input type="text" class="form-control" id="productId" placeholder="Name">
+                                            <input type="text" class="form-control" id="productId" name="category_name" placeholder="Name">
                                           </div>
                                           
                                           <div class="form-group">
                                             <label for="productStatus">Status</label> <br>
-                                            <div class="status-switch ">
-                                              <input type="checkbox" class="form-control switch-input pt-2" id="productStatus">
+                                            <div class="status-switch">
+                                              <input type="checkbox" class="form-control switch-input pt-2" id="productStatus" name="category_status">
                                               <label class="switch-label" for="productStatus"></label>
                                             </div>
                                           </div>
-                                          
-                                          
+
+                                          <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                            <button type="submit" class="btn btn-primary" name="save_category">Save</button>
+                                          </div>
                                         </form>
-                                      </div>
-                                      <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                        <button type="button" class="btn btn-primary">Save</button>
                                       </div>
                                     </div>
                                   </div>
@@ -529,7 +499,7 @@
                     <!-- ============================================================== -->
                     <!-- footer -->
                     <!-- ============================================================== -->
-                    <div class="footer">
+                    <!-- <div class="footer">
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
@@ -544,7 +514,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- ============================================================== -->
                     <!-- end footer -->
                     <!-- ============================================================== -->
@@ -567,20 +537,116 @@
             <script src="assets/libs/js/main-js.js"></script>
             <script>
               $(document).ready(function() {
-  $('#confirmDeleteButton').on('click', function() {
-    // Perform delete action here
-    // You can make an AJAX request to delete the item or handle it as needed
-    console.log('Delete action confirmed');
-    
-    // Close the modal
-    $('#deleteConfirmationModal').modal('hide');
-  });
+              $('#confirmDeleteButton').on('click', function() {
+                // Perform delete action here
+                // You can make an AJAX request to delete the item or handle it as needed
+                console.log('Delete action confirmed');
+                
+                // Close the modal
+                $('#deleteConfirmationModal').modal('hide');
+              });
 
-});
-$(document).ready(function() {
-    $('.switch-input').bootstrapSwitch();
-  });
+            });
+            $(document).ready(function() {
+                $('.switch-input').bootstrapSwitch();
+              });
             </script>
+
+
+<script>
+  // Tangkap elemen input pencarian
+  const searchInput = document.getElementById('searchInput');
+  // Tangkap elemen tbody tabel
+  const tableBody = document.getElementById('tableBody');
+
+  // Tambahkan event listener untuk perubahan input pencarian
+  searchInput.addEventListener('input', function () {
+      const keyword = searchInput.value.toLowerCase(); // Ambil nilai input pencarian dan ubah menjadi lowercase
+      const rows = tableBody.getElementsByTagName('tr'); // Ambil semua baris dalam tbody
+
+      // Loop melalui setiap baris dan sembunyikan yang tidak cocok dengan keyword
+      Array.from(rows).forEach(function (row) {
+          const categoryName = row.getElementsByTagName('td')[1].textContent.toLowerCase(); // Ambil teks pada kolom nama shipper
+          if (categoryName.includes(keyword)) {
+              row.style.display = ''; // Tampilkan baris jika cocok dengan keyword
+          } else {
+              row.style.display = 'none'; // Sembunyikan baris jika tidak cocok dengan keyword
+          }
+      });
+  });
+</script>
+
+  <script>
+    // Mengambil tombol "Delete" yang diklik
+    var deleteButtons = document.querySelectorAll('.btn-danger');
+
+    // Menambahkan event listener untuk setiap tombol "Delete"
+    deleteButtons.forEach(function(button) {
+      button.addEventListener('click', function() {
+        // Mengambil ID category yang akan dihapus
+        var categoryId = button.getAttribute('data-id');
+
+        // Menambahkan nilai ID category ke tombol "Delete" di modal konfirmasi
+        document.getElementById('confirmDeleteButton').setAttribute('data-id', categoryId);
+      });
+    });
+
+    // Menambahkan event listener untuk tombol "Delete" di modal konfirmasi
+    document.getElementById('confirmDeleteButton').addEventListener('click', function() {
+      // Mengambil ID category yang akan dihapus dari tombol "Delete" di modal konfirmasi
+      var categoryId = this.getAttribute('data-id');
+
+      // Redirect ke halaman dengan parameter category_id untuk melakukan delete
+      window.location.href = 'categoryTable.php?category_id=' + categoryId;
+    });
+  </script>
+  <script>
+    $(document).ready(function() {
+      $('.edit-button').click(function() {
+        var categoryId = $(this).data('id');
+        var categoryName = $(this).data('name');
+  
+        $('#categoryID').val(categoryId);
+        $('#categoryName').val(categoryName);
+      });
+    });
+  </script>
+  <script>
+    $(document).ready(function() {
+      // Handle the click event of the "Save Change" button
+      $('#saveButton').click(function() {
+        // Retrieve the values from the form inputs
+        var categoryId = $('#categoryID').val();
+        var categoryName = $('#categoryName').val();
+  
+        // Perform an AJAX request to update the database
+        $.ajax({
+          type: 'POST',
+          url: 'categoryTable.php',
+          data: {
+            categoryId: categoryId,
+            categoryName: categoryName
+          },
+          success: function(response) {
+            // Handle the response after the update operation
+            console.log(response); // You can customize this based on your requirements
+  
+            // Close the modal after successful update
+            $('#editModal').modal('hide');
+  
+            // Refresh the table data
+            $('#tableBody').load('categoryTable.php');
+          },
+          error: function(xhr, status, error) {
+            // Handle the error if the update operation fails
+            console.log(error); // You can customize this based on your requirements
+          }
+        });
+      });
+    });
+  </script>
+  
+  
 </body>
  
 </html>

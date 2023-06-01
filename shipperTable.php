@@ -33,7 +33,7 @@ if ($result) {
     echo '<td>' . $row['shipper_area'] . '</td>';
     echo '<td>' . $row['shipper_phone'] . '</td>';
     echo '<td>';
-    echo '<button class="btn btn-primary btn-sm custom-btn" data-toggle="modal" data-target="#editModal" style="width: 70px; height: 40px;" title="Edit"><i class="fas fa-edit"></i></button>';
+    echo '<button class="btn btn-primary btn-sm custom-btn edit-button" data-toggle="modal" data-target="#editModal" data-id="' . $row['shipper_id'] . '" data-name="' . $row['shipper_name'] . '" data-area="' . $row['shipper_area'] . '" data-phone="' . $row['shipper_phone'] . '"style="width: 70px; height: 40px;" title="Edit"><i class="fas fa-edit"></i></button>';
     echo '<button class="btn btn-danger btn-sm custom-btn" data-toggle="modal" data-target="#deleteConfirmationModal" data-id="' . $row['shipper_id'] . '" style="width: 70px; height: 40px;" title="Delete"><i class="fas fa-trash"></i></button>';
     echo '</td>';
     echo '</tr>';
@@ -63,6 +63,25 @@ if (isset($_POST['save_shipper'])) {
     }
 
 }
+
+if (isset($_POST['shipperId']) && isset($_POST['shipperName'])) {
+  $shipperId = $_POST['shipperId'];
+  $shipperName = $_POST['shipperName'];
+  $shipperArea = $_POST['shipperArea'];
+  $shipperPhone = $_POST['shipperPhone'];
+
+  // Perform the update query
+  $query = "UPDATE shipper SET shipper_name = '$shipperName', shipper_area = '$shipperArea', shipper_phone = '$shipperPhone' WHERE shipper_id = '$shipperId'";
+  $result = mysqli_query($conn, $query);
+
+  // Check if the query was successful
+  if ($result) {
+    echo 'Shipper updated successfully'; // Return a success message
+  } else {
+    echo 'Error: ' . mysqli_error($conn); // Return an error message
+  }
+}
+
 // Menutup koneksi database
 mysqli_close($conn);
 ?>

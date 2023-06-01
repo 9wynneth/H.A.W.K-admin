@@ -374,102 +374,94 @@
                               </div>
                           </div>
                         </div>
-                                  <!-- Edit Modal -->
-<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="editModalLabel">Edit Product</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <!-- Edit form content goes here -->
-        <form>
-          <div class="form-group">
-            <label for="shipperID">Product ID</label>
-            <input type="text" class="form-control" value="T002" id="categoryName">
-          </div>
-          <div class="form-group">
-            <label for="shipperName">Product Name</label>
-            <input type="text" class="form-control" value="Ray-Ban RB6503D 2509 s55" id="categoryID">
-          </div>
-          <div class="form-group">
-            <label for="shipperName">Description</label>
-            <input type="text" class="form-control" value="W= 55 mm
-            B = 18 mm
-            H = 50 mm
-            L = 145 mm
-            M = Metal" id="categoryID">
-          </div>
-          <div class="form-group">
-            <label for="shipperArea">Product Category</label>
-            <select class="form-control" id="categoryID">
-                <option value="Barat" selected>Male</option>
-                <option value="Timur">Female</option>
-                <option value="Selatan">Unisex</option>
-              </select>
-          </div>
-          <div class="form-group">
-            <label for="shipperName">Brand</label>
-            <input type="text" class="form-control" value="Ray-Ban" id="categoryID">
-          </div>
-          <div class="form-group">
-            <label for="shipperName">Color</label>
-            <input type="text" class="form-control" value="Black" id="categoryID">
-          </div>
-          <div class="form-group">
-            <label for="productImage">Upload Picture</label>
-            <input type="file" class="form-control-file purple-browse" value="../assets/images/Ray-Ban RB6503D 2509 s55.jpg" id="Picture">
-          </div>
-          <div class="form-group">
-            <label for="productQuantity">Quantity</label>
-            <input type="number" class="form-control" id="productQuantity" placeholder="10">
-          </div>
-          <div class="form-group">
-            <label for="productPrice">Price</label>
-            <input type="number" class="form-control" id="productPrice" placeholder="1700000">
-          </div>
+                        <!-- Edit Modal -->
+                        <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="editModalLabel">Edit Product</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body">
+                                <!-- Edit form content goes here -->
+                                <form>
+                                  <div class="form-group">
+                                    <label for="productID">Product ID</label>
+                                    <input type="text" class="form-control" value="T002" id="productID">
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="productName">Product Name</label>
+                                    <input type="text" class="form-control" value="Ray-Ban RB6503D 2509 s55" id="productName">
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="productDescription">Description</label>
+                                    <input type="text" class="form-control" value="W= 55 mm
+                                    B = 18 mm
+                                    H = 50 mm
+                                    L = 145 mm
+                                    M = Metal" id="productDescription">
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="productBrand">Brand</label>
+                                    <input type="text" class="form-control" value="Ray-Ban" id="productBrand">
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="productColor">Color</label>
+                                    <input type="text" class="form-control" value="Black" id="productColor">
+                                  </div>
+                                  <!-- <div class="form-group">
+                                    <label for="productPicture">Upload Picture</label>
+                                    <input type="file" class="form-control-file purple-browse" value="../assets/images/Ray-Ban RB6503D 2509 s55.jpg" id="productPicture">
+                                  </div> -->
+                                  <div class="form-group">
+                                    <label for="productQuantity">Quantity</label>
+                                    <input type="number" class="form-control" id="productQuantity" placeholder="10">
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="productPrice">Price</label>
+                                    <input type="number" class="form-control" id="productPrice" placeholder="1700000">
+                                  </div>
 
-          <div class="form-group">
-            <label for="categoryId">Anti-radiasi</label>
-            <select class="form-control" id="Category">
-              <!-- Options for category dropdown -->
-              <option value="2">Yes</option>
-              <option value="1" selected>No</option>
-              <!-- Add more options as needed -->
-            </select>
-          </div>
-          <!-- Add more form fields as needed -->
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-primary "><span class="d-flex align-items-center" class="d-flex align-items-center text-center">Save change</span></button>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="modal fade" id="deleteConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="deleteConfirmationModalLabel">Confirmation</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        Are you sure you want to delete?
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-dark"  data-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-danger" id="confirmDeleteButton">Delete</button>
-      </div>
-    </div>
-  </div>
-</div>
+                                  <div class="form-group">
+                                    <label for="antiRadiasi">Anti-radiasi</label>
+                                    <select class="form-control" id="antiRadiasi">
+                                      <!-- Options for category dropdown -->
+                                      <option value="1">Yes</option>
+                                      <option value="0">No</option>
+                                      <!-- Add more options as needed -->
+                                    </select>
+                                  </div>
+                                  <!-- Add more form fields as needed -->
+                                </form>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                <button type="button" class="btn btn-primary save-button" id="saveButton">Save change</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="modal fade" id="deleteConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="deleteConfirmationModalLabel">Confirmation</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body">
+                                Are you sure you want to delete?
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-dark"  data-dismiss="modal">Cancel</button>
+                                <button type="button" class="btn btn-danger" id="confirmDeleteButton">Delete</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                                 <!-- Insert new product Modal -->
                                 <div class="modal fade" id="addProductModal" tabindex="-1" role="dialog" aria-labelledby="addProductModalLabel" aria-hidden="true">
                                   <div class="modal-dialog" role="document">
@@ -700,6 +692,80 @@
 
                 // Redirect ke halaman dengan parameter product_id untuk melakukan delete
                 window.location.href = 'productTable.php?product_id=' + productId;
+              });
+            </script>
+
+            <script>
+              $(document).ready(function() {
+                $('.edit-button').click(function() {
+                  var productId = $(this).data('id');
+                  var productName = $(this).data('name');
+                  var productDescription = $(this).data('desc');
+                  var productBrand = $(this).data('brand');
+                  var productColor = $(this).data('color');
+                  // var productPicture = $(this).data('picture');
+                  var productQuantity = $(this).data('qty');
+                  var productPrice = $(this).data('price');
+                  var antiRadiasi = $(this).data('antiRadiasi');
+
+                  $('#productID').val(productId);
+                  $('#productName').val(productName);
+                  $('#productDescription').val(productDescription);
+                  $('#productBrand').val(productBrand);
+                  $('#productColor').val(productColor);
+                  // $('#productPicture').val(productPicture);
+                  $('#productQuantity').val(productQuantity);
+                  $('#productPrice').val(productPrice);
+                  $('#antiRadiasi').val(antiRadiasi);
+                });
+              });
+            </script>
+            <script>
+              $(document).ready(function() {
+                // Handle the click event of the "Save Change" button
+                $('#saveButton').click(function() {
+                  // Retrieve the values from the form inputs
+                  var productId = $('#productID').val();
+                  var productName = $('#productName').val();
+                  var productDescription = $('#productDescription').val();
+                  var productBrand = $('#productBrand').val();
+                  var productColor = $('#productColor').val();
+                  // var productPicture = $('#productPicture').val();
+                  var productQuantity = $('#productQuantity').val();
+                  var productPrice = $('#productPrice').val();
+                  var antiRadiasi = $('#antiRadiasi').val();
+
+                  // Perform an AJAX request to update the database
+                  $.ajax({
+                    type: 'POST',
+                    url: 'productTable.php',
+                    data: {
+                      productId: productId,
+                      productName: productName,
+                      productDescription: productDescription,
+                      productBrand: productBrand,
+                      productColor: productColor,
+                      // productPicture: productPicture,
+                      productQuantity: productQuantity,
+                      productPrice: productPrice,
+                      antiRadiasi: antiRadiasi
+                    },
+                    success: function(response) {
+                      // Handle the response after the update operation
+                      console.log(response); // You can customize this based on your requirements
+
+                      // Close the modal after successful update
+                      $('#editModal').modal('hide');
+
+                      // Refresh the table data
+                      $('#tableBody').load('productTable.php');
+                    },
+                    error: function(xhr, status, error) {
+                      // Handle the error if the update operation fails
+                      console.log(error); // You can customize this based on your requirements
+                    }
+                  });
+                });
               });
             </script>
 

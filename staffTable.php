@@ -32,7 +32,7 @@ if ($result) {
     echo '<td>' . $row['staff_name'] . '</td>';
     echo '<td>' . $row['staff_role'] . '</td>';
     echo '<td>';
-    echo '<button class="btn btn-primary btn-sm custom-btn" data-toggle="modal" data-target="#editModal" style="width: 70px; height: 40px;" title="Edit"><i class="fas fa-edit"></i></button>';
+    echo '<button class="btn btn-primary btn-sm custom-btn edit-button" data-toggle="modal" data-target="#editModal" data-id="' . $row['staff_id'] . '" data-name="' . $row['staff_name'] . '" data-role="' . $row['staff_role'] . '" style="width: 70px; height: 40px;" title="Edit"><i class="fas fa-edit"></i></button>';
     echo '<button class="btn btn-danger btn-sm custom-btn" data-toggle="modal" data-target="#deleteConfirmationModal" data-id="' . $row['staff_id'] . '" style="width: 70px; height: 40px;" title="Delete"><i class="fas fa-trash"></i></button>';
     echo '</td>';
     echo '</tr>';
@@ -61,6 +61,24 @@ if (isset($_POST['save_staff'])) {
     }
 
 }
+
+if (isset($_POST['staffId']) && isset($_POST['staffName'])) {
+  $staffId = $_POST['staffId'];
+  $staffName = $_POST['staffName'];
+  $staffRole = $_POST['staffRole'];
+
+  // Perform the update query
+  $query = "UPDATE staff SET staff_name = '$staffName', staff_role = '$staffRole' WHERE staff_id = '$staffId'";
+  $result = mysqli_query($conn, $query);
+
+  // Check if the query was successful
+  if ($result) {
+    echo 'Staff updated successfully'; // Return a success message
+  } else {
+    echo 'Error: ' . mysqli_error($conn); // Return an error message
+  }
+}
+
 // Menutup koneksi database
 mysqli_close($conn);
 ?>
