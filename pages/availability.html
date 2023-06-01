@@ -12,6 +12,25 @@
     <link rel="stylesheet" href="../assets/vendor/fonts/fontawesome/css/fontawesome-all.css" />
     <!-- favicon -->
     <link href="../assets/images/favicon (3).ico" rel="icon" class="favIcon" />
+
+    <link href="DataTables/datatables.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" rel="stylesheet" />
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="DataTables/datatables.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="DataTables/datatables.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $('#example').DataTable(); // Initialize DataTables
+  });
+</script>
+
+  
+
   </head>
 
   <body>
@@ -368,6 +387,7 @@
                       </div>
                     </div>
                   </div>
+                </div>
 
                   <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                     <div class="card-body">
@@ -665,5 +685,26 @@
     <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
     <script src="../assets/vendor/slimscroll/jquery.slimscroll.js"></script>
     <script src="../assets/libs/js/main-js.js"></script>
+    <script>
+      $(document).ready(function () {
+        $('#example').DataTable();
+      function loadData(query) {
+           // Remove the active class from all buttons
+        $(".btn-primary").removeClass("active");
+          $.ajax({
+            url: "data.php",
+            method: "POST",
+            data: { query: query },
+            success: function (response) {
+              $("#tableContainer").html(response);
+              $("#example2").DataTable({
+                searching: true,
+                ordering: true,
+              });
+            },
+          });
+        }
+    });
+    </script>
   </body>
 </html>
