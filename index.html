@@ -319,11 +319,9 @@
                       <div class="metric-value d-inline-block">
                         <h1 class="mb-1"><span id="totalRevenue"></span></h1>
                       </div>
-                      <div class="metric-label d-inline-block float-right font-weight-bold">
-                        <span id="arrow-icon"></span>
-                      </div>
+
                     </div>
-                    <div id="sparkline-revenue"></div>
+
                   </div>
                 </div>
                 <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
@@ -333,11 +331,9 @@
                       <div class="metric-value d-inline-block">
                         <h1 class="mb-1"><span id="itemsSold"></span></h1>
                       </div>
-                      <div class="metric-label d-inline-block float-right text-success font-weight-bold">
-                        <span><i class="fa fa-fw fa-arrow-up"></i></span><span>5.86%</span>
-                      </div>
+
                     </div>
-                    <div id="sparkline-revenue2"></div>
+  
                   </div>
                 </div>
                 <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
@@ -347,12 +343,10 @@
                       <div class="metric-value d-inline-block">
                         <h1 class="mb-1"><span id="completedOrders"></span></h1>
                       </div>
-                      <div class="metric-label d-inline-block float-right text-success font-weight-bold">
-                        <span><i class="fa fa-fw fa-arrow-up"></i></span><span>5.86%</span>
-                      </div>
+
                       
                     </div>
-                    <div id="sparkline-revenue3"></div>
+
                   </div>
                 </div>
                 <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
@@ -362,11 +356,9 @@
                       <div class="metric-value d-inline-block">
                         <h1 class="mb-1"><span id="totCust"></span></h1>
                       </div>
-                      <div class="metric-label d-inline-block float-right text-secondary font-weight-bold">
-                        <span>-1.72%</span>
-                      </div>
+
                     </div>
-                    <div id="sparkline-revenue4"></div>
+       
                   </div>
                 </div>
               </div>
@@ -621,20 +613,9 @@
     <script src="assets/libs/js/dashboard-ecommerce.js"></script>
     <script>
       $(document).ready(function() {
-        var result = 10; // Replace with the actual result from your database
 
-// Get the arrow-icon element
-var arrowIcon = document.getElementById("arrow-icon");
-
-// Check if the result is positive
-if (result > 0) {
-  arrowIcon.innerHTML = '<i class="fa fa-fw fa-arrow-up text-success"></i>';
-} else {
-  arrowIcon.innerHTML = '<i class="fa fa-fw"></i>';
-  arrowIcon.classList.add("metric-label d-inline-block float-right text-secondary font-weight-bold");
-}
   
-    fetch('chatCategory.php')
+    fetch('chartCategory.php')
         .then(response => response.json())
         .then(data => {
             // Separate the category names and sums
