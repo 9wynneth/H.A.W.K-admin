@@ -3,7 +3,7 @@
     $(function() {
         // Mengambil data dari getData.php
         $.ajax({
-            url: 'getData.php',
+            url: 'lineGraph.php',
             method: 'GET',
             dataType: 'json',
             success: function(response) {
@@ -28,7 +28,7 @@
         function drawChart(categoryData, soldData) {
             // Membuat grafik C3 menggunakan data dari getData.php
             var chart = c3.generate({
-                bindto: "#c3chart_area",
+          
                 data: {
                     columns: [
                         ['Category'].concat(categoryData),

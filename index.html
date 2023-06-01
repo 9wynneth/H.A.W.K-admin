@@ -17,11 +17,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-ABC123" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" integrity="sha384-ABC123" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.3/font/bootstrap-icons.css" integrity="sha384-ABC123" crossorigin="anonymous" />
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <title>H.A.W.K Admin page</title>
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- favicon -->
     <link href="assets/images/favicon (3).ico" rel="icon" class="favIcon" />
 
@@ -319,8 +319,8 @@
                       <div class="metric-value d-inline-block">
                         <h1 class="mb-1"><span id="totalRevenue"></span></h1>
                       </div>
-                      <div class="metric-label d-inline-block float-right text-success font-weight-bold">
-                        <span><i class="fa fa-fw fa-arrow-up"></i></span><span>5.86%</span>
+                      <div class="metric-label d-inline-block float-right font-weight-bold">
+                        <span id="arrow-icon"></span>
                       </div>
                     </div>
                     <div id="sparkline-revenue"></div>
@@ -535,7 +535,7 @@
                     <h5 class="card-header">Total Revenue</h5>
                     <div class="card-body">
                       <div class="card-body">
-                        <div id="c3chart_area"></div>
+                        <canvas id="lineChart"></canvas>
                       </div>
                     </div>
                     <div class="card-footer">
@@ -620,7 +620,21 @@
     <script src="assets/vendor/charts/c3charts/C3chartjs.js"></script>
     <script src="assets/libs/js/dashboard-ecommerce.js"></script>
     <script>
-  fetch('chatCategory.php')
+      $(document).ready(function() {
+        var result = 10; // Replace with the actual result from your database
+
+// Get the arrow-icon element
+var arrowIcon = document.getElementById("arrow-icon");
+
+// Check if the result is positive
+if (result > 0) {
+  arrowIcon.innerHTML = '<i class="fa fa-fw fa-arrow-up text-success"></i>';
+} else {
+  arrowIcon.innerHTML = '<i class="fa fa-fw"></i>';
+  arrowIcon.classList.add("metric-label d-inline-block float-right text-secondary font-weight-bold");
+}
+  
+    fetch('chatCategory.php')
         .then(response => response.json())
         .then(data => {
             // Separate the category names and sums
@@ -651,6 +665,63 @@
             });
         })
         .catch(error => console.error(error));
+  
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState === 4 && this.status === 200) {
+                // Retrieve the data from the response
+                var data = JSON.parse(this.responseText);
+
+                // Prepare the datasets for the graph
+                var datasets = [];
+                var labels = [];
+                var genders = [];
+
+                // Iterate over the data and separate the datasets by gender
+                for (var i = 0; i < data.length; i++) {
+                    var row = data[i];
+
+                    // Add the month label
+                    if (labels.indexOf(row.month) === -1) {
+                        labels.push(row.month);
+                    }
+
+                    // Add the gender if it doesn't exist in the genders array
+                    if (genders.indexOf(row.customer_gender) === -1) {
+                        genders.push(row.customer_gender);
+                    }
+
+                    // Find the index of the gender in the genders array
+                    var genderIndex = genders.indexOf(row.customer_gender);
+
+                    // Initialize the dataset if it doesn't exist
+                    if (!datasets[genderIndex]) {
+                        datasets[genderIndex] = {
+                            label: row.customer_gender,
+                            data: [],
+                            fill: false
+                        };
+                    }
+
+                    // Add the revenue to the dataset
+                    datasets[genderIndex].data.push(row.total_revenue);
+                }
+
+                // Create the chart
+                var ctx = document.getElementById('lineChart').getContext('2d');
+                var chart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: labels,
+                        datasets: datasets
+                    }
+                });
+            }
+        };
+        xhttp.open("GET", "lineGraph.php", true);
+        xhttp.send();
+  });
+  
 
     var dSummary = "dashboardSummary.php";
     var recentOrdersUrl = "recentOrders.php";
@@ -757,6 +828,7 @@ fetch('topBrands.php')
   .catch(error => {
     console.log('Error fetching data:', error);
   });
+  
 
     </script>
   </body>
