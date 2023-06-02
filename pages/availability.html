@@ -16,6 +16,9 @@
     <link rel="stylesheet" type="text/css" href="../assets/vendor/datatables/css/buttons.bootstrap4.css">
     <link rel="stylesheet" type="text/css" href="../assets/vendor/datatables/css/select.bootstrap4.css">
     <link rel="stylesheet" type="text/css" href="../assets/vendor/datatables/css/fixedHeader.bootstrap4.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+
   </head>
 
   <body>
@@ -284,61 +287,7 @@
                         </div>
                         <div class="row">
                           <div class="col-sm-12">
-                            <table id="example1" class="table table-striped table-bordered second dataTable" style="width: 100%" role="grid" aria-describedby="example_info">
-                              <thead>
-                                <tr role="row">
-                                  <th class="sorting_asc" tabindex="0" aria-controls="example3" rowspan="1" colspan="1" style="width: 190.333px" aria-sort="ascending" aria-label="Name: activate to sort column descending">Product Name</th>
-                                  <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1" colspan="1" style="width: 100.333px" aria-label="Position: activate to sort column ascending">Category</th>
-                                  <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1" colspan="1" style="width: 120.3333px" aria-label="Office: activate to sort column ascending">Brand</th>
-                                  <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1" colspan="1" style="width: 90.3333px" aria-label="Age: activate to sort column ascending">Anti-radiasi</th>
-                                  <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1" colspan="1" style="width: 70.3333px" aria-label="Start date: activate to sort column ascending">Stock</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr role="row" class="odd">
-                                  <td class="sorting_1">Escada F ES VES422 0VA3 53</td>
-                                  <td>Female</td>
-                                  <td>Escada</td>
-                                  <td>No</td>
-                                  <td>0</td>
-                                </tr>
-                                <tr role="row" class="even">
-                                  <td class="sorting_1">Guess F GE 2783 021 54</td>
-                                  <td>Female</td>
-                                  <td>Guess</td>
-                                  <td>No</td>
-                                  <td>0</td>
-                                </tr>
-                                <tr role="row" class="odd">
-                                  <td class="sorting_1">Gucci F GU K 1357OJ 004 48</td>
-                                  <td>Unisex</td>
-                                  <td>Gucci</td>
-                                  <td>No</td>
-                                  <td>0</td>
-                                </tr>
-                                <tr role="row" class="even">
-                                  <td class="sorting_1">Illustro F IS SC961936 C2 51</td>
-                                  <td>Male</td>
-                                  <td>Illustro</td>
-                                  <td>Yes</td>
-                                  <td>0</td>
-                                </tr>
-                                <tr role="row" class="odd">
-                                  <td class="sorting_1">Prada VPR-13Y-F 2AZ-1O1 s56</td>
-                                  <td>Male</td>
-                                  <td>Prada</td>
-                                  <td>No</td>
-                                  <td>0</td>
-                                </tr>
-                                <tr role="row" class="even">
-                                  <td class="sorting_1">Ray-Ban RB6503D 2509 s55</td>
-                                  <td>Male</td>
-                                  <td>Ray-Ban</td>
-                                  <td>No</td>
-                                  <td>0</td>
-                                </tr>
-                              </tbody>
-                            </table>
+                            <div id="pertama"></div>
                           </div>
                         </div>
                         <div class="row">
@@ -362,67 +311,13 @@
                           </div>
             
                         </div>
+
                         <div class="row">
                           <div class="col-sm-12">
-                            <table id="example4" class="table table-striped table-bordered second dataTable" style="width: 100%" role="grid" aria-describedby="example_info">
-                              <thead>
-                                <tr role="row">
-                                  <th class="sorting_asc" tabindex="0" aria-controls="example3" rowspan="1" colspan="1" style="width: 190.333px" aria-sort="ascending" aria-label="Name: activate to sort column descending">Product Name</th>
-                                  <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1" colspan="1" style="width: 100.333px" aria-label="Position: activate to sort column ascending">Category</th>
-                                  <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1" colspan="1" style="width: 120.3333px" aria-label="Office: activate to sort column ascending">Brand</th>
-                                  <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1" colspan="1" style="width: 90.3333px" aria-label="Age: activate to sort column ascending">Anti-radiasi</th>
-                                  <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1" colspan="1" style="width: 70.3333px" aria-label="Start date: activate to sort column ascending">Stock</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr role="row" class="odd">
-                                  <td class="sorting_1">Escada F ES VES422 0VA3 53</td>
-                                  <td>Female</td>
-                                  <td>Escada</td>
-                                  <td>No</td>
-                                  <td>2</td>
-                                </tr>
-                                <tr role="row" class="even">
-                                  <td class="sorting_1">Guess F GE 2783 021 54</td>
-                                  <td>Female</td>
-                                  <td>Guess</td>
-                                  <td>No</td>
-                                  <td>2</td>
-                                </tr>
-                                <tr role="row" class="odd">
-                                  <td class="sorting_1">Gucci F GU K 1357OJ 004 48</td>
-                                  <td>Unisex</td>
-                                  <td>Gucci</td>
-                                  <td>No</td>
-                                  <td>2</td>
-                                </tr>
-                                <tr role="row" class="even">
-                                  <td class="sorting_1">Illustro F IS SC961936 C2 51</td>
-                                  <td>Male</td>
-                                  <td>Illustro</td>
-                                  <td>Yes</td>
-                                  <td>1</td>
-                                </tr>
-                                <tr role="row" class="odd">
-                                  <td class="sorting_1">Prada VPR-13Y-F 2AZ-1O1 s56</td>
-                                  <td>Male</td>
-                                  <td>Prada</td>
-                                  <td>No</td>
-                                  <td>1</td>
-                                </tr>
-                                <tr role="row" class="even">
-                                  <td class="sorting_1">Ray-Ban RB6503D 2509 s55</td>
-                                  <td>Male</td>
-                                  <td>Ray-Ban</td>
-                                  <td>No</td>
-                                  <td>1</td>
-                                </tr>
-                              </tbody>
-                            </table>
+                            <div id="kedua"></div>
                           </div>
                         </div>
-                        <div class="row">
-                        </div>
+
                       </div>
                     </div>
                   </div>
@@ -432,78 +327,18 @@
                       <div class="table-responsive">
                         <div class="row">
                           <div class="col-sm-12 col-md-6">
-
                           </div>
-
                         </div>
                         <div class="row">
                           <div class="col-sm-12">
-                            <table id="example3" class="table table-striped table-bordered second dataTable" style="width: 100%" role="grid" aria-describedby="example_info">
-                              <thead>
-                                <tr role="row">
-                                  <th class="sorting_asc" tabindex="0" aria-controls="example3" rowspan="1" colspan="1" style="width: 190.333px" aria-sort="ascending" aria-label="Name: activate to sort column descending">Product Name</th>
-                                  <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1" colspan="1" style="width: 100.333px" aria-label="Position: activate to sort column ascending">Category</th>
-                                  <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1" colspan="1" style="width: 120.3333px" aria-label="Office: activate to sort column ascending">Brand</th>
-                                  <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1" colspan="1" style="width: 90.3333px" aria-label="Age: activate to sort column ascending">Anti-radiasi</th>
-                                  <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1" colspan="1" style="width: 70.3333px" aria-label="Start date: activate to sort column ascending">Stock</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr role="row" class="odd">
-                                  <td class="sorting_1">Escada F ES VES422 0VA3 53</td>
-                                  <td>Female</td>
-                                  <td>Escada</td>
-                                  <td>No</td>
-                                  <td>12</td>
-                                </tr>
-                                <tr role="row" class="even">
-                                  <td class="sorting_1">Guess F GE 2783 021 54</td>
-                                  <td>Female</td>
-                                  <td>Guess</td>
-                                  <td>No</td>
-                                  <td>10</td>
-                                </tr>
-                                <tr role="row" class="odd">
-                                  <td class="sorting_1">Gucci F GU K 1357OJ 004 48</td>
-                                  <td>Unisex</td>
-                                  <td>Gucci</td>
-                                  <td>No</td>
-                                  <td>10</td>
-                                </tr>
-                                <tr role="row" class="even">
-                                  <td class="sorting_1">Illustro F IS SC961936 C2 51</td>
-                                  <td>Male</td>
-                                  <td>Illustro</td>
-                                  <td>Yes</td>
-                                  <td>8</td>
-                                </tr>
-                                <tr role="row" class="odd">
-                                  <td class="sorting_1">Prada VPR-13Y-F 2AZ-1O1 s56</td>
-                                  <td>Male</td>
-                                  <td>Prada</td>
-                                  <td>No</td>
-                                  <td>7</td>
-                                </tr>
-                                <tr role="row" class="even">
-                                  <td class="sorting_1">Ray-Ban RB6503D 2509 s55</td>
-                                  <td>Male</td>
-                                  <td>Ray-Ban</td>
-                                  <td>No</td>
-                                  <td>5</td>
-                                </tr>
-                              </tbody>
-                            </table>
-                          </div>
-                        </div>
-                        <div class="row">
-
-                          <div class="col-sm-12 col-md-7">
-                  
+                              <div id="ketiga"></div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
+
+
                 </div>
               </div>
             </div>
@@ -624,6 +459,35 @@
     <script src="https://cdn.datatables.net/rowgroup/1.0.4/js/dataTables.rowGroup.min.js"></script>
     <script src="https://cdn.datatables.net/select/1.2.7/js/dataTables.select.min.js"></script>
     <script src="https://cdn.datatables.net/fixedheader/3.1.5/js/dataTables.fixedHeader.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+  
+    <script>
+      
+    var sufficientStockURL = "sufficientStock.php";
+    var limitedStockURL = 'limitedStock.php';
+    var zeroStockURL = 'zeroStock.php';
 
+function loadData(url, query, targetElement) {
+  $.ajax({
+    url: url,
+    method: "POST",
+    data: { query: query },
+    success: function(response) {
+      $(targetElement).html(response);
+    },
+  });
+}
+
+var outOfStockQ = "SELECT p.product_name, c.category_name, p.product_brand, p.anti_radiasi, p.product_quantity FROM product p, category c WHERE p.category_id = c.category_id AND p.product_quantity <= 0;"
+loadData(zeroStockURL, outOfStockQ, "#pertama");
+var limitedStockQ = "SELECT p.product_name, c.category_name, p.product_brand, p.anti_radiasi, p.product_quantity FROM product p, category c WHERE p.category_id = c.category_id AND p.product_quantity <= 2 and p.product_quantity >0;"
+loadData(limitedStockURL, limitedStockQ, "#kedua");
+
+
+var suffStockQ = "SELECT p.product_name, c.category_name, p.product_brand, p.anti_radiasi, p.product_quantity FROM product p, category c WHERE p.category_id = c.category_id AND p.product_quantity > 2;"
+loadData(sufficientStockURL, suffStockQ, "#ketiga");
+    </script>
   </body>
 </html>

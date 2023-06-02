@@ -30,12 +30,6 @@ if ($result->num_rows > 0) {
 // Close the connection
 $conn->close();
 
-
-                            
-                    
-                       
- 
-
 // Generate the HTML code for the table header
 $html = '<table class="table no-wrap p-table">
 <thead class="bg-light"> <tr>';
