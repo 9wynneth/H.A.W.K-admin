@@ -2,9 +2,9 @@
   include 'connection.php';
   
   // Fetch data from the database
-  $sql = "SELECT order_detail.order_detail_created, SUM(order_detail.price * order_detail.quantity) AS total_revenue 
-          FROM order_detail 
-          GROUP BY order_detail.order_detail_id";
+  $sql = "SELECT date(od.order_detail_created) as order_detail_created, SUM(od.price * od.quantity) AS total_revenue 
+  FROM order_detail od
+  GROUP BY day(od.order_detail_created);";
   $result = $conn->query($sql);
 
   // Process the result and generate JSON

@@ -647,60 +647,7 @@
         })
         .catch(error => console.error(error));
   
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-            if (this.readyState === 4 && this.status === 200) {
-                // Retrieve the data from the response
-                var data = JSON.parse(this.responseText);
-
-                // Prepare the datasets for the graph
-                var datasets = [];
-                var labels = [];
-                var genders = [];
-
-                // Iterate over the data and separate the datasets by gender
-                for (var i = 0; i < data.length; i++) {
-                    var row = data[i];
-
-                    // Add the month label
-                    if (labels.indexOf(row.month) === -1) {
-                        labels.push(row.month);
-                    }
-
-                    // Add the gender if it doesn't exist in the genders array
-                    if (genders.indexOf(row.customer_gender) === -1) {
-                        genders.push(row.customer_gender);
-                    }
-
-                    // Find the index of the gender in the genders array
-                    var genderIndex = genders.indexOf(row.customer_gender);
-
-                    // Initialize the dataset if it doesn't exist
-                    if (!datasets[genderIndex]) {
-                        datasets[genderIndex] = {
-                            label: row.customer_gender,
-                            data: [],
-                            fill: false
-                        };
-                    }
-
-                    // Add the revenue to the dataset
-                    datasets[genderIndex].data.push(row.total_revenue);
-                }
-
-                // Create the chart
-                var ctx = document.getElementById('lineChart').getContext('2d');
-                var chart = new Chart(ctx, {
-                    type: 'line',
-                    data: {
-                        labels: labels,
-                        datasets: datasets
-                    }
-                });
-            }
-        };
-        xhttp.open("GET", "lineGraph.php", true);
-        xhttp.send();
+        
   });
   
 
