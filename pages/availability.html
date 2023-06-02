@@ -16,6 +16,9 @@
     <link rel="stylesheet" type="text/css" href="../assets/vendor/datatables/css/buttons.bootstrap4.css">
     <link rel="stylesheet" type="text/css" href="../assets/vendor/datatables/css/select.bootstrap4.css">
     <link rel="stylesheet" type="text/css" href="../assets/vendor/datatables/css/fixedHeader.bootstrap4.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.7.1/css/buttons.dataTables.min.css">
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
     <style>
@@ -346,6 +349,14 @@
                 </ul>
                 <div class="tab-content" id="myTabContent">
                   <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <div class="col-sm-12 col-md-6">
+                      <div class="dt-buttons mt-2">          
+                      <button class="btn btn-outline-light buttons-copy buttons-html5" tabindex="0" aria-controls="example" type="button">
+                        <span>Copy</span></button> 
+                        <button class="btn btn-outline-light buttons-excel buttons-html5" tabindex="0" aria-controls="example" type="button">
+                          <span>Excel</span></button> <button class="btn btn-outline-light buttons-pdf buttons-html5" tabindex="0" aria-controls="example" type="button">
+                            <span>PDF</span></button> <button class="btn btn-outline-light buttons-print" tabindex="0" aria-controls="example" type="button">
+                              <span>Print</span></button></div></div>
                     <div class="card-body">
                       <div class="table-responsive">
                         <div class="row">
@@ -371,8 +382,10 @@
 
                   <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                     <div class="card-body">
+                      
                       <div class="table-responsive">
                         <div class="row">
+
                           <div class="col-sm-12 col-md-6">
 
                           </div>
@@ -527,10 +540,22 @@
     <script src="https://cdn.datatables.net/select/1.2.7/js/dataTables.select.min.js"></script>
     <script src="https://cdn.datatables.net/fixedheader/3.1.5/js/dataTables.fixedHeader.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.print.min.js"></script>
+
+
   
     <script>
+ $(document).ready(function() {
+            var table = $('table.second').DataTable({
+                lengthChange: false,
+                buttons: ['copy', 'excel', 'pdf', 'print']
+            });
+
+            table.buttons().container().appendTo('#example .col-md-6:eq(0)');
+        });
       
     var sufficientStockURL = "sufficientStock.php";
     var limitedStockURL = 'limitedStock.php';
@@ -555,6 +580,7 @@ loadData(limitedStockURL, limitedStockQ, "#kedua");
 
 var suffStockQ = "SELECT p.product_name, c.category_name, p.product_brand, p.anti_radiasi, p.product_quantity FROM product p, category c WHERE p.category_id = c.category_id AND p.product_quantity > 2;"
 loadData(sufficientStockURL, suffStockQ, "#ketiga");
+
     </script>
   </body>
 </html>
