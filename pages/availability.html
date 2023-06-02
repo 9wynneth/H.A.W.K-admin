@@ -18,7 +18,74 @@
     <link rel="stylesheet" type="text/css" href="../assets/vendor/datatables/css/fixedHeader.bootstrap4.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+    <style>
+            .dataTables_wrapper .dataTables_paginate .paginate_button:hover,
+      .dataTables_wrapper .dataTables_paginate .paginate_button:active {
+        background-image: linear-gradient(to right, #5969ff, #717fe0) !important;
+        color: white !important;
+      }
 
+      .button-space {
+        margin-left: 10px;
+        margin-right: 10px; 
+        margin-bottom: 20px;
+      }
+
+
+      .dataTables_wrapper .dataTables_paginate .paginate_button:hover,
+      .dataTables_wrapper .dataTables_paginate .paginate_button:active {
+        background-image: linear-gradient(to right, #5969ff, #717fe0) !important;
+        color: white !important;
+      }
+
+      .dataTables_wrapper .dataTables_paginate .paginate_button:hover span,
+      .dataTables_wrapper .dataTables_paginate .paginate_button:active {
+        color: white !important;
+        background-color: #5969ff !important;
+      }
+
+      .dataTables_wrapper .dataTables_paginate .paginate_button:hover,
+      .dataTables_wrapper .dataTables_paginate .paginate_button:focus,
+      .dataTables_wrapper .dataTables_paginate .paginate_button:active {
+        color: white !important;
+      }
+
+      .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+        color: white !important;
+        border: 1px solid rgba(0, 0, 0, 0.3);
+        background-color: rgba(230, 230, 230, 0.1);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(230, 230, 230, 0.1)), color-stop(100%, rgba(0, 0, 0, 0.1)));
+        background: -webkit-linear-gradient(top, rgba(230, 230, 230, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%);
+        background: -moz-linear-gradient(top, rgba(230, 230, 230, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%);
+        background: -ms-linear-gradient(top, rgba(230, 230, 230, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%);
+        background: -o-linear-gradient(top, rgba(230, 230, 230, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%);
+        background: linear-gradient(to bottom, rgba(230, 230, 230, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%);
+        background-image: linear-gradient(rgba(230, 230, 230, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%);
+      }
+
+      .dataTables_wrapper .dataTables_paginate .paginate_button:hover,
+      .dataTables_wrapper .dataTables_paginate .paginate_button:focus,
+      .dataTables_wrapper .dataTables_paginate .paginate_button:active {
+        color: white !important;
+      }
+
+      .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+        color: white !important;
+        border: 1px solid rgba(0, 0, 0, 0.3);
+        background-color: rgba(230, 230, 230, 0.1);
+        /* Rest of the background styles */
+      }
+
+            .btn-primary:hover {
+        transform: scale(1.05);
+        color: white;
+      }
+
+      .dataTables_wrapper .dataTables_paginate .paginate_button.previous:hover,
+      .dataTables_wrapper .dataTables_paginate .paginate_button.next:hover {
+        color: white !important;
+      }
+    </style>
   </head>
 
   <body>
