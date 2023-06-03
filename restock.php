@@ -110,7 +110,8 @@ echo $html;
 <!-- Initialize the DataTable -->
 <script>
 $(document).ready(function() {
-  $('#DataTables_Table_0_wrapper').DataTable();
+  
+  $('#DataTables_Table_0').DataTable();
 });
 $(".edit-button").click(function() {
   var productName = $(this).closest("tr").find("td:first").text();
