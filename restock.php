@@ -56,7 +56,7 @@ foreach ($data as $row) {
   // Add the button in the last column
   $html .= '<td>
               <button class="btn btn-sm btn-outline-primary edit-button">
-                <i class="fa fa-edit"></i> Edit
+                <i class="fa fa-edit"></i> Add
               </button>
             </td>';
   $html .= '</tr>';
@@ -95,7 +95,7 @@ $html .= '</tbody>
         </form>
         <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" id="saveChangesBtn" class="btn btn-primary">Save changes</button>
       </div>';
 
 // Return the HTML code
@@ -111,13 +111,38 @@ echo $html;
 <script>
 $(document).ready(function() {
   
-  $('#DataTables_Table_0').DataTable();
+  $('#DataTables_Table_0').DataTable({
+    searching: true
+  });
 });
 $(".edit-button").click(function() {
   var productName = $(this).closest("tr").find("td:first").text();
     $("#editModal .product-name").text(productName);
       $("#editModal").modal("show");
     });
+    $("#saveChangesBtn").click(function() {
+    var quantity = $("#quantity").val(); // Get the value from the input field
+    var productName = $("#editModal .product-name").text();
+    
+    // Send an AJAX request to update the stock column
+    $.ajax({
+  url: "updateStock.php",
+  method: "POST",
+  data: { product_name: productName, product_quantity: quantity },
+  success: function(response) {
+    // Handle the response from the server
+    alert(response);
+  },
+  error: function(xhr, status, error) {
+    // Handle the error
+    console.error(xhr.responseText);
+  }
+});
+
+
+    // Close the modal
+    $("#editModal").modal("hide");
+  });
 
 </script>
 
