@@ -31,10 +31,12 @@ if ($result->num_rows > 0) {
 $conn->close();
 
 // Generate the HTML code for the table
-$html = '<div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap4"><div class="row"><div class="col-sm-15 col-md-7"><div class="dataTables_length" id="DataTables_Table_0_length"><label>Show <select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0" class="custom-select custom-select-sm form-control form-control-sm"><option value="5">5</option><option value="10">10</option><option value="20">20</option><option value="50">50</option></select> </label></div></div><div class="col-sm-12 col-md-6"><div id="DataTables_Table_0_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control form-control-sm" placeholder="" aria-controls="DataTables_Table_0"></label></div></div></div><div class="row"><div class="col-sm-12"><table class="table table-striped table-bordered first dataTable" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
+$html = '<div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap4"></div><div class="row">
+<div class="col-sm-12">
+<table class="table table-striped table-bordered first dataTable" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
 
 <thead>
-  <tr role="row">';
+  <tr>';
 
 foreach ($columns as $column) {
   $html .= '<th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"  style="width: 95.633px;" aria-label="' . $column . ': activate to sort column descending">' . $column . '</th>';
@@ -60,7 +62,40 @@ foreach ($data as $row) {
 }
 
 $html .= '</tbody>
-';
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editModalLabel">Edit Item</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- Your edit form goes here -->
+        <form>
+          <div class="card">
+            <div class="card-header text-center">
+              <span class="splash-description">Please add item here.</span>
+            </div>
+            <div class="card-body">
+              <form>
+                <div class="form-group">
+                  <span class="product-name"> </span>
+                </div>
+                <div class="form-group">
+                  <input class="form-control form-control-lg" id="quantity" type="number" placeholder="Qty" />
+                </div>
+
+              </form>
+            </div>
+  
+          </div>
+        </form>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>';
 
 // Return the HTML code
 echo $html;
@@ -69,10 +104,19 @@ echo $html;
 <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
 
+
+
 <!-- Initialize the DataTable -->
 <script>
 $(document).ready(function() {
   $('#DataTables_Table_0_wrapper').DataTable();
 });
+$(".edit-button").click(function() {
+  var productName = $(this).closest("tr").find("td:first").text();
+    $("#editModal .product-name").text(productName);
+      $("#editModal").modal("show");
+    });
+
 </script>
+
 
