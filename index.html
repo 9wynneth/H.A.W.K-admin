@@ -683,12 +683,12 @@
     loadData(dSummary, ItemsSold, "#itemsSold")
     var completedOrders = "select count(order_id) as 'Completed orders' from `order` where order_updated is not null;"
     loadData(dSummary, completedOrders, "#completedOrders")
-    var totalCust = "select count(customer_id) as 'Total Customers' from customer;"
+    var totalCust = "select count(customer_id) as 'Total Customers' from customers;"
     loadData(dSummary, totalCust, "#totCust")
 
 
 
-    var recentOrder = "SELECT p.product_name AS 'Product Name', SUM(od.quantity) AS Quantity, CONCAT('Rp. ', FORMAT(p.product_price, 0)) AS Price, CONCAT('Rp. ', FORMAT(p.product_price * SUM(od.quantity), 0)) AS 'Total price', od.order_detail_created AS 'Order Time', CONCAT(c.customer_firstName, ' ', c.customer_lastName) AS Customer, IF(order_updated IS NULL, 'On-process', 'Delivered') AS `Status` FROM product p, customer c, `order` o, order_detail od WHERE o.customer_id = c.customer_id AND od.product_id = p.product_id AND o.order_id = od.order_id GROUP BY od.order_detail_id ORDER BY od.order_detail_id DESC LIMIT 5;";
+    var recentOrder = "SELECT p.product_name AS 'Product Name', SUM(od.quantity) AS Quantity, CONCAT('Rp. ', FORMAT(p.product_price, 0)) AS Price, CONCAT('Rp. ', FORMAT(p.product_price * SUM(od.quantity), 0)) AS 'Total price', od.order_detail_created AS 'Order Time', CONCAT(c.customer_firstName, ' ', c.customer_lastName) AS Customer, IF(order_updated IS NULL, 'On-process', 'Delivered') AS `Status` FROM product p, customers c, `order` o, order_detail od WHERE o.customer_id = c.customer_id AND od.product_id = p.product_id AND o.order_id = od.order_id GROUP BY od.order_detail_id ORDER BY od.order_detail_id DESC LIMIT 5;";
     loadData(recentOrdersUrl, recentOrder, "#recentOrdersBody", "#recentOrdersHeader");
 
     var topProduk = "select p.product_name as 'Product Name', sum(od.quantity) as 'Sold', concat('Rp. ',format(sum(od.quantity)*od.price,0)) as 'Revenue' from product p, order_detail od where od.product_id=p.product_id group by od.product_id order by 2 desc limit 6;";
@@ -701,7 +701,7 @@ function showPopup() {
 
   // Fetch the recent orders using AJAX and populate the popup table
   var recentOrdersUrl = "recentOrders.php";
-  var recentOrderQuery = "SELECT p.product_name AS 'Product Name', SUM(od.quantity) AS Quantity, CONCAT('Rp. ', FORMAT(p.product_price, 0)) AS Price, CONCAT('Rp. ', FORMAT(p.product_price * SUM(od.quantity), 0)) AS 'Total price', od.order_detail_created AS 'Order Time', CONCAT(c.customer_firstName, ' ', c.customer_lastName) AS Customer, IF(order_updated IS NULL, 'On-process', 'Delivered') AS `Status` FROM product p, customer c, `order` o, order_detail od WHERE o.customer_id = c.customer_id AND od.product_id = p.product_id AND o.order_id = od.order_id GROUP BY od.order_detail_id ORDER BY od.order_detail_id DESC;";
+  var recentOrderQuery = "SELECT p.product_name AS 'Product Name', SUM(od.quantity) AS Quantity, CONCAT('Rp. ', FORMAT(p.product_price, 0)) AS Price, CONCAT('Rp. ', FORMAT(p.product_price * SUM(od.quantity), 0)) AS 'Total price', od.order_detail_created AS 'Order Time', CONCAT(c.customer_firstName, ' ', c.customer_lastName) AS Customer, IF(order_updated IS NULL, 'On-process', 'Delivered') AS `Status` FROM product p, customers c, `order` o, order_detail od WHERE o.customer_id = c.customer_id AND od.product_id = p.product_id AND o.order_id = od.order_id GROUP BY od.order_detail_id ORDER BY od.order_detail_id DESC;";
   loadData(recentOrdersUrl, recentOrderQuery, "#popupOrdersHeader", "#popupOrdersBody");
 }
 
