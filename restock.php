@@ -39,8 +39,9 @@ $html = '<div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-boots
   <tr>';
 
 foreach ($columns as $column) {
-  $html .= '<th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"  style="width: 95.633px;" aria-label="' . $column . ': activate to sort column descending">' . $column . '</th>';
+  $html .= '<th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"  style="" aria-label="' . $column . ': activate to sort column descending">' . $column . '</th>';
 }
+$html .= '<th>Action</th>'; 
 
 $html .= '</tr>
 </thead>
