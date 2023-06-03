@@ -31,19 +31,19 @@
       }
 
       .footer-link:hover {
-    color: #717fe0;
-  }
+        color: #717fe0;
+      }
 
       .btn-primary {
-    background-image: linear-gradient(to right, #5969ff, #717fe0);
-    border-color: #5969ff;
-    color: #ffffff;
-    transition: transform 0.3s;
-  }
+        background-image: linear-gradient(to right, #5969ff, #717fe0);
+        border-color: #5969ff;
+        color: #ffffff;
+        transition: transform 0.3s;
+      }
 
-  .btn-primary:hover {
-    transform: scale(1.03);
-  }
+      .btn-primary:hover {
+        transform: scale(1.03);
+      }
 
     </style>
   </head>
@@ -58,21 +58,21 @@
           <a href="../index.html"><img class="logo-img" src="../assets/images/logo.png" alt="logo" /></a><span class="splash-description">Please enter your user information.</span>
         </div>
         <div class="card-body">
-          <form>
+          <form id="loginForm " action="login.php" method="POST">
             <div class="form-group">
-              <input class="form-control form-control-lg" id="username" type="text" placeholder="Name" autocomplete="off" />
+              <input class="form-control form-control-lg" id="username" type="text" name="username" placeholder="Username" autocomplete="off" />
             </div>
             <div class="form-group">
-              <input class="form-control form-control-lg" id="password" type="password" placeholder="Password" />
+              <input class="form-control form-control-lg" id="password" type="password" name="password" placeholder="Password" />
             </div>
             <div class="form-group">
-              <label class="custom-control custom-checkbox"> <input class="custom-control-input" type="checkbox" /><span class="custom-control-label">Remember Me</span> </label>
+              <label class="custom-control custom-checkbox">
+                <input class="custom-control-input" type="checkbox" />
+                <span class="custom-control-label">Remember Me</span>
+              </label>
             </div>
-            <a href="../index.html" type="submit" class="btn btn-primary btn-lg btn-block">Sign in</a>
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
           </form>
-        </div>
-        <div class="card-footer bg-white p-0">
-          <div class="card-footer-item card-footer-item-bordered mx-auto"><span>Don't have one?</span><a href="sign-up.html" class="footer-link"> Create An Account!</a></div>
         </div>
       </div>
     </div>
@@ -83,5 +83,38 @@
     <!-- Optional JavaScript -->
     <script src="../assets/vendor/jquery/jquery-3.3.1.min.js"></script>
     <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        // Handle form submission
+        $("#loginForm").submit(function(event) {
+          event.preventDefault(); // Prevent form from submitting normally
+    
+          var username = $("#username").val();
+          var password = $("#password").val();
+    
+          // AJAX request to submit form data to the server
+          $.ajax({
+            url: "login.php",
+            type: "POST",
+            data: { username: username, password: password },
+            dataType: "json",
+            success: function(response) {
+              if (response.success) {
+                // Login successful, redirect to index.html
+                window.location.href = "../index.html";
+              } else {
+                // Display error message
+                $("#error").text(response.message);
+              }
+            },
+            error: function(xhr, status, error) {
+              console.log(error); // Log any AJAX errors to the console
+            }
+          });
+        });
+      });
+    </script>
+    
   </body>
 </html>
