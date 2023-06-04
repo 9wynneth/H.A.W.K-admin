@@ -13,7 +13,7 @@
     <title>My Profile</title>
 
     <!-- favicon -->
-    <link href="../assets/images/favicon (3).ico" rel="icon" class="favIcon" />
+    <link href="assets/images/favicon (3).ico" rel="icon" class="favIcon" />
 
     <style>
         /* .card:hover {
@@ -40,62 +40,9 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto navbar-right-top">
               <li class="nav-item">
-                <div id="custom-search" class="top-search-bar">
-                  <input class="form-control" type="text" placeholder="Search.." />
-                </div>
-              </li>
-              <li class="nav-item dropdown notification">
-                <a class="nav-link nav-icons" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-fw fa-bell"></i> <span class="indicator"></span></a>
-                <ul class="dropdown-menu dropdown-menu-right notification-dropdown">
-                  <li>
-                    <div class="notification-title">Notification</div>
-                    <div class="notification-list">
-                      <div class="list-group">
-                        <a href="#" class="list-group-item list-group-item-action active">
-                          <div class="notification-info">
-                            <div class="notification-list-user-img"><img src="assets/images/ready-stock.png" alt="" class="user-avatar-md rounded-circle" /></div>
-                            <div class="notification-list-user-block">
-                              <span class="notification-list-user-name">Bryan</span>had just restocked!
-                              <div class="notification-date">2 min ago</div>
-                            </div>
-                          </div>
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action">
-                          <div class="notification-info">
-                            <div class="notification-list-user-img"><img src="assets/images/cust.png" alt="" class="user-avatar-md rounded-circle" /></div>
-                            <div class="notification-list-user-block">
-                              <span class="notification-list-user-name">New customer alert!</span>
-                              <div class="notification-date">10 min ago</div>
-                            </div>
-                          </div>
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action">
-                          <div class="notification-info">
-                            <div class="notification-list-user-img"><img src="assets/images/shopping-bag.png" alt="" class="user-avatar-md rounded-circle" /></div>
-                            <div class="notification-list-user-block">
-                              <span class="notification-list-user-name">New order is made!</span>
-                              <div class="notification-date">2 days ago</div>
-                            </div>
-                          </div>
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action">
-                          <div class="notification-info">
-                            <div class="notification-list-user-img"><img src="assets/images/ready-stock.png" alt="" class="user-avatar-md rounded-circle" /></div>
-                            <div class="notification-list-user-block">
-                              <span class="notification-list-user-name">Dana</span>had just restocked!
-                              <div class="notification-date">10 days ago</div>
-                            </div>
-                          </div>
-                        </a>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="list-footer" style="background-image: linear-gradient(to right, #000000, #1a1a1a)"><a href="#">View all notifications</a></div>
-                  </li>
-                </ul>
-              </li>
 
+              </li>
+              
               <li class="nav-item dropdown nav-user">
                 <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                   ><img src="assets/images/user(3).png" alt="" class="user-avatar-md rounded-circle"
@@ -340,32 +287,24 @@
                             </div>
                           </div>
                         </div>
+
+
                         <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
                           <div class="card">
-                            <div class="card-body">
-                              <h1 class="mb-1">15</h1>
-                              <p>Days of Attendance</p>
-                            </div>
+                            <div class="card-body text-center">
+                            <div id="badgeRole"></div>
                           </div>
                         </div>
                       </div>
-                        <h3 class="section-title pb-2">Change password</h3>
-                        <form class="container mx-0" action="update-password.php" method="POST">
 
-                                    <div class="form-group">
-                                        <input class="form-control form-control-lg" type="text" name="username" required="" placeholder="Username" autocomplete="off">
-                                    </div>
-                                    <div class="form-group">
-                                        <input class="form-control form-control-lg" id="pass1" type="password" required="" placeholder="Old Password" name="oldPassword">
-                                    </div>
-                                    <div class="form-group">
-                                        <input class="form-control form-control-lg" id="pass2" type="password" required="" placeholder="New Password" name="newPassword">
-                                    </div>
-                                    <div class="form-group pt-2">
-                                        <button class="btn btn-block btn-primary" style="background-image: linear-gradient(to right, #5969ff, #717fe0);" type="submit">Renew password</button>
-                         
-                   
-                        </form>
+                      <div class="col-xl-12 col-lg-12 col-md-24 col-sm-48 col-48">
+                      <div class="card">
+                        <div class="card-body">
+                        <canvas id="barchartStocks" ></canvas>
+                        </div>
+                      </div>
+                      </div>
+  
                       </div>
                     </div>
                     
@@ -407,7 +346,64 @@
     <script src="assets/libs/js/main-js.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <script>
+
+      var badgeURL = 'badgeRole.php';
+
+      function loadData(url, query, targetElement) {
+      $.ajax({
+        url: url,
+        method: "POST",
+        data: { query: query },
+        success: function(response) {
+          $(targetElement).html(response);
+        },
+      });
+    }
+
+    var badgeQ = "select staff_role from staff where staff_id='A0001'"
+    loadData(badgeURL, badgeQ, "#badgeRole");
+      
+$(document).ready(function() {
+    fetch('chartStockAllocated.php')
+        .then(response => response.json())
+        .then(data => {
+            // Separate the staff names and total stocks allocated
+            const staffNames = data.map(row => row.staff_name);
+            const totalStocksAllocated = data.map(row => row['Total Stocks Allocated']);
+
+            // Create the bar chart
+            new Chart(document.getElementById('barchartStocks'), {
+                type: 'bar',
+                data: {
+                    labels: staffNames,
+                    datasets: [{
+                        label: 'Total Stocks Allocated',
+                        data: totalStocksAllocated,
+                        backgroundColor: '#5969ff', // Change the bar color if needed
+                    }],
+                },
+                options: {
+                    responsive: true,
+                    legend: {
+                        display: false,
+                    },
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true,
+                            },
+                        }],
+                    },
+                },
+            });
+        })
+        .catch(error => console.error(error));
+});
+
+
       document.addEventListener('DOMContentLoaded', function() {
         // Fetch user data from the server
         fetch('my-profile.php')
@@ -440,21 +436,6 @@
           })
           .catch(error => console.error(error));
       });
-    </script>
-    <script>
-      $(document).ready(function() {
-        const urlParams = new URLSearchParams(window.location.search);
-        const success = urlParams.get('success');
-    
-        if (success) {
-          Swal.fire({
-            icon: 'success',
-            title: 'Success',
-            text: 'Password has been updated successfully.'
-          });
-        }
-      });
-    </script>
-    
+    </script>    
   </body>
 </html>
