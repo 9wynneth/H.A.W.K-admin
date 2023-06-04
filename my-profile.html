@@ -340,20 +340,23 @@
                             </div>
                           </div>
                         </div>
+
+
                         <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
                           <div class="card">
-                            <div class="card-body">
-                              <h1 class="mb-1">15</h1>
-                              <p>Days of Attendance</p>
-                            </div>
+                            <div class="card-body text-center">
+                            <div id="badgeRole"></div>
                           </div>
                         </div>
                       </div>
+                      
+                      <div class="col-xl-12 col-lg-12 col-md-24 col-sm-48 col-48">
                       <div class="card">
                         <div class="card-body">
                         <canvas id="barchartStocks" ></canvas>
                         </div>
-                        </div>
+                      </div>
+                      </div>
   
                       </div>
                     </div>
@@ -399,6 +402,23 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script>
+
+      var badgeURL = 'badgeRole.php';
+
+      function loadData(url, query, targetElement) {
+      $.ajax({
+        url: url,
+        method: "POST",
+        data: { query: query },
+        success: function(response) {
+          $(targetElement).html(response);
+        },
+      });
+    }
+
+    var badgeQ = "select staff_role from staff where staff_id='A0001'"
+    loadData(badgeURL, badgeQ, "#badgeRole");
+      
 $(document).ready(function() {
     fetch('chartStockAllocated.php')
         .then(response => response.json())
