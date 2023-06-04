@@ -115,8 +115,8 @@
                     /></a>
                     <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
                       <div class="nav-user-info" style="background-image: linear-gradient(to right, #000000, #1a1a1a)">
-                        <h5 class="mb-0 text-white nav-user-name">Winnie</h5>
-                        <span class="status"></span><span class="ml-2">Owner</span>
+                        <h5 class="mb-0 text-white nav-user-name" id="StaffName">Winnie</h5>
+                        <span class="status"></span><span class="ml-2" id="StaffRole">Owner</span>
                       </div>
                       <a class="dropdown-item" href="my-profile.html"><i class="fas fa-user mr-2"></i>My profile</a>
                       <a class="dropdown-item" href="pages/login.html"><i class="fas fa-power-off mr-2"></i>Logout</a>
@@ -233,9 +233,9 @@
                     <li class="nav-item">
                       <a class="nav-link" href="my-profile.html" aria-expanded="false" data-target="#submenu-8" aria-controls="submenu-8"><i class="fas fa-fw fa-user"></i>My Profile</a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                       <a class="nav-liqnk" href="pages/login.html" aria-expanded="false" data-target="#submenu-10" aria-controls="submenu-10"><i class="fas fa-fw fa-sign-out-alt"></i>Logout</a>
-                    </li>
+                    </li> -->
                   </ul>
                 </div>
               </nav>
@@ -592,7 +592,20 @@
       });
     });
   </script>
-  
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Fetch user data from the server
+        fetch('my-profile.php')
+          .then(response => response.json())
+          .then(userData => {
+            // Update HTML elements with user data
+          
+            document.getElementById('StaffName').textContent = userData.staff_name;
+            document.getElementById('StaffRole').textContent = userData.staff_role;
+          })
+          .catch(error => console.error(error));
+      });
+    </script>    
   
 </body>
  

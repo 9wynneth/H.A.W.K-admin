@@ -11,7 +11,7 @@ if ($result) {
     echo '<tr data-toggle="modal" data-target="#orderDetailsModal" data-order-id="' . $row['order_id'] . '">';
     echo '<td>' . $row['order_id'] . '</td>';
     echo '<td>' . $row['customer_name'] . '</td>';
-    echo '<td>' . $row['shipper_id'] . '</td>';
+    // echo '<td>' . $row['shipper_id'] . '</td>';
     echo '<td>' . $row['shipper_date'] . '</td>';
     echo '<td>' . $row['shipper_address'] . '</td>';
     echo '<td>' . $row['order_quantity'] . '</td>';

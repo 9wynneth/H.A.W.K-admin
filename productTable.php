@@ -36,7 +36,7 @@ if ($result) {
     echo '<td>' . $row['category_id'] . '</td>';
     echo '<td>' . $row['product_brand'] . '</td>';
     echo '<td>' . $row['product_color'] . '</td>';
-    echo '<td>' . $row['product_picture'] . '</td>';
+    // echo '<td>' . $row['product_picture'] . '</td>';
     echo '<td>' . $row['product_quantity'] . '</td>';
     echo '<td>' . $row['product_price'] . '</td>';
     
@@ -64,17 +64,8 @@ if (isset($_POST['save_product'])) {
   $product_price = $_POST['product_price'];
   $anti_radiasi = $_POST['anti_radiasi'];
   $product_status = isset($_POST['product_status']) ? 1 : 0;
-  
-  // Menentukan nilai anti_radiasi berdasarkan kondisi
-  if ($anti_radiasi == 0) {
-    $anti_radiasi_value = "No";
-  } else {
-    $anti_radiasi_value = "Yes";
-  }
-
-
   // Menjalankan query INSERT untuk menyimpan data ke dalam database
-  $query = "INSERT INTO product (product_name, category_id, product_description, product_brand, product_color, product_picture, product_quantity, product_price, anti_radiasi, product_status) VALUES ('$product_name', '$product_category', '$product_description', '$product_brand', '$product_color', '$product_picture', '$product_quantity', '$product_price', '$anti_radiasi_value', '$product_status')";
+  $query = "INSERT INTO product (product_name, category_id, product_description, product_brand, product_color, product_picture, product_quantity, product_price, anti_radiasi, product_status) VALUES ('$product_name', '$product_category', '$product_description', '$product_brand', '$product_color', $product_picture', '$product_quantity', '$product_price', '$anti_radiasi', '$product_status')";
   $result = mysqli_query($conn, $query);
 
 
@@ -93,13 +84,13 @@ if (isset($_POST['productId']) && isset($_POST['productName'])) {
   $productDescription = $_POST['productDescription'];
   $productBrand = $_POST['productBrand'];
   $productColor = $_POST['productColor'];
-  $productPicture = $_POST['productPicture'];
+  // $productPicture = $_POST['productPicture'];
   $productQuantity = $_POST['productQuantity'];
   $productPrice = $_POST['productPrice'];
   $antiRadiasi = $_POST['antiRadiasi'];
 
   // Perform the update query
-  $query = "UPDATE product SET product_name = '$productName', product_description = '$productDescription', product_brand = '$productBrand', product_color = '$productColor', product_picture = '$productPicture', product_quantity = '$productQuantity', product_price = '$productPrice', anti_radiasi = '$antiRadiasi'  WHERE product_id = '$productId'";
+  $query = "UPDATE product SET product_name = '$productName', product_description = '$productDescription', product_brand = '$productBrand', product_color = '$productColor', product_quantity = '$productQuantity', product_price = '$productPrice', anti_radiasi = '$antiRadiasi'  WHERE product_id = '$productId'";
   $result = mysqli_query($conn, $query);
 
   // Check if the query was successful
