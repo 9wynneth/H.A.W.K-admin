@@ -2,8 +2,8 @@
 include 'connection.php';
 
 $sql = "SELECT s.staff_name, SUM(ps.stock) AS 'Total Stocks Allocated'
-        FROM staff s, product_staff ps
-        WHERE s.staff_id = ps.staff_id
+        FROM staff s left join product_staff ps
+        on s.staff_id = ps.staff_id
         GROUP BY s.staff_id;";
 $result = $conn->query($sql);
 
