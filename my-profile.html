@@ -417,6 +417,20 @@ $(document).ready(function() {
             document.getElementById('staffRole').textContent = userData.staff_role;
             document.getElementById('StaffRole').textContent = userData.staff_role;
     
+            // Fetch the image for the user's role
+            fetch('badgeRole.php', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+              },
+              body: 'query=' + userData.staff_role,
+            })
+              .then(response => response.text())
+              .then(imageHtml => {
+                // Update the badgeRole element with the generated HTML
+                document.getElementById('badgeRole').innerHTML = imageHtml;
+              });
+              
             // Fetch the total allocated stocks for the user
             fetch('stocksAllocate.php?staff_id=' + userData.staff_id)
               .then(response => response.json())
