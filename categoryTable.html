@@ -115,11 +115,11 @@
                     /></a>
                     <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
                       <div class="nav-user-info" style="background-image: linear-gradient(to right, #000000, #1a1a1a)">
-                        <h5 class="mb-0 text-white nav-user-name" id="StaffName">Winnie</h5>
-                        <span class="status"></span><span class="ml-2" id="StaffRole">Owner</span>
+                        <h5 class="mb-0 text-white nav-user-name" id="StaffName"></h5>
+                        <span class="status"></span><span class="ml-2" id="StaffRole"></span>
                       </div>
                       <a class="dropdown-item" href="my-profile.html"><i class="fas fa-user mr-2"></i>My profile</a>
-                      <a class="dropdown-item" href="pages/login.html"><i class="fas fa-power-off mr-2"></i>Logout</a>
+                      <a class="dropdown-item" href=# onclick="logout()"><i class="fas fa-power-off mr-2"></i>Logout</a>
                     </div>
                   </li>
                 </ul>
@@ -605,7 +605,29 @@
           })
           .catch(error => console.error(error));
       });
-    </script>    
+    </script>
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css">
+   
+   <script>
+     function logout() {
+       Swal.fire({
+         title: 'Logout Confirmation',
+         text: 'Are you sure you want to logout?',
+         icon: 'warning',
+         showCancelButton: true,
+         confirmButtonColor: '#3085d6',
+         cancelButtonColor: '#d33',
+         confirmButtonText: 'Yes, logout',
+         cancelButtonText: 'Cancel'
+       }).then((result) => {
+         if (result.isConfirmed) {
+           // Redirect to the logout script
+           window.location.href = 'pages/login.html';
+         }
+       });
+     }
+   </script>
   
 </body>
  

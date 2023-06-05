@@ -98,11 +98,11 @@
                 /></a>
                 <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
                   <div class="nav-user-info" style="background-image: linear-gradient(to right, #000000, #1a1a1a)">
-                    <h5 class="mb-0 text-white nav-user-name" id="StaffName">Winnie</h5>
-                    <span class="status"></span><span class="ml-2" id="StaffRole">Owner</span>
+                    <h5 class="mb-0 text-white nav-user-name" id="StaffName"></h5>
+                    <span class="status"></span><span class="ml-2" id="StaffRole"></span>
                   </div>
                   <a class="dropdown-item" href="my-profile.html"><i class="fas fa-user mr-2"></i>My profile</a>
-                  <a class="dropdown-item" href="#" onclick="logout()"><i class="fas fa-power-off mr-2"></i>Logout</a>
+                  <a class="dropdown-item" href=# onclick="logout()"><i class="fas fa-power-off mr-2"></i>Logout</a>
 
                 </div>
               </li>
@@ -772,7 +772,7 @@ fetch('topBrands.php')
         }).then((result) => {
           if (result.isConfirmed) {
             // Redirect to the logout script
-            window.location.href = 'pages/logout.php';
+            window.location.href = 'pages/login.html';
           }
         });
       }
