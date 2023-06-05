@@ -65,7 +65,7 @@ if (isset($_POST['save_product'])) {
   $anti_radiasi = $_POST['anti_radiasi'];
   $product_status = isset($_POST['product_status']) ? 1 : 0;
   // Menjalankan query INSERT untuk menyimpan data ke dalam database
-  $query = "INSERT INTO product (product_name, category_id, product_description, product_brand, product_color, product_picture, product_quantity, product_price, anti_radiasi, product_status) VALUES ('$product_name', '$product_category', '$product_description', '$product_brand', '$product_color', $product_picture', '$product_quantity', '$product_price', '$anti_radiasi', '$product_status')";
+  $query = "INSERT INTO product (product_name, category_id, product_description, product_brand, product_color, product_picture, product_quantity, product_price, anti_radiasi, product_status) VALUES ('$product_name', '$product_category', '$product_description', '$product_brand', '$product_color', '$product_picture', '$product_quantity', '$product_price', '$anti_radiasi', '$product_status')";
   $result = mysqli_query($conn, $query);
 
 
@@ -75,6 +75,8 @@ if (isset($_POST['save_product'])) {
     echo '<script>
             window.location.href = "productTable.html";
           </script>';
+    }else {
+      echo 'Error: ' . mysqli_error($conn); // Return an error message
     }
 }
 
