@@ -15,7 +15,7 @@ try {
   $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
   // Prepare and execute the query
-  $query = "SELECT sum(stock) AS totalAllocated FROM product_staff WHERE staff_id = :staffId";
+  $query = "SELECT if(sum(stock) is null, 0, sum(stock)) AS totalAllocated FROM product_staff WHERE staff_id = :staffId";
   $statement = $pdo->prepare($query);
   $statement->bindParam(':staffId', $staffId);
   $statement->execute();
