@@ -409,8 +409,9 @@ $(document).ready(function() {
         fetch('my-profile.php')
           .then(response => response.json())
           .then(userData => {
+            console.log(userData)
             // Update HTML elements with user data
-            document.getElementById('staffId').textContent = userData.staff_id;
+            document.getElementById('staffId').textContent = userData.staff_id;            
             document.getElementById('staffName').textContent = userData.staff_name;
             document.getElementById('StaffName').textContent = userData.staff_name;
             document.getElementById('staffRole').textContent = userData.staff_role;

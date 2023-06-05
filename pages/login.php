@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         session_start();
 
         // Set session variables to store the staff_id
-        $_SESSION["staffId"] = $staffId;
+        $_SESSION["staffId"] = $staffId;        
 
         // Redirect to the desired page (index.html in this case)
         header("Location: ../index.html");

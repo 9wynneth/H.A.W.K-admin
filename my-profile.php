@@ -13,15 +13,16 @@ if (isset($_SESSION["staffId"])) {
     $staffId = $_SESSION["staffId"];
 
     // Prepare and execute the query
-    $query = "SELECT * FROM staff WHERE staff_id = ?";
+    $query = "SELECT * FROM staff WHERE staff_id = ? LIMIT 1";
+
     $stmt = $conn->prepare($query);
-    $stmt->bind_param("i", $staffId);
+    $stmt->bind_param("s", $staffId);
     $stmt->execute();
 
     // Check if a user was found
     $result = $stmt->get_result();
     if ($result->num_rows > 0) {
-        $userData = $result->fetch_assoc();
+        $userData = $result->fetch_object();
     } else {
         echo "No user found.";
     }
