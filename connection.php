@@ -1,7 +1,7 @@
 <?php
-    $servername = "139.255.11.84";
+    $servername = "139.59.237.132";
     $user = "student";
-    $pass = "isbmantap"; 
+    $pass = "isb-20232"; 
     $dbname = "ALP_HAWK";
 
     $conn = mysqli_connect($servername, $user, $pass, $dbname);

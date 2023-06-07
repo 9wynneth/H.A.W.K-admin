@@ -513,7 +513,7 @@
 
       // Loop melalui setiap baris dan sembunyikan yang tidak cocok dengan keyword
       Array.from(rows).forEach(function (row) {
-          const categoryName = row.getElementsByTagName('td')[1].textContent.toLowerCase(); // Ambil teks pada kolom nama shipper
+          const categoryName = row.getElementsByTagName('td')[1].textContent.toLowerCase(); // Ambil teks pada kolom nama category
           if (categoryName.includes(keyword)) {
               row.style.display = ''; // Tampilkan baris jika cocok dengan keyword
           } else {

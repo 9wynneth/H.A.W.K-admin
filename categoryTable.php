@@ -1,6 +1,7 @@
 <?php
 include 'connection.php';
 
+// delete category
 // Cek apakah ada parameter "category_id" yang dikirim melalui metode GET
 if (isset($_GET['category_id'])) {
   $category_id = $_GET['category_id'];
@@ -19,6 +20,7 @@ if (isset($_GET['category_id'])) {
   }
 }
 
+// menampilkan table category
 // Query SQL untuk mengambil data category
 $query = "SELECT * FROM category";
 $result = mysqli_query($conn, $query);
@@ -40,6 +42,8 @@ if ($result) {
   echo 'Error: ' . mysqli_error($conn);
 }
 
+
+// insert new category
 if (isset($_POST['save_category'])) {
   // Memasukkan nilai-nilai dari form ke dalam variabel
   $category_name = $_POST['category_name'];
@@ -60,6 +64,8 @@ if (isset($_POST['save_category'])) {
 
 }
 
+
+// edit category
 // Check if the categoryId and categoryName are received through POST
 if (isset($_POST['categoryId']) && isset($_POST['categoryName'])) {
   $categoryId = $_POST['categoryId'];

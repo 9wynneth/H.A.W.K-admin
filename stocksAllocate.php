@@ -1,9 +1,9 @@
 <?php
 // Assuming you have a database connection established
 // Replace the placeholders with your actual database credentials
-$servername = "139.255.11.84";
+$servername = "139.59.237.132";
 $username = "student";
-$password = "isbmantap";
+$password = "isb-20232";
 $dbname = "ALP_HAWK";
 
 // Retrieve the staff_id from the query parameter
