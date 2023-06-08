@@ -143,7 +143,7 @@
                     </ul>
                   </div>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" id="tableNavbar">
                   <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-2" aria-controls="submenu-2"><i class="fa fa-fw fa-table"></i>Table</a>
                   <div id="submenu-2" class="collapse submenu">
                     <ul class="nav flex-column">
@@ -252,8 +252,8 @@
             <!-- ============================================================== -->
             <div class="ecommerce-widget">
               <div class="row">
-                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
-                  <div class="card">
+                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12" id="cardTotalRevenue">
+                  <div class="card" >
                     <div class="card-body">
                       <h5 class="text-muted">Total Revenue</h5>
                       <div class="metric-value d-inline-block">
@@ -459,7 +459,7 @@
                 <!-- end total orders  -->
                 <!-- ============================================================== -->
               </div>
-              <div class="row">
+              <div class="row" id="rowTotalRevenue">
                 <!-- ============================================================== -->
                 <!-- total revenue  -->
                 <!-- ============================================================== -->
@@ -777,9 +777,19 @@ fetch('topBrands.php')
           .then(response => response.json())
           .then(userData => {
             // Update HTML elements with user data
-          
             document.getElementById('StaffName').textContent = userData.staff_name;
             document.getElementById('StaffRole').textContent = userData.staff_role;
+
+            if (userData.staff_role === 'Staff') {
+            // Hide the table navbar
+            var tableNavbar = document.getElementById('tableNavbar')
+            var cardTotalRevenue = document.getElementById('cardTotalRevenue');
+            var rowTotalRevenue = document.getElementById('rowTotalRevenue');
+            tableNavbar.style.display = 'none';
+            cardTotalRevenue.style.display = 'none';
+            rowTotalRevenue.style.display = 'none';
+            }
+
           })
           .catch(error => console.error(error));
       });
