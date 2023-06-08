@@ -344,21 +344,21 @@
 
     <script>
 
-      var badgeURL = 'badgeRole.php';
+    //   var badgeURL = 'badgeRole.php';
 
-      function loadData(url, query, targetElement) {
-      $.ajax({
-        url: url,
-        method: "POST",
-        data: { query: query },
-        success: function(response) {
-          $(targetElement).html(response);
-        },
-      });
-    }
+    //   function loadData(url, query, targetElement) {
+    //   $.ajax({
+    //     url: url,
+    //     method: "POST",
+    //     data: { query: query },
+    //     success: function(response) {
+    //       $(targetElement).html(response);
+    //     },
+    //   });
+    // }
 
-    var badgeQ = "select staff_role from staff where staff_id='A0001'"
-    loadData(badgeURL, badgeQ, "#badgeRole");
+    // var badgeQ = "select staff_role from staff where staff_id='A0001'"
+    // loadData(badgeURL, badgeQ, "#badgeRole");
       
 $(document).ready(function() {
     fetch('chartStockAllocated.php')
